@@ -1,0 +1,247 @@
+{
+  "protocol_version" : "0.0.2",
+  "configuration" : {
+    "version" : "5.18.0.240 (Debian 5.18.0.240+dfsg-3 Mon Jun 24 08:50:44 UTC 2019)",
+    "tlc" : "__thread",
+    "sigsgev" : "altstack",
+    "notifications" : "epoll",
+    "architecture" : "amd64",
+    "disabled_features" : "none",
+    "smallconfig" : "disabled",
+    "bigarrays" : "disabled",
+    "softdebug" : "enabled",
+    "interpreter" : "enabled",
+    "llvm_support" : "disabled",
+    "suspend" : "preemptive"
+  },
+  "memory" : {
+    "minor_gc_time" : "95904",
+    "major_gc_time" : "0",
+    "minor_gc_count" : "2",
+    "major_gc_count" : "0",
+    "major_gc_time_concurrent" : "0"
+ },
+  "threads" : [
+ {
+    "is_managed" : false,
+    "crashed" : false,
+    "managed_thread_ptr" : "0x0",
+    "native_thread_id" : "0x7fb170ff9700",
+    "thread_info_addr" : "0x0",
+    "thread_name" : "Thread Pool Wor",
+    "ctx" : {
+      "IP" : "0x7fb1aa1d85b8",
+      "SP" : "0x7fb170ff8c70",
+      "BP" : "0x563606cdc608"
+  },
+    "unmanaged_frames" : [
+  {
+      "native_address" : "unregistered"
+   }
+
+  ]
+ },
+ {
+    "is_managed" : false,
+    "crashed" : false,
+    "managed_thread_ptr" : "0x0",
+    "native_thread_id" : "0x7fb173fff700",
+    "thread_info_addr" : "0x0",
+    "thread_name" : "Thread Pool Wor",
+    "ctx" : {
+      "IP" : "0x7fb1aa1d85b8",
+      "SP" : "0x7fb173ffec70",
+      "BP" : "0x563606cdc608"
+  },
+    "unmanaged_frames" : [
+  {
+      "native_address" : "unregistered"
+   }
+
+  ]
+ },
+ {
+    "is_managed" : false,
+    "crashed" : false,
+    "managed_thread_ptr" : "0x0",
+    "native_thread_id" : "0x7fb1a9fb5780",
+    "thread_info_addr" : "0x0",
+    "thread_name" : "mono",
+    "ctx" : {
+      "IP" : "0x7fb1aa0cfc2f",
+      "SP" : "0x7fff1c2588e0",
+      "BP" : "0x563608761b90"
+  },
+    "managed_frames" : [
+  {
+      "native_address" : "unregistered"
+   }
+
+  ],
+  "unmanaged_frames" : [
+ {
+    "native_address" : "unregistered"
+  }
+
+ ]
+},
+{
+  "is_managed" : false,
+  "crashed" : true,
+  "managed_thread_ptr" : "0x0",
+  "native_thread_id" : "0x7fb1a693d700",
+  "thread_info_addr" : "0x0",
+  "thread_name" : "Finalizer",
+  "ctx" : {
+    "IP" : "0x7fb1aa0003eb",
+    "SP" : "0x7fb1a693c680",
+    "BP" : "0x7fb1a693c9d0"
+ },
+  "managed_frames" : [
+ {
+    "native_address" : "unregistered"
+  }
+
+ ],
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb195ff5700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb195ff4c70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb195bf3700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb195bf2c70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb172ffd700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb172ffcc70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb194ff0700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb194fefc70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb1961f6700",
+"thread_info_addr" : "0x0",
+"thread_name" : "mono",
+"ctx" : {
+  "IP" : "0x7fb1aa1d56e0",
+  "SP" : "0x7fb1961f5b80",
+  "BP" : "0x563606d65740"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb195df4700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb195df3c70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+},
+{
+"is_managed" : false,
+"crashed" : false,
+"managed_thread_ptr" : "0x0",
+"native_thread_id" : "0x7fb1959f2700",
+"thread_info_addr" : "0x0",
+"thread_name" : "Thread Pool Wor",
+"ctx" : {
+  "IP" : "0x7fb1aa1d85b8",
+  "SP" : "0x7fb1959f1c70",
+  "BP" : "0x563606cdc608"
+},
+"unmanaged_frames" : [
+{
+  "native_address" : "unregistered"
+ }
+
+]
+}
+]
+}

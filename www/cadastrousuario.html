@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <!-- JS dependencies (order matters!) -->
+    <script src="./js/jquery.3.3.1.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+      <!-- --------------- App init --------------- -->
+
+    <title>Agenda Escolar</title>
+
+    <style>
+       
+    .fundo{
+      position: absolute;
+       width: 100%;
+       height: 95%;
+       
+    }
+    .interno{
+      position: relative;
+      margin-top: 100px;
+      margin-bottom: 100px;
+       width: 100%;
+       height: 100%;
+       
+    }
+     .login{
+        margin: 5% auto ;
+        text-align: center;
+        width: 90%;
+        height: 100%;
+        background: white;
+        -webkit-box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow:    1px 1px 20px rgba(50, 50, 50, 0.77);
+        box-shadow:         1px 1px 20px rgba(50, 50, 50, 0.77);
+        font-family: Arial;
+        color: gray;
+     }
+
+    </style>
+
+
+</head>
+<body>
+<ons-page  modifier="menu-page" >
+    <ons-toolbar>
+      <div class="left">
+                     <!-- Toolbar-button  only visible for iOS/other. -->
+        <ons-toolbar-button id="bt_voltar" component="buttonreload">
+          <!--<ons-icon icon="fa-undo"></ons-icon>-->
+           <ons-icon icon="md-arrow-left"></ons-icon>
+        </ons-button>
+      </div>
+
+      <div class="center">Gerenciar</div>
+
+      <div class="right">
+                     
+      </div>
+      
+    </ons-toolbar>
+    <!-- Cordova reference -->
+    <script src="./js/config.js"></script>
+    <script src="./cordova.js"></script> 
+    <script src="./scripts/index.js"></script>
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/function.js"></script>
+    <script type="text/javascript">
+    var auth_check ;
+    auth_check = 0 ;
+
+    
+    $(document).ready(function(){
+
+      $('#username, #password').focus(function(){
+          $('#imagemCadastro').hide(600);
+      });
+      
+      $('#username, #password').blur(function(){
+          $('#imagemCadastro').show(600);
+      });
+
+      // Cadastrando usuario, após autenticar login
+      $('#login').click( function(e) {
+        auth_check = 0 ;
+        //Escondendo botao no inicio do processo de login
+        $('#button').hide();
+        $('#progress').show();
+        cadastro($('#unidade').val(), $('#username').val(),$('#password').val());
+    });
+      //Debugando
+      if(debug == 1){
+        $('#unidade').change(function(){
+          ons.notification.alert($(this).val());
+        });
+    }
+
+    // Voltarrrr
+      $('#bt_voltar').click( function(e) {
+        auth_check = 0 ;
+        
+        window.location.href = './index.html';
+    });
+  });
+
+
+   
+    </script>
+
+  
+
+    <div class='login'>
+      <div class='interno'>
+      
+      <p style='margin-bottom: 40px;position:relative'>
+        <div id='imagemCadastro'>
+        <img src='./img/LogoSemNome100x153.png' width="17%">
+      </div>
+      </p>
+      
+      <p style='margin-bottom: 40px;position:relative'>
+        <ons-select id="unidade" onchange="editSelects(event)">
+        <option value="col_gpi">Colégio Americano - Guarapari</option>
+        <option value="col_serra">Colégio Americano - Serra</option>
+        <option value="col_vila">Colégio Americano - Vila Velha</option>
+        <option value="col_vitoria">Colégio Americano - Vitória</option>
+      </ons-select>
+      </p>
+      
+      <p style='margin-bottom: 40px;position:relative'>
+        <ons-input id="username"   modifier="underbar" placeholder="Usuário" float></ons-input>
+      </p>
+      
+      <p style='margin-bottom: 40px;position:relative'>
+          <ons-input id="password"  modifier="underbar" type="password" placeholder="Senha" float></ons-input>
+      </p>
+      
+      <p id='button'>
+          <ons-button id='login'>Cadastrar</ons-button>
+      </p>
+      <p id='progress' style="display:none";position:relative>
+          <ons-progress-bar indeterminate></ons-progress-bar>
+      </p>
+      
+      
+    </div>
+    </div>
+
+</ons-page>
+
+</body>
+</html>
