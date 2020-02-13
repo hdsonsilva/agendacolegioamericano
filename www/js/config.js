@@ -7,7 +7,7 @@ var url_auth =  'fer/apitoken/cria_token.php';
 var server_action = server + 'testeretorno.php';
 
 var idonesignal = "1d5f8556-9c36-4f2e-8367-8cc21d12ae1d";
-var debug = 1 ;
+var debug = 0 ;
 
 var servicos = new Array();
 

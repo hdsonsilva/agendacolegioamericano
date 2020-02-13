@@ -17,28 +17,19 @@ function direcionar(url){
 }
 
 
-function abrirURL( pagina ){
+function abrirURL( pagina , sem_token){
       if(debug == 1){
         window.open(pagina+"?token="+ localStorage.getItem("token") );
       }
       else{
-        navigator.app.loadUrl(pagina+"?token="+localStorage.getItem("token") , { openExternal: true });
+        if(!sem_token){
+          navigator.app.loadUrl(pagina+"?token="+localStorage.getItem("token") , { openExternal: true });
+        }
+        else{
+          navigator.app.loadUrl(pagina , { openExternal: true });
+        }
       }
-    }
-
-    function showModal(controle) {
-      var modal = document.querySelector('ons-modal');
-      if(controle == 'show'){
-        modal.show(500);
-      
-        setTimeout(function() {
-          modal.hide(1000);
-        }, 12000);
-      }
-      else{
-        modal.hide();
-      }
-    }
+}
 
     
     function verifica_auth(controle){
