@@ -1,17 +1,19 @@
-var server1 = 'https://sicof.doctum.edu.br/sicof/webservice/';
-var server = "https://sicof.doctum.edu.br/";
+var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
+var server = "https://adx.doctum.edu.br/adx/unidades/";
 
 //URL AUTENTICACAO
-var server_auth = server1 + 'logintoken.php';
+var url_auth =  'fer/apitoken/cria_token.php';
 
 var server_action = server + 'testeretorno.php';
 
-var idonesignal = "4c03d205-c832-43ba-b816-c850b8773f04";
-var debug = 0 ; 
+var idonesignal = "1d5f8556-9c36-4f2e-8367-8cc21d12ae1d";
+var debug = 1 ;
+
+var servicos = new Array();
 
 
 var controle_mensagem_atualizar = 1;
 
-localStorage.setItem('app_timeverify_auth', 5000);
-localStorage.setItem('server_auth', server_auth);
+localStorage.setItem('app_timeverify_auth', 60000);
 localStorage.setItem('idonesignal', idonesignal);
+localStorage.setItem('periodoletivo', '2020');

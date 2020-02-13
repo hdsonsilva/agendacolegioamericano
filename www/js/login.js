@@ -7,33 +7,41 @@ function login(usuario, senha, app_, unidade, nome){
         localStorage.setItem('login_username', username);
         localStorage.setItem('login_password', password);
         localStorage.setItem('login_nome', nome);
+        localStorage.setItem('unidade', unidade);
         
 
-        console.log(password);
+        console.log(localStorage.getItem('unidade'));
       
 
       $.ajax({
         type: 'POST',
-        url : localStorage.getItem('server_auth'),
+        timeout: 5000,
+         url : server1 +unidade + '/' + url_auth,
         cache: false,
         data: {
-          'username'  : username,
-          'password'  : password,
+          'usuario'  : username,
+          'senha'  : password,
           'action'    : 'LOGIN'
         },
         success:function(ret){
           //Se retornar um token valido de acesso
-          
+         
           if(ret.token){
             auth_check  = 1 ;
             
-            if(app_ == 'index')
+            if(app_ == 'index'){
               ons.notification.toast('Login efetuado com sucesso.', {timeout: 3000});
-             //Armazenando o token
-            localStorage.setItem('token',ret.token);
-            setTimeout(direcionar, 1500, './app.html');
-            
-            
+               //Armazenando o token
+              localStorage.setItem('token',ret.token);
+
+              if(debug == 1){
+                console.log(app_);
+                console.log("Entrou na parte de login e direciona para o app.");
+              }
+
+              setTimeout(direcionar, 1000, './app.html');
+            }
+
             ok  = 1 ;
 
           }
@@ -42,7 +50,9 @@ function login(usuario, senha, app_, unidade, nome){
             if(app_ == 'app'){
               window.location.href = './index.html';
             }
-
+            if(debug == 1){
+                console.log("Entrou na parte de login e direciona para o index.");
+              }
             auth_check = -1 ;
           
           }

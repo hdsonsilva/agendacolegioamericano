@@ -16,6 +16,7 @@ function direcionar(url){
   window.location.href = url;
 }
 
+
 function abrirURL( pagina ){
       if(debug == 1){
         window.open(pagina+"?token="+ localStorage.getItem("token") );
@@ -28,10 +29,10 @@ function abrirURL( pagina ){
     function showModal(controle) {
       var modal = document.querySelector('ons-modal');
       if(controle == 'show'){
-        modal.show();
+        modal.show(500);
       
         setTimeout(function() {
-          modal.hide();
+          modal.hide(1000);
         }, 12000);
       }
       else{

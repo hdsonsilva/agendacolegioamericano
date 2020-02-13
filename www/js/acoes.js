@@ -1,20 +1,23 @@
-function buscaAcoes(acao){
+function buscaAcoes(acao,dados, tipo){
         
+    //var unid = '';
+       var unid = localStorage.getItem('unidade')+"/";
+       console.log(unid);
         $.ajax({
-            type: 'POST',
+            type: tipo,
             dataType: 'json',
-            url: server_action,
+            url: server+unid+acao,
             cache: false, //Nao fazer cache
             timeout: 10000, //10 segundos
-            data: {
-                'token': localStorage.getItem('token'),
-                'action': acao
-            },
-            beforeSend: function () {
+            data: dados,
+            beforeSend: function (e) {
+                e.overrideMimeType("text/plain;charset=iso-8859-1");
                 showModal('show');
             },
             success: function (ret) {
-
+                if(debug == 1){
+                    console.log(ret);
+                }
                 showModal('hide');
                 if (ret) {
                     retornoAcao(acao,ret) ;
@@ -40,13 +43,17 @@ Funcao para tratar retorno de requisicao assincrona e realizar ação correta
  */
 function retornoAcao(acao, retorno){
    // ons.notification.alert(retorno);
-    if(acao == 'boletos') {
+    if(acao == 'alunos/api/financeiro/boletos') {
         view_boletos(retorno);
     }
-    else if(acao == 'bilhetes'){
+    else if(acao == 'alunos/api/mural/ver-recados'){
+        
         view_bilhetes(retorno);
     }
-    else if(acao == 'agenda'){
+    else if(acao == 'alunos/api/mural/ver-agenda'){
         view_agenda(retorno);
+    }
+    else if(acao == 'alunos/api/mural/ver-avisos'){
+     view_home(retorno);   
     }
 }

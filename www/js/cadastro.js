@@ -1,5 +1,5 @@
 function cadastro(unidade, usuario, senha, app_){
-
+      console.log(unidade);
         var username = usuario ;
         var password = senha ;
         var ok = 0 ;  
@@ -8,11 +8,11 @@ function cadastro(unidade, usuario, senha, app_){
 
             $.ajax({
               type: 'POST',
-              url : localStorage.getItem('server_auth'),
+              url : server1 + unidade + '/' + url_auth,
               cache: false,
               data: {
-                'username'  : username,
-                'password'  : password,
+                'usuario'  : username,
+                'senha'  : password,
                 'action'    : 'LOGIN'
               },
               success:function(ret){
@@ -62,13 +62,13 @@ function cadastro(unidade, usuario, senha, app_){
                     //Inserindo os dados, existindo ou nao usuarios já armazados. Somente adiciona se nao existir.
                     var novo =  {
                                   'codigo' : codigo, 
-                                  'nome':ret.nome,
+                                  'nome':ret.nome_aluno,
                                   'unidade': unidade, 
-                                  'usuario' : ret.usuario, 
+                                  'usuario' : ret.ra, 
                                   'senha' : password
                                 };  
                     
-                    
+                    console.log(unidade);
                     usuarios.push(novo);
                     
                     console.log('inserindo novo usuario:');
@@ -79,7 +79,7 @@ function cadastro(unidade, usuario, senha, app_){
                     msg = 'Usuário inserido com sucesso.';
                   }
 
-                  setTimeout(direcionar, 3000, './index.html');
+                  setTimeout(direcionar, 1000, './index.html');
                   
                     
                   

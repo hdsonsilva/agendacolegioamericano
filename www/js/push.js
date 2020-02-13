@@ -39,6 +39,6 @@
           .handleNotificationOpened(notificationOpenedCallback  )
           .endInit();
 
-        window.plugins.OneSignal.sendTag("user", localStorage.getItem("login_username").toUpperCase() );
+        window.plugins.OneSignal.sendTag("user", localStorage.getItem('unidade')+localStorage.getItem("login_username").toUpperCase() );
 
           }, false);
