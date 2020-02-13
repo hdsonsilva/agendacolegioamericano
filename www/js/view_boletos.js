@@ -1,10 +1,11 @@
-function view_boletos(retornoboletos){
+function view_boletos(retornos){
     var i ;
     var conteudo_lista = '';
-    var retorno = retornoboletos['boletos'];
+    var retorno = retornos['boletos'];
     //Alterando título do app
+    
     $('#tituloApp').html("Financeiro");
-
+if(retornos['boletos']){
     //Preenchendo a lista com cards
     for(i  in retorno){
   
@@ -17,7 +18,7 @@ function view_boletos(retornoboletos){
         conteudo_lista += "</ons-card>";
     }
     //Exibindo os boletos
-    $('#pageFinanceiroList').html(conteudo_lista);
+    $('#pageFinanceiroList').html($('#pageFinanceiroList').html()+conteudo_lista);
     //Adicionando o click para exibir os boletos
     $('.meuboleto').click(function(){
         abrirURL($(this).attr('valor'),1);
@@ -29,4 +30,10 @@ function view_boletos(retornoboletos){
         $('#my-dialog').show(500);
 
     });
+}
+else{
+    conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
+    $('#pageFinanceiroList').html($('#pageFinanceiroList').html()+conteudo_lista);
+}
+
 }

@@ -31,6 +31,20 @@ function abrirURL( pagina , sem_token){
       }
 }
 
+function showModal(controle) {
+  var modal = document.querySelector('ons-modal');
+  if(controle == 'show'){
+    modal.show(500);
+  
+    setTimeout(function() {
+      modal.hide(1000);
+    }, 12000);
+  }
+  else{
+    modal.hide();
+  }
+}
+
     
     function verifica_auth(controle){
       $.post(

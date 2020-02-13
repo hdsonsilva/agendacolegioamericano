@@ -132,10 +132,25 @@
       </ons-tabbar>
     </ons-page>
   </template>
+<ons-dialog id="my-dialog">
+  <div style="text-align: center; padding: 10px;">
+    <p>
+      <textarea class="textarea textarea--transparent" id='conteudodialog' rows="4" placeholder="Textarea"></textarea>
+    </p>
+
+    <p>
+      <ons-button onclick="document.getElementById('my-dialog').hide();">Fechar</ons-button>
+    </p>
+  </div>
+</ons-dialog>
 <ons-modal direction="up">
   <div style="text-align: center">
     <p>
-      <ons-icon icon="md-spinner" size="28px" spin></ons-icon> Aguarde...
+      <svg class="progress-circular progress-circular--indeterminate">
+        <circle class="progress-circular__background"/>
+        <circle class="progress-circular__primary progress-circular--indeterminate__primary"/>
+        <circle class="progress-circular__secondary progress-circular--indeterminate__secondary"/>
+      </svg>
     </p>
   </div>
 </ons-modal>

@@ -4,7 +4,7 @@ function view_bilhetes(retornos){
     var conteudo_lista = '';
      //Alterando título do app
     $('#tituloApp').html("Recados");
-    
+if(retornos['murais']){    
     //Preenchendo a lista com cards
     for(i  in retorno){
 
@@ -17,4 +17,11 @@ function view_bilhetes(retornos){
     }
 
     $('#pageBilhetesList').html(conteudo_lista);
+}
+
+else{
+    conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
+    $('#pageBilhetesList').html($('#pageBilhetesList').html()+conteudo_lista);
+}
+
 }

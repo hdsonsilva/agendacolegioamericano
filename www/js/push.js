@@ -17,7 +17,7 @@
             ons.notification.alert(JSON.stringify(jsonData.notification.payload.additionalData));
           }
           
-        //Teste de como pegar dados s no push
+        //Teste de como pegar dados no push
         //localStorage.setItem('pushInfo',jsonData.notification.payload.additionalData.sessao);
 
           document.querySelector('#myNavigator').pushPage('html/details_task.html',

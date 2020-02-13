@@ -9,7 +9,7 @@ function view_home(retornos){
     var retorno = retornos['murais'];
     var i ;
     var conteudo_lista = '';
-    
+ if(retornos['murais']){     
     //Preenchendo a lista com cards
     for(i  in retorno){
 
@@ -24,7 +24,12 @@ function view_home(retornos){
 
     $('.clicavelhome').click(function(){
         
-        abrirURL($(this).attr('valor'));
+        abrirURL($(this).attr('valor'), 1);
     });
+}
+else{
+    conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
+    $('#homePageItens').html($('#homePageItens').html()+conteudo_lista);
+}
 
 }

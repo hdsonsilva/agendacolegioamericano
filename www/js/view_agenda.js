@@ -6,6 +6,7 @@ function view_agenda(retornos){
      //Alterando título do app
     $('#tituloApp').html("Agenda");
     //Preenchendo a lista com cards
+if(retornos['murais']){ 
     for(i  in retorno){
 
         conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelagenda' valor='"+(retorno[i]['url_destino'])+"'" :"")+"><font class='font_tam1'>"+(retorno[i]['data_referente'])+" - "+(retorno[i]['assunto'])+"</font>";
@@ -21,5 +22,9 @@ function view_agenda(retornos){
         
         abrirURL($(this).attr('valor'));
     });
-
+}
+else{
+    conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
+    $('#pageAgendaList').html($('#pageAgendaList').html()+conteudo_lista);
+}
 }
