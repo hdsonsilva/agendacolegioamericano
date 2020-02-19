@@ -48,7 +48,7 @@ function showModal(controle) {
     
     function verifica_auth(controle){
       $.post(
-            localStorage.getItem('server_auth'),
+            server1 +localStorage.getItem('unidade') + '/' + url_auth,
               {
                 'token'     : localStorage.getItem('token'),
                 'action'    : 'VALIDATOKEN'
@@ -60,7 +60,7 @@ function showModal(controle) {
                 }
                 else{
                  
-                  login( localStorage.getItem('login_username'),  localStorage.getItem('login_password'), 'app',localStorage.getItem('login_unidade'), localStorage.getItem('login_nome'));
+                  login( localStorage.getItem('login_username'),  localStorage.getItem('login_password'), 'app',localStorage.getItem('unidade'), localStorage.getItem('login_nome'));
                   
                 }
                 //Exibindo o botao se o login der errado

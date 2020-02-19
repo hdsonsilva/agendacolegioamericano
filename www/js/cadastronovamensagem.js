@@ -1,20 +1,15 @@
-function cadastro(unidade, usuario, senha, app_){
-      console.log(unidade);
-        var username = usuario ;
-        var password = senha ;
-        var ok = 0 ;  
-        
+function cadastronovamensagem(msg){
+      
             
 
             $.ajax({
               type: 'POST',
-              url : server1 + unidade + '/' + url_auth,
+              url : server1 + unidade + '/' + 'aluno/api/mural/novo-recado',
               cache: false,
               timeout: 5000,
               data: {
-                'usuario'  : username,
-                'senha'  : password,
-                'action'    : 'LOGIN'
+                'texto'  : msg,
+                'apitoken'  : localStorage.getItem('token')
               },
               success:function(ret){
                 //Se retornar um token valido de acesso
@@ -115,7 +110,7 @@ function exibir_usuarios(usuarios){
   item += "<ons-list-header>Usuários Cadastrados:</ons-list-header>";
   for(i in usuarios){
     
-    item+= "<ons-list-item modifier='chevron' tappable class='1usuario' codigo='"+(usuarios[i]['codigo'])+"'><div class='left'><img class='list-item__thumbnail' src='./img/quad.png'></div><div class='center'>";
+    item+= "<ons-list-item modifier='chevron' tappable class='1usuario' codigo='"+(usuarios[i]['codigo'])+"'><div class='left'><img class='list-item__thumbnail' src='https://placekitten.com/g/40/40'></div><div class='center'>";
     item+= "    <span class='list-item__title'>"+(usuarios[i]['nome'])+"</span><span class='list-item__subtitle'>"+(usuarios[i]['usuario'])+"</span></div>";
     item+= "</ons-list-item>";
 

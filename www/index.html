@@ -9,6 +9,7 @@
     <!-- CSS dependencies -->
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="style.css">
     <!-- JS dependencies (order matters!) -->
     <script src="./js/jquery.3.3.1.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
@@ -43,11 +44,7 @@
         color: gray;
      }
 
-     .positionbottom{
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-     }
+     
      .centralizada{
         position: relative;
         top: 50%;
@@ -80,10 +77,16 @@
 
     
     $(document).ready(function(){
-
+      //Verificando usuarios salvos
       if(localStorage.getItem('usuarios_salvos')){
         exibir_usuarios(JSON.parse(localStorage.getItem('usuarios_salvos')));
+
       }
+      //Caso nao tenha usuários, direciona para tela de cadastro
+      else{
+        window.location.href = './cadastrousuario.html';
+      }
+
 
       // Fazendo login
       $('.1usuario').click( function(e) {
@@ -119,7 +122,7 @@
   <ons-list>
     <ons-list-item>
       <div style="width:100%;text-align: center;">
-        <img src='./img/LogoSemNome100x153.png' width="70%">
+        <img src='./img/LogoSemNome100x153.png' id='imagem' width="60%">
       </div>
     </ons-list-item>
   </ons-list>

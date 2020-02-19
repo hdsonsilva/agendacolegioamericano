@@ -19,7 +19,7 @@ function view_home(retornos){
         conteudo_lista += "</ons-card>";
     }
 
-    $('#homePageItens').html(conteudo_lista);
+    $('#homePageList').html(conteudo_lista);
 
 
     $('.clicavelhome').click(function(){
@@ -28,8 +28,8 @@ function view_home(retornos){
     });
 }
 else{
-    conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
-    $('#homePageItens').html($('#homePageItens').html()+conteudo_lista);
+    conteudo_lista += "<ons-card><font class='font_tam1'>Sem mais avisos</font></ons-card>";
+    $('#homePageList').html($('#homePageList').html()+conteudo_lista);
 }
 
 }

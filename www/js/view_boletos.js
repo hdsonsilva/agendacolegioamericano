@@ -5,7 +5,7 @@ function view_boletos(retornos){
     //Alterando título do app
     
     $('#tituloApp').html("Financeiro");
-if(retornos['boletos']){
+if(retornos['boletos'].length > 0 ){
     //Preenchendo a lista com cards
     for(i  in retorno){
   

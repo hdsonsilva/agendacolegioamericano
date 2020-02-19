@@ -2,9 +2,7 @@ function buscaAcoes(acao,dados, tipo){
         
     //var unid = '';
        var unid = localStorage.getItem('unidade')+"/";
-       
        console.log(unid);
-       
         $.ajax({
             type: tipo,
             dataType: 'json',
@@ -12,8 +10,12 @@ function buscaAcoes(acao,dados, tipo){
             cache: false, //Nao fazer cache
             timeout: 10000, //10 segundos
             data: dados,
+            dataType: 'json',
+            async: true, //Esperar retorno para continuar codigo
             beforeSend: function (e) {
+                //Colocando para transformar e tratar o resultado todo como um resultado iso
                 e.overrideMimeType("text/plain;charset=iso-8859-1");
+                //Sempre exive modal de busca de dados
                 showModal('show');
             },
             success: function (ret) {
@@ -32,10 +34,11 @@ function buscaAcoes(acao,dados, tipo){
             error: function (e, erro) {
 
                 showModal('hide');
+                //
+                ons.notification.toast('Ocorreu algum erro ao buscar dados.', {timeout: 1000});
                 retornoAcao(acao,false) ;
-            },
-            dataType: 'json',
-            async: true //Esperar retorno para continuar codigo
+            }
+            
         });
     
 
@@ -58,4 +61,8 @@ function retornoAcao(acao, retorno){
     else if(acao == 'alunos/api/mural/ver-avisos'){
      view_home(retorno);   
     }
+    else if(acao == 'alunos/api/notas/ver-notas'){
+     view_academico(retorno);   
+    }
+
 }

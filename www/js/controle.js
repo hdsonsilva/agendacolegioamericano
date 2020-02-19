@@ -9,6 +9,7 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
+      $('#homePageList').html('');
       buscaAcoes("alunos/api/mural/ver-avisos", dados, tipoenvio);
       
     }
@@ -19,16 +20,22 @@ function controle(event){
         'apitoken': localStorage.getItem('token'),
         'periodo_letivo': localStorage.getItem('periodoletivo')
       }
+      $('#pageFinanceiroList').html('');
       buscaAcoes("alunos/api/financeiro/boletos", dados, tipoenvio);
     }
 
     
     //Se estiver na pagina Academico
     else if(event.target.matches('#pageNotas')){
-      view_academico('academico');
-    }
+      dados = {
+        'apitoken': localStorage.getItem('token'),
+        'periodo_letivo': localStorage.getItem('periodoletivo'),
+        'offset' : localStorage.getItem('offset_avisos')
+      }
+      $('#pageNotasList').html('');
 
-    
+      buscaAcoes('alunos/api/notas/ver-notas',dados,tipoenvio);
+    }
 
      //Se estiver na pagina Bilhetes
     else if(event.target.matches('#pageBilhetes')){
@@ -37,6 +44,7 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
+      $('#pageBilhetesList').html('');
       buscaAcoes('alunos/api/mural/ver-recados',dados,tipoenvio);
     }
     
@@ -48,6 +56,7 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
+      $('#pageAgendaList').html('');
       buscaAcoes('alunos/api/mural/ver-agenda',dados,tipoenvio);
     }
    

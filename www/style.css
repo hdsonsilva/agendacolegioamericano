@@ -34,7 +34,12 @@ ons-splitter-side[side="left"][animation="overlay"] {
     padding-bottom: 2px;
     padding-right: 4px;
 }
-
+ .align_center {
+    text-align:center;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+}
 .tituloInicial{
   font-size: 12pt;
   text-align: left;
@@ -51,7 +56,7 @@ ons-splitter-side[side="left"][animation="overlay"] {
 }
 
 .font_tam1{
-  font-size: 11pt;
+  font-size: 12pt;
   text-align: left;
   color:#20457d; 
   font-weight: 700;
@@ -61,6 +66,14 @@ ons-splitter-side[side="left"][animation="overlay"] {
   font-size: 10pt;
   text-align: left;
   color:#20457d; 
+}
+
+.cor_nota_azul{
+  color: blue;
+}
+
+.cor_nota_vermelha{
+  color:red;
 }
 
 .font_text{

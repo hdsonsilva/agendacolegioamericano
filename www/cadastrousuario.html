@@ -9,6 +9,7 @@
     <!-- CSS dependencies -->
     <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
     <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="style.css" />
     <!-- JS dependencies (order matters!) -->
     <script src="./js/jquery.3.3.1.js"></script>
     <script src="lib/onsen/js/onsenui.js"></script>
@@ -60,7 +61,7 @@
         </ons-button>
       </div>
 
-      <div class="center">Gerenciar</div>
+      <div class="center">Usuários</div>
 
       <div class="right">
                      
@@ -83,11 +84,11 @@
       $('#username, #password').focus(function(){
           $('#imagemCadastro').hide(600);
       });
-      
+      /*
       $('#username, #password').blur(function(){
           $('#imagemCadastro').show(600);
       });
-
+  */
       // Cadastrando usuario, após autenticar login
       $('#login').click( function(e) {
         auth_check = 0 ;
@@ -109,6 +110,31 @@
         
         window.location.href = './index.html';
     });
+
+    //Confirmaco para Excluir
+    $('#excluiruser').click(function(){
+      $('#alert-dialog').show();  
+    });
+
+    //Excluir
+    $('#bt_ok').click(function(){
+      $('#alert-dialog').hide();
+      localStorage.removeItem('usuarios_salvos');
+       $('#alert-ok').show();  
+    });
+
+    //Cancelar
+    $('#bt_cancelar').click(function(){
+      $('#alert-dialog').hide();
+
+    });
+
+    //Fechar OK
+    $('#bt_ok2').click(function(){
+      $('#alert-ok').hide();
+
+    });
+    
   });
 
 
@@ -118,42 +144,67 @@
   
 
     <div class='login'>
-      <div class='interno'>
-      
-      <p style='margin-bottom: 40px;position:relative'>
-        <div id='imagemCadastro'>
-        <img src='./img/LogoSemNome100x153.png' width="17%">
-      </div>
-      </p>
-      
-      <p style='margin-bottom: 40px;position:relative'>
-        <ons-select id="unidade" onchange="editSelects(event)">
-        <option value="col_gpi">Colégio Americano - Guarapari</option>
-        <option value="col_serra">Colégio Americano - Serra</option>
-        <option value="col_vila">Colégio Americano - Vila Velha</option>
-        <option value="col_vitoria">Colégio Americano - Vitória</option>
-      </ons-select>
-      </p>
-      
-      <p style='margin-bottom: 40px;position:relative'>
-        <ons-input id="username"   modifier="underbar" placeholder="Usuário" float></ons-input>
-      </p>
-      
-      <p style='margin-bottom: 40px;position:relative'>
-          <ons-input id="password"  modifier="underbar" type="password" placeholder="Senha" float></ons-input>
-      </p>
-      
-      <p id='button'>
-          <ons-button id='login'>Cadastrar</ons-button>
-      </p>
-      <p id='progress' style="display:none";position:relative>
-          <ons-progress-bar indeterminate></ons-progress-bar>
-      </p>
-      
+        <div class='interno'>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <div id='imagemCadastro'>
+          <img src='./img/LogoSemNome100x153.png' width="50%">
+        </div>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <ons-select id="unidade" onchange="editSelects(event)">
+            <option value="col_gpi">Colégio Americano - Guarapari</option>
+            <option value="col_serra">Colégio Americano - Serra</option>
+            <option value="col_vila">Colégio Americano - Vila Velha</option>
+            <option value="col_vitoria">Colégio Americano - Vitória</option>
+        </ons-select>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <ons-input id="username"   modifier="underbar" type="number" placeholder="Usuário" float></ons-input>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+            <ons-input id="password"  modifier="underbar" type="password" placeholder="Senha" float></ons-input>
+        </p>
+        
+        <p id='button'>
+            <ons-button id='login'>Cadastrar</ons-button>
+        </p>
+        <p id='progress' style="display:none";position:relative>
+            <ons-progress-bar indeterminate></ons-progress-bar>
+        </p>
       
     </div>
+    <div class='positionbottom'>
+        <ons-fab id="excluiruser">
+          <ons-icon icon="md-delete"></ons-icon> Apagar Usuários
+        </ons-fab>
     </div>
 
+    <ons-alert-dialog id="alert-dialog" modifier="rowfooter" >
+    <div class="alert-dialog-title">Exclusão de usuários</div>
+    <div class="alert-dialog-content">
+      Atenção, essa ação irá apagar os usuários e senhas armazenados.<br><br>
+      Deseja remover os usuários cadastrados no aplicativo? 
+    </div>
+    <div class="alert-dialog-footer">
+      <ons-alert-dialog-button id='bt_cancelar'>Cancelar</ons-alert-dialog-button>
+
+      <ons-alert-dialog-button id='bt_ok'>OK</ons-alert-dialog-button>
+    </div>
+  </ons-alert-dialog>
+
+  <ons-alert-dialog id="alert-ok" modifier="rowfooter" >
+    <div class="alert-dialog-title">Exclusão de usuários</div>
+    <div class="alert-dialog-content">
+      Ok. Usuários apagados com sucesso.
+    </div>
+    <div class="alert-dialog-footer">
+      <ons-alert-dialog-button id='bt_ok2'>OK</ons-alert-dialog-button>
+    </div>
+  </ons-alert-dialog>
 </ons-page>
 
 </body>
