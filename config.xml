@@ -57,7 +57,7 @@
         <icon density="ldpi" src="./res/ios/logo120x120.png" width="120" height="120"/>
         <icon density="mdpi" src="./res/ios/logo152x152.png" width="152" height="152"/>
         <icon density="hdpi" src="./res/ios/logo167x167.png" width="167" height="167"/>
-        <icon density="xhdpi" src="./www/img/logo1024x1024.png" width="1024" height="1024"/>
+        <icon density="xhdpi" src="./res/ios/logo1024x1024.png" width="1024" height="1024"/>
     </platform>
     
 </widget>
