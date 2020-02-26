@@ -1,6 +1,9 @@
 var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
 var server = "https://adx.doctum.edu.br/adx/unidades/";
 
+//Nome do Aplicativo
+var appName = 'Agenda Colégio Americano' ;
+
 //URL AUTENTICACAO
 var url_auth =  'fer/apitoken/cria_token.php';
 
