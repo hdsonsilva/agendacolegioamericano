@@ -1,6 +1,6 @@
 function view_home(retornos){
     //Alterando título do app
-    $('#tituloApp').html("Agenda Escolar");
+    $('#tituloApp').html(appName);
     $('#idNome').html(localStorage.getItem("login_nome"));
 
     var i ;

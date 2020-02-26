@@ -3,9 +3,11 @@ function view_agenda(retornos){
     var retorno = retornos['murais'];
     var i ;
     var conteudo_lista = '';
-     //Alterando título do app
+     //Alterando título do appc
+     console.log(retornos);
     $('#tituloApp').html("Agenda");
     //Preenchendo a lista com cards
+
 if(retornos['murais']){ 
     for(i  in retorno){
 
@@ -20,7 +22,7 @@ if(retornos['murais']){
 
     $('.clicavelagenda').click(function(){
         
-        abrirURL($(this).attr('valor'));
+        abrirURL($(this).attr('valor'), 1);
     });
 }
 else{

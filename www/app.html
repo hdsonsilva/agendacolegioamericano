@@ -12,6 +12,7 @@
   <script src="js/controllers.js"></script>
   <script src="./js/login.js"></script>
   <script src="./js/acoes.js"></script>
+  <script src="./js/cadastronovamensagem.js"></script>
 
   <script src="./js/controle.js"></script>
   <script src="./js/view_home.js"></script>
@@ -56,14 +57,20 @@
       
     $(document).ready(function(){
       ////////////////////// VERIFICACAO DE AUTH /////////////////////////////////
+
+      if(debug == 1){
+        console.log(localStorage.getItem('token'));
+      }
       
       verifica_auth();
       setInterval(verifica_auth, localStorage.getItem( 'app_timeverify_auth' ));
 
-      ///////////
+      /////////// 
       $('#activeFinanceiro').click(function(){
           ons.notification.alert('teste');
       });
+
+          
     });
 
   </script>
@@ -72,7 +79,7 @@
   <ons-navigator id="myNavigator" page="splitter.html"> 
   </ons-navigator>
 
-
+<input type='hidden' id='acao'>
   <!-- Second navigation component: Splitter. This will disappear if the first component changes its content. -->
   <template id="splitter.html">
     <ons-page>
@@ -98,9 +105,7 @@
         <div class="center" id="tituloApp">Agenda Escolar</div>
         <div class="right">
                    <!-- Toolbar-button  only visible for iOS/other. -->
-          <ons-toolbar-button id="buttonreload" component="buttonreload">
-           
-          </ons-button>
+          
         </div>
       </ons-toolbar>
 
@@ -143,6 +148,7 @@
     </p>
   </div>
 </ons-dialog>
+
 <ons-modal direction="up">
   <div style="text-align: center">
     <p>

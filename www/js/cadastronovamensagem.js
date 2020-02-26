@@ -1,99 +1,35 @@
 function cadastronovamensagem(msg){
       
-            
+            showModal('show');
 
             $.ajax({
               type: 'POST',
-              url : server1 + unidade + '/' + 'aluno/api/mural/novo-recado',
+              url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/api/mural/cadastra-recados/?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
               cache: false,
-              timeout: 5000,
+              timeout: 10000,
               data: {
                 'texto'  : msg,
-                'apitoken'  : localStorage.getItem('token')
+                'aluno'  : localStorage.getItem('login_username'),
+                'codigoRecado' : ''
               },
               success:function(ret){
+                showModal('hide');
                 //Se retornar um token valido de acesso
-                if(debug == 1){
-                  console.log(ret);
-                }
-
+                
+                console.log(ret);
                 //Localizou token... fez login
-                if(ret.token){
-                  auth_check  = 1 ;
-                  
-                  var usuarios = new Array();
-                  var confere_insercao = 0 ;
-                  var codigo = 1 ;
-                  var msg = '';
-                  dados = localStorage.getItem('usuarios_salvos');
-
-                  //Se já existirem usuarios salvos
-                  if(dados){
-
-                    //Salvando os ados no array usuario
-                    usuarios = JSON.parse(dados);
-                    
-                    for(i in usuarios){
-                      console.log('verificando '+usuarios[i]['usuario']);
-                      if(usuarios[i]['usuario'] == ret.usuario){
-                        confere_insercao = 1 ;
-                      }
-
-                      codigo = usuarios[i]['codigo'];
-                    
-                    }
-                    
-                    codigo = parseInt(codigo) + 1 ;
-                    
-
-                  }
-
-                  if(confere_insercao == 1 ){
-                      
-                      msg = 'Usuário já existe.';
-                    
+                if(ret.status == 'ok'){
+                    ons.notification.toast('Recado enviado com sucesso.', {timeout: 1500});
+                    setTimeout(direcionar, 2000, './app.html');
                   }
                   else{
-
-                    //Inserindo os dados, existindo ou nao usuarios já armazados. Somente adiciona se nao existir.
-                    var novo =  {
-                                  'codigo' : codigo, 
-                                  'nome':ret.nome_aluno,
-                                  'unidade': unidade, 
-                                  'usuario' : ret.ra, 
-                                  'senha' : password
-                                };  
+                    ons.notification.toast('Ocorreu algum erro.', {timeout: 1500});
                     
-                    console.log(unidade);
-                    usuarios.push(novo);
-                    
-                    console.log('inserindo novo usuario:');
-                    
-                    localStorage.setItem('usuarios_salvos', JSON.stringify(usuarios));
-                    console.log(usuarios);
-
-                    msg = 'Usuário inserido com sucesso.';
                   }
-
-                  setTimeout(direcionar, 1000, './index.html');
-                  
-                    
-                  
-
-                }
-                else{
-                  
-                  msg = 'Erro ao efetuar login.';
-
-                  auth_check = -1 ;
-                
-                }
-                $('#progress').hide();
-                ons.notification.toast(msg, {timeout: 3000});
-                $('#button').show();
               
               },
               error:function(e){
+                showModal('hide');
                 $('#progress').hide();
                 ons.notification.toast('Falha ao conectar. Verifique sua conexão.', {timeout: 3000});
                 $('#button').show();
@@ -102,7 +38,7 @@ function cadastronovamensagem(msg){
               async: true
           }); 
 
-        return ok ;
+        return true ;
 }
 
 function exibir_usuarios(usuarios){
