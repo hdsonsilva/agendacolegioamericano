@@ -1,44 +1,54 @@
 function buscaAcoes(acao,dados, tipo){
-        
-    //var unid = '';
-       var unid = localStorage.getItem('unidade')+"/";
-        $.ajax({
-            type: tipo,
-            dataType: 'json',
-            url: server+unid+acao,
-            cache: false, //Nao fazer cache
-            timeout: 10000, //10 segundos
-            data: dados,
-            dataType: 'json',
-            async: true, //Esperar retorno para continuar codigo
-            beforeSend: function (e) {
-                //Colocando para transformar e tratar o resultado todo como um resultado iso
-                e.overrideMimeType("text/plain;charset=iso-8859-1");
-                //Sempre exive modal de busca de dados
-                showModal('show');
-            },
-            success: function (ret) {
-                if(debug == 1){
-                    console.log(ret);
-                }
-                showModal('hide');
-                if (ret) {
-                    retornoAcao(acao,ret) ;
-                } else {
-                    //$('#pending-list').html("<ons-list id='listaNotifications'><ons-list-item modifier='nodivider'><label class='center' for='inner-highlight-input'><ons-icon icon='fa-thumbs-down'></ons-icon>Nenhuma tarefa localizada</label></ons-list-item></ons-list-item></ons-list>");
-                    retornoAcao(acao,false) ;
-                }
-                controle_mensagem_atualizar = 0;
-            },
-            error: function (e, erro) {
+    
+    var acao_new = acao ;    
+    var unid = localStorage.getItem('unidade')+"/" ;
+    var url ;
+    
+    url = server+unid+acao_new ;
+    /*Tratando dadosadicionais  enviados na rota */
+   if(complemento && complemento != ''){
+        url += "/"+complemento;
+   }
+   /*Resetando complemento*/
+   complemento = '';
 
-                showModal('hide');
-                //
-                ons.notification.toast('Ocorreu algum erro ao buscar dados.', {timeout: 1000});
+    $.ajax({
+        type: tipo,
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 10000, //10 segundos
+        data: dados,
+        dataType: 'json',
+        async: true, //Esperar retorno para continuar codigo
+        beforeSend: function (e) {
+            //Colocando para transformar e tratar o resultado todo como um resultado iso
+            e.overrideMimeType("text/plain;charset=iso-8859-1");
+            //Sempre exive modal de busca de dados
+            showModal('show');
+        },
+        success: function (ret) {
+            if(debug == 1){
+                console.log(ret);
+            }
+            showModal('hide');
+            if (ret) {
+                retornoAcao(acao,ret) ;
+            } else {
+                //$('#pending-list').html("<ons-list id='listaNotifications'><ons-list-item modifier='nodivider'><label class='center' for='inner-highlight-input'><ons-icon icon='fa-thumbs-down'></ons-icon>Nenhuma tarefa localizada</label></ons-list-item></ons-list-item></ons-list>");
                 retornoAcao(acao,false) ;
             }
-            
-        });
+            controle_mensagem_atualizar = 0;
+        },
+        error: function (e, erro) {
+
+            showModal('hide');
+            //
+            ons.notification.toast('Ocorreu algum erro ao buscar dados.', {timeout: 1000});
+            retornoAcao(acao,false) ;
+        }
+        
+    });
     
 
 }
@@ -63,5 +73,9 @@ function retornoAcao(acao, retorno){
     else if(acao == 'alunos/api/notas/ver-notas'){
      view_academico(retorno);   
     }
+    else if(acao == 'alunos/api/mural/historico-recados'){
+     view_recadoenviado(retorno);   
+    }
+
 
 }

@@ -40,6 +40,10 @@ ons-splitter-side[side="left"][animation="overlay"] {
     padding-bottom: 2px;
     padding-right: 4px;
 }
+.align_center_puro {
+    text-align:center;
+  
+}
 .tituloInicial{
   font-size: 12pt;
   text-align: left;

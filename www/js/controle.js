@@ -38,7 +38,7 @@ function controle(event){
     }
 
      //Se estiver na pagina Bilhetes
-    else if(event.target.matches('#pageBilhetes')){
+    else if(event.target.matches('#pageBilhetes') ){
       dados = {
         'apitoken': localStorage.getItem('token'),
         'periodo_letivo': localStorage.getItem('periodoletivo'),
@@ -47,6 +47,17 @@ function controle(event){
       $('#pageBilhetesList').html('');
       buscaAcoes('alunos/api/mural/ver-recados',dados,tipoenvio);
     }
+    //Se estiver na pagina Bilhetes, mas for recado enviado
+    else if(event.target.matches('#pageBilhetesEnviado') ){
+      dados = {
+        'apitoken': localStorage.getItem('token'),
+        'periodo_letivo': localStorage.getItem('periodoletivo'),
+        'offset' : localStorage.getItem('offset_avisos')
+      }
+      $('#pageBilhetesList').html('');
+      buscaAcoes('alunos/api/mural/historico-recados',dados,tipoenvio);
+    }
+    
     
 
     //Se estiver na pagina Agenda

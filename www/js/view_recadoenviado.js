@@ -1,20 +1,16 @@
-function view_bilhetes(retornos){
-    var retorno = retornos['murais'];
+function view_recadoenviado(retornos){
+    var retorno = retornos['enviados'];
     var i ;
     var conteudo_lista = '';
      //Alterando título do app
-    console.log(retornos);
-    $('#tituloApp').html("Recados");
-    $('#buttontop').html("<ons-icon icon='fa-edit'></ons-icon>");
-    if(retornos['murais']){    
+    if(retornos['enviados']){    
         //Preenchendo a lista com cards
         for(i  in retorno){
 
-            conteudo_lista += "<ons-card ><font class='font_tam1'>"+(retorno[i]['data_referente'])+" - "+(retorno[i]['assunto'])+"</font>";
+            conteudo_lista += "<ons-card ><font class='font_tam1'>"+(retorno[i]['envio'])+"</font>";
             conteudo_lista += "<br><br>";
-            conteudo_lista += "<font class='font_text "+(retorno[i]['url_destino'] ? "clicavelbilhete' valor='"+(retorno[i]['url_destino'])+"'" :"'")+">"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+(retorno[i]['mensagem'])+"</font>";
-            
-            conteudo_lista += "<div class='right'; style='text-align:right;'><ons-button class='botaocheck_bilhete' value='"+i+"' modifier='light'><ons-icon icon='"+(retorno[i]['visualizado'] == 'Sim' ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></ons-button></div>";
+            conteudo_lista += "<font class='font_text'>"+(retorno[i]['texto'])+"</font>";      
+            conteudo_lista += "<div class='right'; style='text-align:right;'><ons-icon icon='"+(retorno[i]['leitura']  ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></div>";
             conteudo_lista += "</ons-card>";
         }
         $('#pageBilhetesList').html(conteudo_lista);
@@ -25,22 +21,14 @@ function view_bilhetes(retornos){
         conteudo_lista += "<ons-card><font class='font_tam1'>Sem  recados</font></ons-card>";
         $('#pageBilhetesList').html($('#pageBilhetesList').html()+conteudo_lista);
     }
-    //Caso o bilhete tenha um link 
-    $('.clicavelbilhete').unbind('click');
+
     $('.clicavelbilhete').click(function(){
     
         abrirURL($(this).attr('valor'), 1);
     });
-
-    //clique para marcar como lido
-    $('.botaocheck_bilhete').unbind('click');
-    $('.botaocheck_bilhete').click(function(){
-       marcarrecado($(this).attr('value'));
-    });
-
     /*Redirecionando para novo recado.. retirando evento click e criando novamente */
-    $('#buttontop').unbind('click');
-    $('#buttontop').click(function(){
+    $('#newrecado').unbind('click');
+    $('#newrecado').click(function(){
         
         var myNavigator = document.getElementById('myNavigator');
         myNavigator.pushPage('html/page_novorecado.html');
