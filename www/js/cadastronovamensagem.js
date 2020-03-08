@@ -12,6 +12,7 @@ function cadastronovamensagem(msg){
                 'aluno'  : localStorage.getItem('login_username'),
                 'codigoRecado' : ''
               },
+              
               success:function(ret){
                 showModal('hide');
                 //Se retornar um token valido de acesso
@@ -20,7 +21,7 @@ function cadastronovamensagem(msg){
                 //Localizou token... fez login
                 if(ret.status == 'ok'){
                     ons.notification.toast('Recado enviado com sucesso.', {timeout: 1500});
-                    setTimeout(direcionar, 2000, './app.html');
+                    setTimeout(direcionar, 2000, './app.html?objeto=bilhetes');
                   }
                   else{
                     ons.notification.toast('Ocorreu algum erro.', {timeout: 1500});

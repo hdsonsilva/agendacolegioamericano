@@ -16,6 +16,34 @@ function direcionar(url){
   window.location.href = url;
 }
 
+function retornaparametro(){
+  var query = location.search.slice(1);
+  var partes = query.split('&');
+  var valor ;
+  var aux ;
+  aux = partes[0].split("=");
+  valor = aux[1] ;
+
+  return valor ;
+  /*
+  partes.forEach(function (parte) {
+      var chaveValor = parte.split('=');
+      var chave = chaveValor[0];
+      var valor = chaveValor[1];
+      return valor;
+  });
+  */
+}
+
+function exibirtab(tab){
+  
+  switch(tab){
+    case 'bilhetes' : document.getElementById('myTabbar').setActiveTab(4); break ;
+  }
+  
+}
+
+
 
 function abrirURL( pagina , sem_token){
       

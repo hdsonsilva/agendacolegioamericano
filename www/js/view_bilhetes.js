@@ -14,7 +14,7 @@ function view_bilhetes(retornos){
             conteudo_lista += "<br><br>";
             conteudo_lista += "<font class='font_text "+(retorno[i]['url_destino'] ? "clicavelbilhete' valor='"+(retorno[i]['url_destino'])+"'" :"'")+">"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+(retorno[i]['mensagem'])+"</font>";
             
-            conteudo_lista += "<div class='right'; style='text-align:right;'><ons-button class='botaocheck_bilhete' value='"+i+"' modifier='light'><ons-icon icon='"+(retorno[i]['visualizado'] == 'Sim' ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></ons-button></div>";
+            conteudo_lista += "<div class='right'; style='text-align:right;'><ons-button class='"+(retorno[i]['visualizado'] == 'Sim' ? '' : 'botaocheck_bilhete')+"' value='"+(retorno[i]['codigoMural'])+"' modifier='light'><ons-icon icon='"+(retorno[i]['visualizado'] == 'Sim' ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></ons-button></div>";
             conteudo_lista += "</ons-card>";
         }
         $('#pageBilhetesList').html(conteudo_lista);

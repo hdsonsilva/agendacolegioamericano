@@ -4,12 +4,10 @@ function marcarrecado(id){
 
             $.ajax({
               type: 'GET',
-              url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/mural/marcar-lido/'+id+'?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
+              url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/api/mural/marcar-lido/'+id+'?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
               cache: false,
               timeout: 10000,
-              data: {
-                'muralAlunoId'  : id
-              },
+              dataType: 'json',
               success:function(ret){
                 showModal('hide');
                 //Se retornar um token valido de acesso

@@ -8,7 +8,7 @@
    <script src="js/config.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
-  <script src="./js/jquery.3.3.1.js"></script>
+  <script src="./js/jquery-3.4.1.js"></script>
   <script src="js/controllers.js"></script>
   <script src="./js/login.js"></script>
   <script src="./js/acoes.js"></script>
@@ -42,16 +42,16 @@
      }
   </style>
   <script>
-    var auth_check = 0 ;
+     var auth_check = 0 ;
 
     ////////////////////// CONTROLADOR //////////////////////////////////
 
 
       //Atualizando a lista de tarefas para o usuario
       document.addEventListener('show', function(event) {
-        
-      //Verifica a pagina selecionada
+      
       $('#buttontop').html("");
+      //Verifica a pagina selecionada
        controle(event);
 
 
@@ -60,21 +60,15 @@
       
     $(document).ready(function(){
       ////////////////////// VERIFICACAO DE AUTH /////////////////////////////////
-
-      if(debug == 1){
-        console.log(localStorage.getItem('token'));
-      }
-      
       verifica_auth();
       setInterval(verifica_auth, localStorage.getItem( 'app_timeverify_auth' ));
 
-      /////////// 
-      $('#activeFinanceiro').click(function(){
-          ons.notification.alert('teste');
-      });
+      //Verificando se tem alguma ação  a ser feita: esperando um tempo para chamar o metodo
+      retorno = retornaparametro();
+      setTimeout(exibirtab, 500, retorno);
 
-          
     });
+
 
   </script>
 

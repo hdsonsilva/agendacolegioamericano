@@ -6,6 +6,13 @@
         // Enable to debug issues.
         // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
         
+
+
+        var dadosnotificacao = jsonData.notification.payload.additionalData ;
+          if(dadosnotificacao.appaba){
+            window.location.href = 'app.html?objeto='+dadosnotificacao.appaba ;
+          }
+        /*
         if(debug == 1){
           ons.notification.alert('iniciando push');
         }
@@ -17,7 +24,7 @@
             ons.notification.alert(JSON.stringify(jsonData.notification.payload.additionalData));
           }
           
-        //Teste de como pegar dados no push
+        //Teste de como pegar dados s no push
         //localStorage.setItem('pushInfo',jsonData.notification.payload.additionalData.sessao);
 
           document.querySelector('#myNavigator').pushPage('html/details_task.html',
@@ -33,6 +40,7 @@
             ons.notification.alert('final');
           }
         }
+        */
         
         window.plugins.OneSignal
           .startInit(localStorage.getItem('idonesignal'))
