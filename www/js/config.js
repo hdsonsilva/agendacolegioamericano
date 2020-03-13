@@ -17,6 +17,13 @@ var controle_mensagem_atualizar = 1;
 //Complemento para ser usado nos servicos chamados via GET
 var complemento = 'todos';
 
+//Controle de paginacao agenda
+var agendacontrole = 0 ;
+
+//Controle de paginacao recados
+var recadocontrole = 0 ;
+var recadotipo = 'nao-lidos';
+
 localStorage.setItem('app_timeverify_auth', 180000);
 localStorage.setItem('idonesignal', idonesignal);
 localStorage.setItem('periodoletivo', '2020');

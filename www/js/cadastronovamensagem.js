@@ -8,11 +8,16 @@ function cadastronovamensagem(msg){
               cache: false,
               timeout: 10000,
               data: {
-                'texto'  : msg,
+                'texto'  : encodeURI(msg),
                 'aluno'  : localStorage.getItem('login_username'),
                 'codigoRecado' : ''
               },
-              
+              beforeSend: function (e) {
+                  //Colocando para transformar e tratar o resultado todo como um resultado iso
+                  e.overrideMimeType("text/plain;charset=iso-8859-1");
+                  //Sempre exive modal de busca de dados
+                  showModal('show');
+              },
               success:function(ret){
                 showModal('hide');
                 //Se retornar um token valido de acesso

@@ -44,7 +44,11 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
-      $('#pageBilhetesList').html('');
+      if(complemento == ''){
+        recadocontrole = 0 ;
+        $('#pageBilhetesList').html('');
+        $('#pageBilhetesListErro').html('');
+      }
       buscaAcoes('alunos/api/mural/ver-recados',dados,tipoenvio);
     }
     //Se estiver na pagina Bilhetes, mas for recado enviado
@@ -67,7 +71,11 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
-      $('#pageAgendaList').html('');
+      if(complemento == ''){
+        agendacontrole = 0 ;
+        $('#pageAgendaList').html('');
+        $('#pageAgendaListErro').html('');
+      }
       buscaAcoes('alunos/api/mural/ver-agenda',dados,tipoenvio);
     }
    
