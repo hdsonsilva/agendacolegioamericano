@@ -1,14 +1,12 @@
 function cadastronovamensagem(msg){
       
-            showModal('show');
-
             $.ajax({
               type: 'POST',
               url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/api/mural/cadastra-recados/?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
               cache: false,
               timeout: 10000,
               data: {
-                'texto'  : encodeURI(msg),
+                'texto'  : removerAcentos(msg),
                 'aluno'  : localStorage.getItem('login_username'),
                 'codigoRecado' : ''
               },

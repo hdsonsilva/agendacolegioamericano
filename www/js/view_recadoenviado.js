@@ -9,7 +9,7 @@ function view_recadoenviado(retornos){
 
             conteudo_lista += "<ons-card ><font class='font_tam1'>"+(retorno[i]['envio'])+"</font>";
             conteudo_lista += "<br><br>";
-            conteudo_lista += "<font class='font_text'>"+(retorno[i]['texto'])+"</font>";      
+            conteudo_lista += "<font class='font_text'>"+quebraLinha(retorno[i]['texto'])+"</font>";      
             conteudo_lista += "<div class='right'; style='text-align:right;'><ons-icon icon='"+(retorno[i]['leitura']  ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></div>";
             conteudo_lista += "</ons-card>";
         }

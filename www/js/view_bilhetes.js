@@ -1,4 +1,5 @@
 function view_bilhetes(retornos){
+
     var retorno = retornos['murais'];
     var i ;
     var conteudo_lista = '';
@@ -10,10 +11,11 @@ function view_bilhetes(retornos){
     if(retornos['murais']){    
         //Preenchendo a lista com cards
         for(i  in retorno){
+            console.log(retorno);
 
             conteudo_lista += "<ons-card ><font class='font_tam1'>"+(retorno[i]['data_referente'])+" - "+(retorno[i]['assunto'])+"</font>";
             conteudo_lista += "<br><br>";
-            conteudo_lista += "<font class='font_text "+(retorno[i]['url_destino'] ? "clicavelbilhete' valor='"+(retorno[i]['url_destino'])+"'" :"'")+">"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+(retorno[i]['mensagem'])+"</font>";
+            conteudo_lista += "<font class='font_text "+(retorno[i]['url_destino'] ? "clicavelbilhete' valor='"+(retorno[i]['url_destino'])+"'" :"'")+">"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+quebraLinha(retorno[i]['mensagem'])+"</font>";
             
             conteudo_lista += "<div class='right'; style='text-align:right;'><ons-button class='"+(retorno[i]['visualizado'] == 'Sim' ? '' : 'botaocheck_bilhete')+"' value='"+(retorno[i]['codigoMural'])+"' modifier='light'><ons-icon icon='"+(retorno[i]['visualizado'] == 'Sim' ? "fa-envelope-open" : "fa-envelope")+"'></ons-icon></ons-button></div>";
             conteudo_lista += "</ons-card>";

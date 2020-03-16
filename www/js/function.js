@@ -34,7 +34,10 @@ function retornaparametro(){
   });
   */
 }
-
+function quebraLinha(str){
+  str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+  return str ;
+}
 function exibirtab(tab){
   
   switch(tab){
