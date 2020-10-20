@@ -22,6 +22,7 @@ var agendacontrole = 0 ;
 
 //Controle de paginacao recados
 var recadocontrole = 0 ;
+
 var recadotipo = 'nao-lidos';
 
 localStorage.setItem('app_timeverify_auth', 180000);

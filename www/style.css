@@ -232,3 +232,15 @@ ons-splitter-side[side="left"][animation="overlay"] {
     height: 0;
   }
 }
+.font_notastam1{
+  font-size: 12pt;
+  text-align: left;
+  color:gray; 
+  font-weight: 700;
+}
+
+.font_notastam2{
+  font-size: 10pt;
+  text-align: left;
+  color:gray; 
+}

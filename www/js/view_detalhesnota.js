@@ -6,6 +6,7 @@ function view_detalhesnotas(retornos){
     
     $('#tituloApp').html("Notas e Frequência");
    console.log(retornos);
+   
 if(retornos['notas']){
     //Preenchendo a lista com cards
     for(i  in retorno){
