@@ -9,6 +9,7 @@ function controle(event){
         'periodo_letivo': localStorage.getItem('periodoletivo'),
         'offset' : localStorage.getItem('offset_avisos')
       }
+      
       $('#homePageList').html('');
       buscaAcoes("alunos/api/mural/ver-avisos", dados, tipoenvio);
       

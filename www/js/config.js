@@ -15,7 +15,7 @@ var debug = 0 ;
 var controle_mensagem_atualizar = 1;
 
 //Complemento para ser usado nos servicos chamados via GET
-var complemento = 'todos';
+var complemento = '';
 
 //Controle de paginacao agenda
 var agendacontrole = 0 ;

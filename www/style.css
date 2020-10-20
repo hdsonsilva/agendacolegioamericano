@@ -82,7 +82,7 @@ ons-splitter-side[side="left"][animation="overlay"] {
 
 .font_text{
   font-size: 10pt;
-  text-align: left;
+  text-align:justify;
   color:gray; 
 }
 .positionbottom{

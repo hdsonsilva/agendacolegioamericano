@@ -50,7 +50,7 @@ function exibirtab(tab){
   
 }
 
-
+ 
 
 function abrirURL( pagina , sem_token){
       
@@ -60,12 +60,15 @@ function abrirURL( pagina , sem_token){
       else{
           window.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system");
       }*/
-      if(sem_token){
-         navigator.app.loadUrl(pagina, { openExternal: true });
+      
+      //Retirado verificacao se é sem token ou nao... sempre envia token
+      if( pagina.indexOf('?') > 0 ){
+        navigator.app.loadUrl(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),{ openExternal: true });
       }
       else{
-          navigator.app.loadUrl(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),{ openExternal: true });
-      }
+       navigator.app.loadUrl(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),{ openExternal: true }); 
+      }  
+      
       /*if(debug == 1){
         window.open(pagina+"?token="+ localStorage.getItem("token") );
       }

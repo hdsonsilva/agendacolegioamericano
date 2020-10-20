@@ -60,7 +60,7 @@ function view_bilhetes(retornos){
         setTimeout(function(){
             /* Acao voltar para o app principal */
             $('#bt_voltar_app').click(function(){
-                window.location.href = './app.html';
+                window.location.href = './app.html?objeto=bilhetes';
             });
             /*Acao enviar o recado digitado */
             $('#idcadastrarnovorecado').click(function(){

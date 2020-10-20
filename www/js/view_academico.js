@@ -13,7 +13,7 @@ if(retornos['notas']){
         conteudo_lista += "<ons-card class='click_detalhe_nota' valor='"+(i)+"'><font class='font_tam1'>"+(retorno[i]['materia'])+"</font>";
         conteudo_lista += "<br><font class='font_tam2'>Faltas: " + retorno[i]['faltas']+"</font>";
         conteudo_lista += "<br><font class='font_tam2 "+class_cor_nota+"'>Nota: " + retorno[i]['nota']+"</font>";
-        conteudo_lista += "<br><font class='font_tam2'>Média da turma: " + (retorno[i]['media'])+"</font>";
+        /*conteudo_lista += "<br><font class='font_tam2'>Média da turma: " + (retorno[i]['media'])+"</font>";*/
         conteudo_lista += "<div class='align_direita'><ons-button class='minhalinhadigitavel'><ons-icon icon='fa-list'></ons-icon> Ver</ons-button> </div>";
         conteudo_lista += "</ons-card>";
     }
@@ -22,9 +22,35 @@ if(retornos['notas']){
 
     //Adicionando evento click para detalhar
     $('.click_detalhe_nota').click(function(){
-    	ons.notification.toast('Detalhamento ainda não disponível.', {timeout: 3000});
-    });
+
+        var myNavigator = document.getElementById('myNavigator');
+        myNavigator.pushPage('html/page_detalhesnota.html');
+
+        //Se estiver na pagina detalhamento de botas
     
+          dados = {
+            'apitoken': localStorage.getItem('token'),
+            'periodo_letivo': localStorage.getItem('periodoletivo')
+          }
+          if(complemento == ''){
+            agendacontrole = 0 ;
+            $('#pageAgendaList').html('');
+            $('#pageAgendaListErro').html('');
+          }
+          //Busca as notas detalhadas.. o tratamento é no view_detalhamento
+          buscaAcoes('alunos/api/notas/ver-materia/'+$(this).attr('valor')+"/",dados,'GET');
+         
+    	
+        /* Aguardando carregar a pagina para configurar os eventos após os elementos estarem carregados na tela*/
+        setTimeout(function(){
+            /* Acao voltar para o app principal */
+            $('#bt_voltar_app').click(function(){
+                window.location.href = './app.html?objeto=academico';
+            });
+
+        }, 1000);
+    
+    });   
 }
 else{
     conteudo_lista += "<ons-card><font class='font_tam1'>Nenhuma informação encontrada</font></ons-card>";
