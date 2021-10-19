@@ -1,4 +1,4 @@
-function cadastro(unidade, usuario, senha, app_){
+function cadastro(unidade, usuario, senha, foto, app_){
       console.log(unidade);
         var username = usuario ;
         var password = senha ;
@@ -40,7 +40,7 @@ function cadastro(unidade, usuario, senha, app_){
                     
                     for(i in usuarios){
                       console.log('verificando '+usuarios[i]['usuario']);
-                      if(usuarios[i]['usuario'] == ret.usuario){
+                      if(usuarios[i]['usuario'] == username){
                         confere_insercao = 1 ;
                       }
 
@@ -66,21 +66,48 @@ function cadastro(unidade, usuario, senha, app_){
                                   'nome':ret.nome_aluno,
                                   'unidade': unidade, 
                                   'usuario' : ret.ra, 
-                                  'senha' : password
+                                  'senha' : password,
+                                  'foto'  : foto
                                 };  
                     
-                    console.log(unidade);
+                    
                     usuarios.push(novo);
                     
-                    console.log('inserindo novo usuario:');
-                    
                     localStorage.setItem('usuarios_salvos', JSON.stringify(usuarios));
-                    console.log(usuarios);
 
                     msg = 'Usuário inserido com sucesso.';
-                  }
 
-                  setTimeout(direcionar, 1000, './index.html');
+                    /*Inserindo foto se houver*/
+                    if(foto){
+                      
+                      $.ajax({
+                        type: 'POST',
+                        url : server1 + unidade + '/' + url_upload_foto + '?apitoken='+ ret.token,
+                        cache: false,
+                        timeout: 20000,
+                        dataType:'json',
+                        async: true,
+                        data: {
+                          'imagem'  : foto
+                        },
+                        success:function(ret){
+                                  $('#progress').hide();
+                                  ons.notification.toast(msg, {timeout: 3000});
+                                  $('#button').show();
+                                  setTimeout(direcionar, 1000, './index.html');
+                                }
+                        });
+                    }
+                    //Se não houver continua  o login
+                    else{
+                      $('#progress').hide();
+                      ons.notification.toast(msg, {timeout: 3000});
+                      $('#button').show();
+                      setTimeout(direcionar, 1000, './index.html');
+                    }
+
+                    
+                  }
                   
                     
                   
@@ -91,11 +118,13 @@ function cadastro(unidade, usuario, senha, app_){
                   msg = 'Erro ao efetuar login.';
 
                   auth_check = -1 ;
+
+                  $('#progress').hide();
+                  ons.notification.toast(msg, {timeout: 3000});
+                  $('#button').show();
                 
                 }
-                $('#progress').hide();
-                ons.notification.toast(msg, {timeout: 3000});
-                $('#button').show();
+                
               
               },
               error:function(e){
@@ -112,10 +141,17 @@ function cadastro(unidade, usuario, senha, app_){
 
 function exibir_usuarios(usuarios){
   var item = '' ;
+  var foto = '';
   item += "<ons-list-header>Usuários Cadastrados:</ons-list-header>";
   for(i in usuarios){
     
-    item+= "<ons-list-item modifier='chevron' tappable class='1usuario' codigo='"+(usuarios[i]['codigo'])+"'><div class='left'><img class='list-item__thumbnail' src='./img/quad.png'></div><div class='center'>";
+    if(usuarios[i]['foto']){
+      foto = usuarios[i]['foto'];
+    }
+    else{
+      foto = './img/quad.png';
+    }
+    item+= "<ons-list-item modifier='chevron' tappable class='1usuario' codigo='"+(usuarios[i]['codigo'])+"'><div class='left'><img class='list-item__thumbnail' src='"+foto+"'></div><div class='center'>";
     item+= "    <span class='list-item__title'>"+(usuarios[i]['nome'])+"</span><span class='list-item__subtitle'>"+(usuarios[i]['usuario'])+"</span></div>";
     item+= "</ons-list-item>";
 

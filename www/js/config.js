@@ -1,6 +1,6 @@
 var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
 var server = "https://adx.doctum.edu.br/adx/unidades/";
-
+var url_upload_foto = 'alunos/api/embarque/atualiza-foto' ;
 //Nome do Aplicativo
 var appName = 'Agenda Colégio Americano' ;
 

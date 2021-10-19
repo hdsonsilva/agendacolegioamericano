@@ -45,8 +45,15 @@
         font-family: Arial;
         color: gray;
      }
+     .list-item_foto {
+        width: 100px;
+        height: 100px;
+        border-radius: 6px;
+        
+        
+    }
 
-    </style>
+  </style>
 
 
 </head>
@@ -76,6 +83,7 @@
     <script src="./js/function.js"></script>
     <script type="text/javascript">
     var auth_check ;
+    var foto;
     auth_check = 0 ;
 
     
@@ -88,14 +96,14 @@
       $('#username, #password').blur(function(){
           $('#imagemCadastro').show(600);
       });
-  */
+      */
       // Cadastrando usuario, após autenticar login
       $('#login').click( function(e) {
         auth_check = 0 ;
         //Escondendo botao no inicio do processo de login
         $('#button').hide();
         $('#progress').show();
-        cadastro($('#unidade').val(), $('#username').val(),$('#password').val());
+        cadastro($('#unidade').val(), $('#username').val(),$('#password').val(), foto);
     });
       //Debugando
       if(debug == 1){
@@ -134,14 +142,121 @@
       $('#alert-ok').hide();
 
     });
+
+    $('#alterarfoto').click(function(){
+
+      $('.escolherfoto').show();
+
+    });
+
+
+    $('#iniciargaleria').click(function(){
+      $('.escolherfoto').hide();
+      $('#foto_upload').trigger('click');  
+    });
+
+    $('#fecharescolherfoto').click(function(){
+      $('.escolherfoto').hide();
+    });
+
+    $('#iniciarcamera').click(function(){
+      $('.escolherfoto').hide();
+      
+      //$('#foto_upload').trigger('click');
+      let altura, largura, larguracamera ;
+      
+      largura = window.screen.width;
+      altura  = window.screen.height;
+
+      let options = {
+      x: (largura-300)/2,
+      y: (altura-400)/2,
+      width: 300,
+      height: 300,
+      camera: CameraPreview.CAMERA_DIRECTION.FRONT,
+      toBack: false,
+      tapPhoto: false,
+      tapFocus: false,
+      previewDrag: false,
+      storeToFile: false,
+      disableExifHeaderStripping: false
+    };
+
+    CameraPreview.startCamera(options, function(){
+        $('.positioncontrolcamera').show();
+        $('.positioncontrolcamerabotton').show();
+        $('.positioncontrolcamerabottonvoltar').show();
+         $('.positioncontrolcamerabottonswitch').show();
+    });
+
     
+      
+
+    });
+
+    $('#alterarcamera').click(function(){
+        CameraPreview.switchCamera();
+    });
+
+    $('#fecharcamera').click(function(){
+
+      $('.positioncontrolcamera').hide();
+      $('.positioncontrolcamerabotton').hide();
+      $('.positioncontrolcamerabottonvoltar').hide();
+      $('.positioncontrolcamerabottonswitch').hide();
+
+      CameraPreview.hide();
+      CameraPreview.stopCamera( );
+
+
+    });
+
+    $('#capturarfotocamera').click(function(){
+
+      CameraPreview.takePicture(function( base64PictureData ){
+      $('.positioncontrolcamera').hide();
+      $('.positioncontrolcamerabotton').hide();
+      $('.positioncontrolcamerabottonvoltar').hide();
+      $('.positioncontrolcamerabottonswitch').hide();
+      
+      //CameraPreview.stopCamera( );
+      imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
+      
+      $('#alterarfoto').attr('src', imageSrcData);
+        
+        CameraPreview.hide();
+        foto = imageSrcData ;
+        CameraPreview.stopCamera( );
+        
+
+      });
+
+    });
+
+    $('#foto_upload').change(function(){
+
+            $('.escolherfoto').hide();
+            
+            const file = $(this)[0].files[0];
+            const fileReader = new FileReader();
+            
+            fileReader.onloadend = function(){
+
+                $('#alterarfoto').attr('src', fileReader.result);
+                foto = fileReader.result;
+                
+            }
+            fileReader.readAsDataURL(file);
+            
+      });
+
   });
+
+    
 
 
    
     </script>
-
-  
 
     <div class='login'>
         <div class='interno'>
@@ -158,7 +273,15 @@
             <option value="col_serra">Colégio Americano - Serra</option>
             <option value="col_vila">Colégio Americano - Vila Velha</option>
             <option value="col_vitoria">Colégio Americano - Vitória</option>
+            <option value="col_liber_ctga">Escola Liber Caratinga</option>
         </ons-select>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative;'>
+          <div >
+            <img id='alterarfoto' class='list-item_foto' src='./img/perfil2.png'>
+          </div>
+          <div style='display: none'><input id="foto_upload" type="file"></div>
         </p>
         
         <p style='margin-bottom: 40px;position:relative'>
@@ -181,13 +304,26 @@
             <br><br>
             Fale conosco: 0800 033 1100
         </p>
+        
     </div>
+    
     <div class='positionbottom'>
         <ons-fab id="excluiruser">
           <ons-icon icon="md-delete"></ons-icon> Apagar Usuários
         </ons-fab>
     </div>
 
+    <div  class='positioncontrolcamera'>
+        <div class='positioncontrolcamerabotton'><ons-fab id="capturarfotocamera">
+          <ons-icon icon="md-camera"></ons-icon> Capturar
+        </ons-fab></div>  
+        <div class='positioncontrolcamerabottonvoltar'><ons-fab id="fecharcamera">
+          <ons-icon icon="md-close"></ons-icon> Fechar
+        </ons-fab></div>
+        <div class='positioncontrolcamerabottonswitch'><ons-fab id="alterarcamera">
+          <ons-icon icon="md-camera-switch"></ons-icon> Alterar
+        </ons-fab></div>
+    </div>
     <ons-alert-dialog id="alert-dialog" modifier="rowfooter" >
     <div class="alert-dialog-title">Exclusão de usuários</div>
     <div class="alert-dialog-content">
@@ -210,7 +346,16 @@
       <ons-alert-dialog-button id='bt_ok2'>OK</ons-alert-dialog-button>
     </div>
   </ons-alert-dialog>
+
+  <div class="escolherfoto action-sheet-mask action-sheet-mask--material" style="display:none"></div>
+  <div class="escolherfoto action-sheet action-sheet--material" style="display:none">
+    <button id='iniciarcamera' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-camera action-sheet-icon--material"> </i>Capturar foto</button>
+    <button id='iniciargaleria' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-photos action-sheet-icon--material"> </i>Escolher foto</button>
+    <button id='fecharescolherfoto' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-close action-sheet-icon--material"></i>Cancel</button>
+  </div>
+      
 </ons-page>
+
 
 </body>
 </html>

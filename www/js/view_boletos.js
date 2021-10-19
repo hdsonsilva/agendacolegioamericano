@@ -6,6 +6,7 @@ function view_boletos(retornos){
     
     $('#tituloApp').html("Financeiro");
 if(retornos['boletos'].length > 0 ){
+    retorno.reverse();
     //Preenchendo a lista com cards
     for(i  in retorno){
   

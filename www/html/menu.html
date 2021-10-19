@@ -1,13 +1,40 @@
 <ons-page id="menuPage">
-  
-  <ons-list-title>Alterar</ons-list-title>
+  <ons-list-title>Utilitários</ons-list-title>
   <ons-list id="links">
-    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('index.html')">
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('./html/page_levaetras.html')">
+      <div class="left">
+        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+      </div>
+      <div class="center">
+        Embarque/<br>Desembarque
+      </div>
+    </ons-list-item>
+  </ons-list>
+  <ons-list-title>Usuários</ons-list-title>
+  <ons-list id="links">
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('index.html?auto=nao')">
       <div class="left">
         <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
       </div>
       <div class="center">
         Trocar Usuário
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('cadastrousuario.html')">
+      <div class="left">
+        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+      </div>
+      <div class="center">
+        Incluir Usuário
+      </div>
+    </ons-list-item>
+    <ons-list id="links">
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('index.html')">
+      <div class="left">
+        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+      </div>
+      <div class="center">
+        Alterar Senha
       </div>
     </ons-list-item>
     <ons-list-title>Links</ons-list-title>

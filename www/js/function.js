@@ -50,7 +50,171 @@ function exibirtab(tab){
   
 }
 
- 
+function buscaSolicitacaoEmbarque(){
+  let temp ,i; 
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/retorna-solicitacao';
+  dados = {
+        'apitoken': localStorage.getItem('token')
+  };
+  $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 10000, //10 segundos
+        data: dados,
+        async: true, //Esperar retorno para continuar codigo
+        success: function (ret) {
+          // /alert(JSON.stringify(ret));
+            if(ret.retorno.retorno == 'success'){
+              habilitado = 1;
+              temp = ret.retorno.solicitacoes;
+              //alert(JSON.stringify(temp));
+              for(i in temp){
+                 if(temp[i].status == 'ativo'){     
+                    solicitacaoEmbarque = temp[i].id;
+
+                    initMap();
+                    $('#iniciarbusca').css('background-color','red');
+                    $('#iniciarbusca').html('Cancelar');
+                    break;
+
+                 } 
+              }
+              
+              return 1;
+            }
+            /*se nao der erro, significa que encontrou solicitacao ativa*/
+            else{
+              habilitado = 0
+              //colocar codigo para pegar a solicitacao
+              initMap();
+              $('#iniciarbusca').html('Embarcar/Desembarcar'); 
+              $('#iniciarbusca').css('background-color','#56c2cd');
+            }
+        },
+        error: function (e, erro) {
+            console.log('erro');
+        }
+        
+    });
+}
+
+function novaSolicitacaoEmbarque(){
+  let mensagemerro = '';
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cadastra-solicitacao?apitoken='+localStorage.getItem('token');
+  dados = {
+        'nome_responsavel': 'pai',
+        'observacao': ''
+  };
+  $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 10000, //10 segundos
+        data: dados,
+        async: true, //Esperar retorno para continuar codigo
+        success: function (ret) {
+          if(ret.retorno.retorno == 'success'){
+            solicitacaoEmbarque = ret.retorno.id;
+            habilitado = 1;
+            initMap();
+             $('#iniciarbusca').html('Cancelar');
+             $('#iniciarbusca').css('background-color','red');
+          }
+          else{
+            if(ret.retorno.retorno == 'erro'){
+              mensagemerro = ret.retorno.erros[0];
+              ons.notification.alert(mensagemerro,{'title':'Ocorreu um erro'});
+            }
+            solicitacaoEmbarque = 0 ;
+            habilitado = 0;
+            initMap();
+            $('#iniciarbusca').html('Embarcar/Desembarcar'); 
+            $('#iniciarbusca').css('background-color','#56c2cd');
+          }
+          $('#iniciarbusca').prop( 'disabled', 0);
+        },
+        error: function (e, erro) {
+            solicitacaoEmbarque = 0 ;
+            habilitado = 0;
+            initMap();
+            $('#iniciarbusca').prop( 'disabled', 0);
+        }
+        
+    });
+}
+
+function cancelaSolicitacaoEmbarque( id ){
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cancela-solicitacao?apitoken='+localStorage.getItem('token');
+  dados = {
+        'id_solicitacao': id
+  };
+  
+  $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 10000, //10 segundos
+        data: dados,
+        async: true, //Esperar retorno para continuar codigo
+        success: function (ret) {
+          
+          if(ret.retorno.retorno == 'success'){
+            solicitacaoEmbarque = 0;
+            habilitado = 0;
+            initMap();
+            $('#iniciarbusca').html('Embarcar/Desembarcar'); 
+            $('#iniciarbusca').css('background-color','#56c2cd');
+          }
+          else{
+            habilitado = 1;
+            initMap();
+          }
+          $('#iniciarbusca').prop( 'disabled', 0);
+        },
+        error: function (e, erro) {
+            solicitacaoEmbarque = 0 ;
+            habilitado = 0;
+            initMap();
+            $('#iniciarbusca').prop( 'disabled', 0);
+        }
+        
+    });
+}
+function atualizaSolicitacaoEmbarque(id, lat, long){
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/atualiza-localizacao?apitoken='+localStorage.getItem('token');
+  dados = {
+        'id_solicitacao': id,
+        'latitude': lat,
+        'longitude' : long
+  };
+  $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 10000, //10 segundos
+        data: dados,
+        async: true, //Esperar retorno para continuar codigo
+        success: function (ret) {
+          
+          if(ret.retorno.retorno == 'success'){
+            //alert(JSON.stringify(ret));
+            initMap(lat,long, "Você está aqui");
+          }
+          else{
+            
+          }
+        },
+        error: function (e, erro) {
+            
+        }
+        
+    });
+}
 
 function abrirURL( pagina , sem_token){
       
