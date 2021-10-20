@@ -218,33 +218,24 @@ function atualizaSolicitacaoEmbarque(id, lat, long){
 
 function abrirURL( pagina , sem_token){
       
-      /*if(sem_token){
-         window.open(pagina,"_system");
-      }
-      else{
-          window.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system");
-      }*/
+       //Retirado verificacao se é sem token ou nao... sempre envia token
       
-      //Retirado verificacao se é sem token ou nao... sempre envia token
-      if( pagina.indexOf('?') > 0 ){
-        navigator.app.loadUrl(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),{ openExternal: true });
-      }
-      else{
-       navigator.app.loadUrl(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),{ openExternal: true }); 
-      }  
-      
-      /*if(debug == 1){
-        window.open(pagina+"?token="+ localStorage.getItem("token") );
-      }
-      else{
-        if(!sem_token){
-          navigator.app.loadUrl(pagina+"?token="+localStorage.getItem("token") , { openExternal: true });
+      if (device.platform.toUpperCase() === 'ANDROID') {
+        if( pagina.indexOf('?') > 0 ){
+          cordova.InAppBrowser.open(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_blank", "location=yes");
         }
         else{
-          navigator.app.loadUrl(pagina , { openExternal: true });
+          cordova.InAppBrowser.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_blank", "location=yes"); 
         }
       }
-      */
+      else{ 
+        if( pagina.indexOf('?') > 0 ){
+          cordova.InAppBrowser.open(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_blank", "location=yes");
+        }
+        else{
+          cordova.InAppBrowser.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_blank", "location=yes"); 
+        } 
+      }
 }
 
 function showModal(controle) {

@@ -23,7 +23,7 @@ function buscaAcoes(acao,dados, tipo){
         async: true, //Esperar retorno para continuar codigo
         beforeSend: function (e) {
             //Colocando para transformar e tratar o resultado todo como um resultado iso
-            e.overrideMimeType("text/plain;charset=iso-8859-1");
+            //e.overrideMimeType("text/plain;charset=iso-8859-1");
             //Sempre exive modal de busca de dados
             showModal('show');
         },
