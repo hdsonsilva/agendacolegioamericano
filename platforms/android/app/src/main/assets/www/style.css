@@ -1,0 +1,338 @@
+/*****************
+ *** Custom CSS ***
+ *****************/
+
+ons-input[type=text] {
+  width: 90%;
+}
+
+ons-button[modifier=large] {
+  width: initial;
+  margin: 10px;
+}
+
+ons-splitter-side[side="left"][animation="overlay"] {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  background-color: lightyellow;
+  color: rgba(255, 0, 0, 0.7);
+}
+
+.left-label {
+  width: 30%;
+  font-size: 16px;
+  color: #666
+}
+/*//////////////////////////////////////////////////*/
+/*Meus estilos*/
+
+ .align_direita {
+    text-align:right;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+}
+ .align_center {
+    text-align:center;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+}
+.align_center_puro {
+    text-align:center;
+  
+}
+.tituloInicial{
+  font-size: 12pt;
+  text-align: left;
+  color:#20457d;
+  margin-top: 5px;
+}
+
+.tituloInicialB{
+  font-size: 12pt;
+  text-align: left;
+  color:#20457d;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.font_tam1{
+  font-size: 12pt;
+  text-align: left;
+  color:#20457d; 
+  font-weight: 700;
+}
+
+.font_tam2{
+  font-size: 10pt;
+  text-align: left;
+  color:#20457d; 
+}
+
+.font_notastam1{
+  font-size: 12pt;
+  text-align: left;
+  color:gray; 
+  font-weight: 700;
+}
+
+.font_notastam2{
+  font-size: 10pt;
+  text-align: left;
+  color:gray; 
+}
+
+.cor_nota_azul{
+  color: blue;
+}
+
+.cor_nota_vermelha{
+  color:red;
+}
+
+.font_text{
+  font-size: 10pt;
+  text-align:justify;
+  color:gray; 
+}
+.positionbottom{
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+}
+
+.positioncontrolcamera{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width:100%;
+        height: 100%;
+        z-index: 999999;
+        background:black;
+        
+        text-align: center;
+        vertical-align: bottom;
+        display: none;
+}
+.positioncontrolcamerabotton{
+  position: absolute;
+  right:    10px;
+  bottom:   10px;
+  width: 100%;
+  height:40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+
+.positioncontrolcamerabottonvoltar{
+  position: absolute;
+  right:    20px;
+  bottom:   10px;
+  height:40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+.positioncontrolcamerabottonswitch{
+  position: absolute;
+  left:    20px;
+  bottom:   10px;
+  height:40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+.positionbottom2{
+        position: fixed;
+        bottom: 60px;
+        right: 15px;
+}
+
+.positionbottom3{
+        position: absolute;
+        bottom: 15px;
+        text-align: center;
+        width: 100%;
+}
+/********************
+ *** Animation CSS ***
+ ********************/
+
+#tabbarPage .list {
+  background-color: #eee;
+  overflow-x: hidden;
+  margin-top: -1px;
+  border-bottom: 1px solid #ccc;
+}
+
+#tabbarPage .list-item {
+  min-height: 0;
+  height: 44px;
+  background-color: white;
+  margin: 1px 0 -1px 0;
+}
+
+#tabbarPage .list-item--material {
+  height: 56px;
+}
+
+.list-title {
+  margin-top: 12px;
+}
+
+.hide-children * {
+  overflow: hidden;
+}
+
+.animation-swipe-right {
+  pointer-events: none;
+  -webkit-animation: swipe-right .9s ease-in-out forwards;
+          animation: swipe-right .9s ease-in-out forwards;
+}
+
+.animation-swipe-left {
+  pointer-events: none;
+  -webkit-animation: swipe-left .9s ease-in-out forwards;
+          animation: swipe-left .9s ease-in-out forwards;
+}
+
+.animation-remove {
+  pointer-events: none;
+  -webkit-animation: remove .7s ease-in-out forwards;
+          animation: remove .7s ease-in-out forwards;
+}
+
+@-webkit-keyframes swipe-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10% {
+    -webkit-transform: translateX(-3%);
+            transform: translateX(-3%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    height: 0;
+    opacity: 0.3;
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10% {
+    -webkit-transform: translateX(-3%);
+            transform: translateX(-3%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    height: 0;
+    opacity: 0.3;
+  }
+}
+
+@-webkit-keyframes swipe-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10% {
+    -webkit-transform: translateX(3%);
+            transform: translateX(3%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    height: 0;
+    opacity: 0.3;
+  }
+}
+
+@keyframes swipe-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10% {
+    -webkit-transform: translateX(3%);
+            transform: translateX(3%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    height: 0;
+    opacity: 0.3;
+  }
+}
+
+@-webkit-keyframes remove {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+    height: 0;
+  }
+}
+
+@keyframes remove {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+    height: 0;
+  }
+}
+
+.list__item__left {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 12px 14px 12px 0;
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    line-height: 1.2em;
+    min-height: 44px;
+}
+
+.list__item__right {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: auto;
+    padding: 12px 12px 12px 0;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    border-bottom: none;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 100%);
+    background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+    line-height: 1.2em;
+    min-height: 44px;
+}

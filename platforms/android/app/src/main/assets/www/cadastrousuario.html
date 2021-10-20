@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- JS dependencies (order matters!) -->
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+      <!-- --------------- App init --------------- -->
+
+    <title>Agenda Escolar</title>
+
+    <style>
+       
+    .fundo{
+      position: absolute;
+       width: 100%;
+       height: 95%;
+       
+    }
+    .interno{
+      position: relative;
+      margin-top: 100px;
+      margin-bottom: 100px;
+       width: 100%;
+       height: 100%;
+       
+    }
+     .login{
+        margin: 5% auto ;
+        text-align: center;
+        width: 90%;
+        height: 100%;
+        background: white;
+        -webkit-box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow:    1px 1px 20px rgba(50, 50, 50, 0.77);
+        box-shadow:         1px 1px 20px rgba(50, 50, 50, 0.77);
+        font-family: Arial;
+        color: gray;
+     }
+     .list-item_foto {
+        width: 100px;
+        height: 100px;
+        border-radius: 6px;
+        
+        
+    }
+
+  </style>
+
+
+</head>
+<body>
+<ons-page  modifier="menu-page" >
+    <ons-toolbar>
+      <div class="left">
+                     <!-- Toolbar-button  only visible for iOS/other. -->
+        <ons-toolbar-button id="bt_voltar" component="buttonreload">
+          <!--<ons-icon icon="fa-undo"></ons-icon>-->
+           <ons-icon icon="md-arrow-left"></ons-icon>
+        </ons-button>
+      </div>
+
+      <div class="center">Usuários</div>
+
+      <div class="right">
+                     
+      </div>
+      
+    </ons-toolbar>
+    <!-- Cordova reference -->
+    <script src="./js/config.js"></script>
+    <script src="./cordova.js"></script> 
+    <script src="./scripts/index.js"></script>
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/function.js"></script>
+    <script type="text/javascript">
+    var auth_check ;
+    var foto;
+    auth_check = 0 ;
+
+    
+    $(document).ready(function(){
+
+      $('#username, #password').focus(function(){
+          $('#imagemCadastro').hide(600);
+      });
+      /*
+      $('#username, #password').blur(function(){
+          $('#imagemCadastro').show(600);
+      });
+      */
+      // Cadastrando usuario, após autenticar login
+      $('#login').click( function(e) {
+        auth_check = 0 ;
+        //Escondendo botao no inicio do processo de login
+        $('#button').hide();
+        $('#progress').show();
+        cadastro($('#unidade').val(), $('#username').val(),$('#password').val(), foto);
+    });
+      //Debugando
+      if(debug == 1){
+        $('#unidade').change(function(){
+          ons.notification.alert($(this).val());
+        });
+    }
+
+    // Voltarrrr
+      $('#bt_voltar').click( function(e) {
+        auth_check = 0 ;
+        
+        window.location.href = './index.html';
+    });
+
+    //Confirmaco para Excluir
+    $('#excluiruser').click(function(){
+      $('#alert-dialog').show();  
+    });
+
+    //Excluir
+    $('#bt_ok').click(function(){
+      $('#alert-dialog').hide();
+      localStorage.removeItem('usuarios_salvos');
+       $('#alert-ok').show();  
+    });
+
+    //Cancelar
+    $('#bt_cancelar').click(function(){
+      $('#alert-dialog').hide();
+
+    });
+
+    //Fechar OK
+    $('#bt_ok2').click(function(){
+      $('#alert-ok').hide();
+
+    });
+
+    $('#alterarfoto').click(function(){
+
+      $('.escolherfoto').show();
+
+    });
+
+
+    $('#iniciargaleria').click(function(){
+      $('.escolherfoto').hide();
+      $('#foto_upload').trigger('click');  
+    });
+
+    $('#fecharescolherfoto').click(function(){
+      $('.escolherfoto').hide();
+    });
+
+    $('#iniciarcamera').click(function(){
+      $('.escolherfoto').hide();
+      
+      //$('#foto_upload').trigger('click');
+      let altura, largura, larguracamera ;
+      
+      largura = window.screen.width;
+      altura  = window.screen.height;
+
+      let options = {
+      x: (largura-300)/2,
+      y: (altura-400)/2,
+      width: 300,
+      height: 300,
+      camera: CameraPreview.CAMERA_DIRECTION.FRONT,
+      toBack: false,
+      tapPhoto: false,
+      tapFocus: false,
+      previewDrag: false,
+      storeToFile: false,
+      disableExifHeaderStripping: false
+    };
+
+    CameraPreview.startCamera(options, function(){
+        $('.positioncontrolcamera').show();
+        $('.positioncontrolcamerabotton').show();
+        $('.positioncontrolcamerabottonvoltar').show();
+         $('.positioncontrolcamerabottonswitch').show();
+    });
+
+    
+      
+
+    });
+
+    $('#alterarcamera').click(function(){
+        CameraPreview.switchCamera();
+    });
+
+    $('#fecharcamera').click(function(){
+
+      $('.positioncontrolcamera').hide();
+      $('.positioncontrolcamerabotton').hide();
+      $('.positioncontrolcamerabottonvoltar').hide();
+      $('.positioncontrolcamerabottonswitch').hide();
+
+      CameraPreview.hide();
+      CameraPreview.stopCamera( );
+
+
+    });
+
+    $('#capturarfotocamera').click(function(){
+
+      CameraPreview.takePicture(function( base64PictureData ){
+      $('.positioncontrolcamera').hide();
+      $('.positioncontrolcamerabotton').hide();
+      $('.positioncontrolcamerabottonvoltar').hide();
+      $('.positioncontrolcamerabottonswitch').hide();
+      
+      //CameraPreview.stopCamera( );
+      imageSrcData = 'data:image/jpeg;base64,' + base64PictureData;
+      
+      $('#alterarfoto').attr('src', imageSrcData);
+        
+        CameraPreview.hide();
+        foto = imageSrcData ;
+        CameraPreview.stopCamera( );
+        
+
+      });
+
+    });
+
+    $('#foto_upload').change(function(){
+
+            $('.escolherfoto').hide();
+            
+            const file = $(this)[0].files[0];
+            const fileReader = new FileReader();
+            
+            fileReader.onloadend = function(){
+
+                $('#alterarfoto').attr('src', fileReader.result);
+                foto = fileReader.result;
+                
+            }
+            fileReader.readAsDataURL(file);
+            
+      });
+
+  });
+
+    
+
+
+   
+    </script>
+
+    <div class='login'>
+        <div class='interno'>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <div id='imagemCadastro'>
+          <img src='./img/LogoSemNome100x153.png' width="50%">
+        </div>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <ons-select id="unidade" onchange="editSelects(event)">
+            <option value="col_gpi">Colégio Americano - Guarapari</option>
+            <option value="col_serra">Colégio Americano - Serra</option>
+            <option value="col_vila">Colégio Americano - Vila Velha</option>
+            <option value="col_vitoria">Colégio Americano - Vitória</option>
+            <option value="col_liber_ctga">Escola Liber Caratinga</option>
+        </ons-select>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative;'>
+          <div >
+            <img id='alterarfoto' class='list-item_foto' src='./img/perfil2.png'>
+          </div>
+          <div style='display: none'><input id="foto_upload" type="file"></div>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+          <ons-input id="username"   modifier="underbar" type="number" placeholder="Usuário" float></ons-input>
+        </p>
+        
+        <p style='margin-bottom: 40px;position:relative'>
+            <ons-input id="password"  modifier="underbar" type="password" placeholder="Senha" float></ons-input>
+        </p>
+        
+        <p id='button'>
+            <ons-button id='login'>Cadastrar</ons-button>
+        </p>
+        <p id='progress' style="display:none";position:relative>
+            <ons-progress-bar indeterminate></ons-progress-bar>
+        </p>
+        <p style='margin-bottom: 40px;position:relative;text-align:justify;'>
+            Você deve usar o usuário e senha que já possui. Caso não saiba seus dados, procure a sua unidade e solicite os mesmos.<br>
+            A agenda é acessada usando seu usuário e senha do sistema web AdX.
+            <br><br>
+            Fale conosco: 0800 033 1100
+        </p>
+        
+    </div>
+    
+    <div class='positionbottom'>
+        <ons-fab id="excluiruser">
+          <ons-icon icon="md-delete"></ons-icon> Apagar Usuários
+        </ons-fab>
+    </div>
+
+    <div  class='positioncontrolcamera'>
+        <div class='positioncontrolcamerabotton'><ons-fab id="capturarfotocamera">
+          <ons-icon icon="md-camera"></ons-icon> Capturar
+        </ons-fab></div>  
+        <div class='positioncontrolcamerabottonvoltar'><ons-fab id="fecharcamera">
+          <ons-icon icon="md-close"></ons-icon> Fechar
+        </ons-fab></div>
+        <div class='positioncontrolcamerabottonswitch'><ons-fab id="alterarcamera">
+          <ons-icon icon="md-camera-switch"></ons-icon> Alterar
+        </ons-fab></div>
+    </div>
+    <ons-alert-dialog id="alert-dialog" modifier="rowfooter" >
+    <div class="alert-dialog-title">Exclusão de usuários</div>
+    <div class="alert-dialog-content">
+      Atenção, essa ação irá apagar os usuários e senhas armazenados.<br><br>
+      Deseja remover os usuários cadastrados no aplicativo? 
+    </div>
+    <div class="alert-dialog-footer">
+      <ons-alert-dialog-button id='bt_cancelar'>Cancelar</ons-alert-dialog-button>
+
+      <ons-alert-dialog-button id='bt_ok'>OK</ons-alert-dialog-button>
+    </div>
+  </ons-alert-dialog>
+
+  <ons-alert-dialog id="alert-ok" modifier="rowfooter" >
+    <div class="alert-dialog-title">Exclusão de usuários</div>
+    <div class="alert-dialog-content">
+      Ok. Usuários apagados com sucesso.
+    </div>
+    <div class="alert-dialog-footer">
+      <ons-alert-dialog-button id='bt_ok2'>OK</ons-alert-dialog-button>
+    </div>
+  </ons-alert-dialog>
+
+  <div class="escolherfoto action-sheet-mask action-sheet-mask--material" style="display:none"></div>
+  <div class="escolherfoto action-sheet action-sheet--material" style="display:none">
+    <button id='iniciarcamera' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-camera action-sheet-icon--material"> </i>Capturar foto</button>
+    <button id='iniciargaleria' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-photos action-sheet-icon--material"> </i>Escolher foto</button>
+    <button id='fecharescolherfoto' class="action-sheet-button action-sheet-button--material"><i class="ion-ios-close action-sheet-icon--material"></i>Cancel</button>
+  </div>
+      
+</ons-page>
+
+
+</body>
+</html>

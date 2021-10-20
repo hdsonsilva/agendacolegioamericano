@@ -1,0 +1,48 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-camera": {
+      "ANDROIDX_CORE_VERSION": "1.6.+",
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-camera-preview": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-photos": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    }
+  }
+}

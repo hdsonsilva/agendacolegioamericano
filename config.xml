@@ -13,7 +13,7 @@
 
     <plugin name="cordova-plugin-splashscreen" source="npm"/>
     <plugin name="cordova-plugin-inappbrowser" source="npm" />
-    <gap:plugin name="onesignal-cordova-plugin" spec="2.4.5" source="npm" />
+    <gap:plugin name="onesignal-cordova-plugin" spec="2.11.0" source="npm" />
     
     <!-- Requires cli-8.0.0 but we recommend using the latest version. -->
     <preference name="phonegap-version" value="cli-10.0.0" /> 
@@ -50,6 +50,28 @@
 
      <platform name="ios">
         <allow-intent href="market:*" />
+        <preference name="deployment-target" value="11.0" />
+        <preference name="AllowUntrustedCerts"  value="true" />
+        <preference name="InterceptRemoteRequests" value="all" />
+        <preference name="allowFileAccessFromFileURLs" value="true" />
+        <preference name="allowUniversalAccessFromFileURLs" value="true" />
+
+
+        <config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+            <string>A camera é usada opcionalmente para incluir foto do estudante em seu perfil</string>
+        </config-file>
+
+        <config-file overwrite="true" parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
+            <string>A biblioteca de fotos pode ser usada para selecionar uma foto do estudante e colocá-la em seu perfil. Para exibir imagens no aplicativo também é solicitada essa permissão. Mas fique tranquilo.</string>
+        </config-file>
+        <config-file overwrite="true" parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
+            <string>Podemos solicitar acesso a sua localização caso você use a funcionalidade de embarque/desembarque</string>
+        </config-file>
+
+        <access origin="*" />
+        <allow-intent href="market:*" />
+        <allow-intent href="*" />
+
         <icon density="ldpi" src="./res/ios/logo40x40.png" width="40" height="40"/>
         <icon density="ldpi" src="./res/ios/logo120x120.png" width="120" height="120"/>
         <icon density="mdpi" src="./res/ios/logo152x152.png" width="152" height="152"/>

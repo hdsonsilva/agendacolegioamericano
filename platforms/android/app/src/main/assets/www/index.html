@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="style.css">
+    <!-- JS dependencies (order matters!) -->
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+      <!-- --------------- App init --------------- -->
+
+    <title>Agenda Escolar</title>
+
+    <style>
+       
+    .fundo{
+      position: absolute;
+       width: 100%;
+       height: 95%;
+       
+    }
+    .interno{
+      position: relative;
+       width: 100%;
+       height: 100%;
+       
+    }
+     .login{
+        margin: 5% auto ;
+        text-align: center;
+        width: 90%;
+        height: 100%;
+        background: white;
+        -webkit-box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow:    1px 1px 20px rgba(50, 50, 50, 0.77);
+        box-shadow:         1px 1px 20px rgba(50, 50, 50, 0.77);
+        font-family: Arial;
+        color: gray;
+     }
+
+     
+     .centralizada{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%); 
+
+     }
+
+     .paddingnosso{
+        padding: 30px;
+     }
+
+     ons-list-item, ons-list, ons-list-header, .page__content {
+        background: #f9f9f9 !important;
+     }
+
+    </style>
+</head>
+<body>
+
+    <!-- Cordova reference -->
+    <script src="./js/config.js"></script>
+    <script src="./cordova.js"></script> 
+    <script src="./scripts/index.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/function.js"></script>
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/push.js"></script>
+    <script type="text/javascript">
+
+    var auth_check ;
+    auth_check = 0 ;
+
+    
+     $(document).ready(function(){
+      //Verificando usuarios salvos
+      if(localStorage.getItem('usuarios_salvos')){
+        //Exibe lista de usuarios na tela inicial
+        exibir_usuarios(JSON.parse(localStorage.getItem('usuarios_salvos')));
+        //Faz login automático para um usuario apenas
+        usuarios = JSON.parse(localStorage.getItem('usuarios_salvos'));
+        if(usuarios.length == 1){
+          //Pega Usuario
+          
+          buscarDadosUsuario(usuarios[0]['codigo']);
+          //Pega senha
+
+          //Loga no sistema
+          auth_check = 0 ;
+          //Escondendo botao no inicio do processo de login
+          $('#button').hide();
+          $('#progress').show();
+          login(localStorage.getItem('login_username'),localStorage.getItem('login_password'), 'index', localStorage.getItem('login_unidade'),  localStorage.getItem('login_nome'));
+
+        }
+
+      }
+      //Caso nao tenha usuários, direciona para tela de cadastro
+      else{
+        window.location.href = './cadastrousuario.html';
+      }
+
+
+      // Fazendo login
+      $('.1usuario').click( function(e) {
+        //Pega Usuario
+        buscarDadosUsuario($(this).attr('codigo'));
+        //Pega senha
+
+        //Loga no sistema
+        auth_check = 0 ;
+        //Escondendo botao no inicio do processo de login
+        $('#button').hide();
+        $('#progress').show();
+        login(localStorage.getItem('login_username'),localStorage.getItem('login_password'), 'index', localStorage.getItem('login_unidade'),  localStorage.getItem('login_nome'));
+
+
+        });
+
+      $('#newuser').click( function(){
+        window.location.href = './cadastrousuario.html';
+
+      });
+      /*
+      var permissions = cordova.plugins.permissions;
+        
+      permissions.requestPermission( permissions.RECEIVE_WAP_PUSH, success, error );
+ 
+      function error() {
+        console.warn('Camera permission is not turned on');
+      }
+       
+      function success( status ) {
+        if( !status.hasPermission ) error();
+      }
+    */
+
+  });
+
+   
+    </script>
+
+  <ons-page>
+   <ons-toolbar>
+    <div class="center">Agenda Escolar</div>
+  </ons-toolbar>
+  <div class='centralizada'>
+  <ons-list>
+    <ons-list-item>
+      <div style="width:100%;text-align: center;">
+        <img src='./img/LogoSemNome100x153.png' id='imagem' width="60%">
+      </div>
+    </ons-list-item>
+  </ons-list>
+  <ons-list id='exibicao_usuarios' class='paddingnosso'>
+    
+  </ons-list>
+  <ons-list>
+     <ons-list-item modifier="nodivider">
+      
+    </ons-list-item>
+    <ons-list-item modifier="nodivider">
+       
+      <div style="width:100%;text-align: center;">
+        <p id='progress' style="display:none";position:relative>
+          <ons-progress-bar indeterminate></ons-progress-bar>
+      </p>
+      
+    </div>
+  </ons-list-item>
+  </ons-list>
+
+  <br />
+  
+</div>
+<div class='positionbottom'>
+    <ons-fab id="newuser">
+      <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+</div>
+</ons-page>
+
+</body>
+</html>
