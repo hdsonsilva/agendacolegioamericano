@@ -72,11 +72,11 @@
         <allow-intent href="market:*" />
         <allow-intent href="*" />
 
-        <icon density="ldpi" src="./res/ios/logo40x40.png" width="40" height="40"/>
-        <icon density="ldpi" src="./res/ios/logo120x120.png" width="120" height="120"/>
-        <icon density="mdpi" src="./res/ios/logo152x152.png" width="152" height="152"/>
-        <icon density="hdpi" src="./res/ios/logo167x167.png" width="167" height="167"/>
-        <icon density="xhdpi" src="./res/ios/logo1024x1024.png" width="1024" height="1024"/>
+        <icon density="ldpi" height="40" src="./res/ios/logo40x40.png" width="40" />
+        <icon density="mdpi" height="120" src="./res/ios/logo120x120.png" width="120" />
+        <icon density="hdpi" height="152" src="./res/ios/logo152x152.png" width="152" />
+        <icon density="xhdpi" height="167" src="./res/ios/logo167x167.png" width="167" />
+        <icon density="xxxhdpi" height="1024" src="./res/ios/logo1024x1024.png" width="1024" />
     </platform>
     
 </widget>
