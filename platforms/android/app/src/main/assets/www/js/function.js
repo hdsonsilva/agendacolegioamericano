@@ -215,10 +215,24 @@ function atualizaSolicitacaoEmbarque(id, lat, long){
         
     });
 }
+/*
+function abrirURL( pagina , sem_token){
+  if( pagina.indexOf('?') > 0 ){
+    localStorage.setItem('pagina_externa',pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'));
+  }
+  else{
+   localStorage.setItem('pagina_externa',pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo')); 
+  }
+
+  window.location.href='./html/page_externa.html'; 
+    
+}*/
 
 function abrirURL( pagina , sem_token){
       
-       //Retirado verificacao se é sem token ou nao... sempre envia token
+      
+      
+      //Retirado verificacao se é sem token ou nao... sempre envia token
       
       if (device.platform.toUpperCase() === 'ANDROID') {
         if( pagina.indexOf('?') > 0 ){

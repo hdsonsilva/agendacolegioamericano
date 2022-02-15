@@ -37,11 +37,6 @@
 
             };
 
-          // Set your iOS Settings
-          var iosSettings = {};
-          iosSettings["kOSSettingsKeyAutoPrompt"] = false;
-          iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
-
 
           if(localStorage.getItem('usuarios_salvos')){
             var usuarios ;
@@ -51,7 +46,6 @@
                 window.plugins.OneSignal
                   .startInit(localStorage.getItem('idonesignal'))
                   .handleNotificationOpened(notificationOpenedCallback  )
-                  .iOSSettings(iosSettings)
                   .endInit();
 
 
@@ -59,5 +53,7 @@
               }
             
           }
+          navigator.splashscreen.hide();
+
 
 }, false);

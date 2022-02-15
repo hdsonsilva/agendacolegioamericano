@@ -16,6 +16,13 @@ function view_agenda(retornos){
             conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelagenda' valor='"+(retorno[i]['url_destino'])+"'" : (retorno[i]['arquivo'] ? "class='imagemview' imagem='"+(retorno[i]['arquivo'])+"'" : " "))+"><font class='font_tam1'>"+(retorno[i]['data_referente'])+" - "+(retorno[i]['assunto'])+"</font>";
             conteudo_lista += "<br><br>";
             conteudo_lista += "<font class='font_text'>"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+quebraLinha(retorno[i]['mensagem'])+"</font>";
+            if(retorno[i]['extras']){
+                for(ii in retorno[i]['extras']){
+                    conteudo_lista += "<br><br><font class='font_pergunta'>"+(retorno[i]['extras'][ii]['pergunta'])+"</font>";
+                    conteudo_lista += "<br><font class='font_resposta'>"+(retorno[i]['extras'][ii]['resposta'])+"</font>";
+                }
+            }
+
             conteudo_lista += "</ons-card>";
         }
 

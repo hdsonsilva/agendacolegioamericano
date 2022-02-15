@@ -20,6 +20,24 @@ ons-splitter-side[side="left"][animation="overlay"] {
   color: rgba(255, 0, 0, 0.7);
 }
 
+.font_text{
+  font-size: 10pt;
+  text-align:justify;
+  color:gray; 
+}
+.font_pergunta{
+  font-size: 13pt;
+  
+  text-align:justify;
+  color: #FFA500;
+  font-weight: 600;
+}
+.font_resposta{
+  font-size: 12pt;
+  text-align:justify;
+  color:#FFA500; 
+}
+
 .left-label {
   width: 30%;
   font-size: 16px;
