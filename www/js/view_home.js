@@ -1,8 +1,12 @@
 function view_home(retornos){
+    let imagem = '';
 
+    if(localStorage.getItem('foto')){
+        imagem = "<img src='"+localStorage.getItem('foto')+"' width='40px'>";
+    }
     //Alterando título do app
     $('#tituloApp').html(appName);
-    $('#idNome').html(localStorage.getItem("login_nome"));
+    $('#idNome').html(imagem+' '+localStorage.getItem("login_nome"));
 
     var i ;
     var conteudo_lista = '';

@@ -228,6 +228,29 @@ function abrirURL( pagina , sem_token){
     
 }*/
 
+function abrirNavigator( pagina , sem_token){
+      
+      
+      
+      //Retirado verificacao se é sem token ou nao... sempre envia token
+      
+      if (device.platform.toUpperCase() === 'ANDROID') {
+        if( pagina.indexOf('?') > 0 ){
+          cordova.InAppBrowser.open(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system", "location=yes");
+        }
+        else{
+          cordova.InAppBrowser.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system", "location=yes"); 
+        }
+      }
+      else{ 
+        if( pagina.indexOf('?') > 0 ){
+          cordova.InAppBrowser.open(pagina+"&apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system", "location=yes");
+        }
+        else{
+          cordova.InAppBrowser.open(pagina+"?apitoken="+localStorage.getItem("token")+"&periodo_letivo="+localStorage.getItem('periodoletivo'),"_system", "location=yes"); 
+        } 
+      }
+}
 function abrirURL( pagina , sem_token){
       
       

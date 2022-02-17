@@ -22,7 +22,7 @@ if(retornos['boletos'].length > 0 ){
     $('#pageFinanceiroList').html($('#pageFinanceiroList').html()+conteudo_lista);
     //Adicionando o click para exibir os boletos
     $('.meuboleto').click(function(){
-        abrirURL($(this).attr('valor'),1);
+        abrirNavigator($(this).attr('valor'),1);
     });
     //Exibindo a linha digitavel daquele boleto
     $('.minhalinhadigitavel').click(function(){

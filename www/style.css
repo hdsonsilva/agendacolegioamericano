@@ -15,6 +15,9 @@ ons-splitter-side[side="left"][animation="overlay"] {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.hudson{
+  background-image: './img/header.png' !important;
+}
 .highlight {
   background-color: lightyellow;
   color: rgba(255, 0, 0, 0.7);

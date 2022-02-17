@@ -35,7 +35,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
                   //Se já existirem usuarios salvos
                   if(dados){
 
-                    //Salvando os ados no array usuario
+                    //Salvando os dados no array usuario
                     usuarios = JSON.parse(dados);
                     
                     for(i in usuarios){
