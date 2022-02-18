@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.agenda.americano2" version="2.3.0" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
+<widget id="io.agenda.americano2" version="2.4.0" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
     <name>Agenda Colégio Americano 2.0</name>
     <description>
         Aplicativo Agenda do Colégio Americano. Acompanhe a vida escolar dos seus filhos de onde estiver.
@@ -52,20 +52,7 @@
         <config-file overwrite="true" parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
             <string>Podemos solicitar acesso a sua localização caso você use a funcionalidade de embarque/desembarque</string>
         </config-file>
-        <icon height="60" src="www/res/ios/icon-60.png" width="60" />
-        <icon height="120" src="www/res/ios/icon-60@2x.png" width="120" />
-        <icon height="76" src="www/res/ios/icon-76.png" width="76" />
-        <icon height="152" src="www/res/ios/icon-76@2x.png" width="152" />
-        <icon height="40" src="www/res/ios/icon-40.png" width="40" />
-        <icon height="80" src="www/res/ios/icon-40@2x.png" width="80" />
-        <icon height="57" src="www/res/ios/icon.png" width="57" />
-        <icon height="114" src="www/res/ios/icon@2x.png" width="114" />
-        <icon height="72" src="www/res/ios/icon-72.png" width="72" />
-        <icon height="144" src="www/res/ios/icon-72@2x.png" width="144" />
-        <icon height="29" src="www/res/ios/icon-small.png" width="29" />
-        <icon height="58" src="www/res/ios/icon-small@2x.png" width="58" />
-        <icon height="50" src="www/res/ios/icon-50.png" width="50" />
-        <icon height="100" src="www/res/ios/icon-50@2x.png" width="100" />
+        
         <access origin="*" />
         <allow-intent href="market:*" />
         <allow-intent href="*" />

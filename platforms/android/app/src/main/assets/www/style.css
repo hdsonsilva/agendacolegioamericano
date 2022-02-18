@@ -41,6 +41,10 @@ ons-splitter-side[side="left"][animation="overlay"] {
   color:#FFA500; 
 }
 
+.modificarcor{
+  background: #006e9c !important;
+}
+
 .left-label {
   width: 30%;
   font-size: 16px;

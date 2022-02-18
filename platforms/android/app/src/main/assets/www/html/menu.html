@@ -24,6 +24,7 @@
       <div class="left">
         <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
       </div>
+
       <div class="center">
         Incluir Usuário
       </div>
@@ -37,9 +38,17 @@
         Alterar Senha
       </div>
     </ons-list-item>
-    <ons-list-title>Links</ons-list-title>
-    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirURL('https://adx.doctum.edu.br/adx/unidades/'+localStorage.getItem('unidade')+'/alunos/mural/ver-avisos', 0)">
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirURL(server+localStorage.getItem('unidade')+'/alunos/email', 0)">
       <div class="left">
+        <ons-icon icon="fa-external-link" style="color: grey;"></ons-icon>
+      </div>
+      <div class="center">
+        Dados de E-mail
+      </div>
+    </ons-list-item>
+    <ons-list-title>Links</ons-list-title>
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirURL(server+localStorage.getItem('unidade')+'/alunos/mural/ver-avisos', 0)">
+      <div class="left"> 
         <ons-icon icon="fa-external-link" style="color: grey;"></ons-icon>
       </div>
       <div class="center">
