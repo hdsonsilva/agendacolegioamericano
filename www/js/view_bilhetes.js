@@ -7,7 +7,7 @@ function view_bilhetes(retornos){
      //Alterando título do app
     
     $('#tituloApp').html("Recados");
-    $('#buttontop').html("<ons-icon icon='fa-edit'></ons-icon>");
+    $('#buttontop').html("<ons-icon icon='fa-edit' size='24px, material:24px'></ons-icon>");
     if(retornos['murais']){    
         //Preenchendo a lista com cards
         for(i  in retorno){

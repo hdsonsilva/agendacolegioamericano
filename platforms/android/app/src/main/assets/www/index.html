@@ -85,7 +85,8 @@
         exibir_usuarios(JSON.parse(localStorage.getItem('usuarios_salvos')));
         //Faz login automático para um usuario apenas
         usuarios = JSON.parse(localStorage.getItem('usuarios_salvos'));
-        if(usuarios.length == 1){
+        /*Comentado para nao fazer login automatico*/
+        if(usuarios.length == 0){
           //Pega Usuario
           
           buscarDadosUsuario(usuarios[0]['codigo']);

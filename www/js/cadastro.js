@@ -55,7 +55,10 @@ function cadastro(unidade, usuario, senha, foto, app_){
 
                   if(confere_insercao == 1 ){
                       
-                      msg = 'Usuário já existe.';
+                      msg = 'Usuário já existe. Remova os usuários e tente novamente.';
+                      $('#progress').hide();
+                      ons.notification.toast(msg, {timeout: 3000});
+                      $('#button').show();
                     
                   }
                   else{
