@@ -33,11 +33,11 @@ if(retornos['boletos'].length > 0 ){
     $('#pageFinanceiroList').html($('#pageFinanceiroList').html()+conteudo_lista);
     //Adicionando o click para exibir os boletos
     $('.meuboleto').click(function(){
-        abrirNavigator($(this).attr('valor'),1);
+        abrirNavigator($(this).attr('valor'),'forcar');
     });
 
     $('.gerarirrf').click(function(){
-       abrirNavigator(server1+localStorage.getItem('unidade')+"/webServices/buscaquitacaoanualdebitowsadx.php?ano="+ano+"&matricula="+localStorage.getItem('login_username')+"&unidade=adx_"+localStorage.getItem('unidade'), 1); 
+       abrirNavigator(server1+localStorage.getItem('unidade')+"/webServices/buscaquitacaoanualdebitowsadx.php?ano="+ano+"&matricula="+localStorage.getItem('login_username')+"&unidade=adx_"+localStorage.getItem('unidade'), 'forcar'); 
     });
     //Exibindo a linha digitavel daquele boleto
     $('.minhalinhadigitavel').click(function(){

@@ -1,3 +1,46 @@
+function esqueceusenha(unidade, username){
+
+        
+      $.ajax({
+        type: 'POST',
+        timeout: 5000,
+         url : server1 +unidade + '/alteraSenhaExterno/trata_ajax_senha_externo.php',
+        cache: false,
+        data: {
+          'login'  : username,
+          'unidade'  : unidade ,
+          'requisicao'    : 'solicita_troca_senha'
+        },
+        success:function(ret){
+          //Se retornar um token valido de acesso
+         if(ret.length > 200){
+                    // houve um erro e foi exibido o html inteiro da solicitação
+                    alert("Houve um erro ao realizar sua solicitação, tente novamente em instantes.");
+                    
+        }
+        else{
+            ons.notification.alert(ret);
+
+            setTimeout(function(){
+              window.location.href = './index.html';
+
+              }
+              ,5000);
+        }
+          
+        },
+        error: function (e){
+          ons.notification.toast('Erro ao conectar. Verifique sua conexão.', {timeout: 2000});
+          $('#button').show();
+          $('#progress').hide();
+        },
+        dataType:'html',
+        async: true
+    }); 
+
+
+}
+
 function cadastro(unidade, usuario, senha, foto, app_){
       console.log(unidade);
         var username = usuario ;
