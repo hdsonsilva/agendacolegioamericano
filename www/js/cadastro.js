@@ -188,7 +188,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
 function exibir_usuarios(usuarios){
   var item = '' ;
   var foto = '';
-  item += "<ons-list-header>Usuários Cadastrados:</ons-list-header>";
+  item += "<ons-list-header style='text-align:center;font-size:14pt'>Usuários Cadastrados:</ons-list-header>";
   for(i in usuarios){
     
     if(usuarios[i]['foto']){
