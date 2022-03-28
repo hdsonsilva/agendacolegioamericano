@@ -27,4 +27,12 @@ var recadotipo = 'nao-lidos';
 
 localStorage.setItem('app_timeverify_auth', 180000);
 localStorage.setItem('idonesignal', idonesignal);
-localStorage.setItem('periodoletivo', '2022');
+
+var Xmas = new Date();
+var year = Xmas.getFullYear(); //Começamos sempre com o ano atual
+
+
+if(!localStorage.getItem('periodoletivo')){
+	localStorage.setItem('periodoletivo', year);
+}
+

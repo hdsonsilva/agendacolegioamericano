@@ -1,3 +1,18 @@
+function addOption(valor) {
+    const option = document.createElement('option');
+    var text = valor ;
+    option.innerText = text;
+    text = '';
+    document.getElementById('periodo_letivo').appendChild(option);
+}
+
+function setarPeriodoLetivo(){
+
+  localStorage.setItem('periodoletivo', $('#periodo_letivo').val());
+
+  setTimeout(function(){window.location.href = './app.html';},500);
+}
+
 function exibeMensagem(page){
   if(page == 'tarefas'){
     if(controle_mensagem_atualizar == 0){

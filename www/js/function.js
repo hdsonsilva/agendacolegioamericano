@@ -1,3 +1,10 @@
+function setarPeriodoLetivo(){
+
+  localStorage.setItem('periodoletivo', $('#periodo_letivo').val());
+
+  setTimeout(function(){window.location.href = './app.html';},500);
+}
+
 function exibeMensagem(page){
   if(page == 'tarefas'){
     if(controle_mensagem_atualizar == 0){

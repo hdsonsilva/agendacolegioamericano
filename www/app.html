@@ -68,21 +68,28 @@
       //Verificando se tem alguma ação  a ser feita: esperando um tempo para chamar o metodo
       retorno = retornaparametro();
       setTimeout(exibirtab, 500, retorno);
-
       
+      /*
       document.addEventListener('deviceready', function () {
           // cordova.plugins.backgroundMode is now available
           cordova.plugins.backgroundMode.enable();
 
-      }, false);
+      }, false);*/
 
       setTimeout(
         function(){
-          $('#buttontop').css('width',$('#ladoesquerdo').css('width'));    
+          $('#buttontop').css('width',$('#ladoesquerdo').css('width')); 
+          $('#periodo_letivo > select').html('');
+          for(i = year ; i >= (year-3); i--){
+            $('#periodo_letivo > select').html($('#periodo_letivo').html()+ "<option value='"+i+"'>"+i+"</option>");
+            
+          }
+
+          $('#periodo_letivo').val(localStorage.getItem('periodoletivo'));
         },
         500);
       
-
+      
     });
 
 
