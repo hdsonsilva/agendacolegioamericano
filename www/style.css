@@ -15,6 +15,106 @@ ons-splitter-side[side="left"][animation="overlay"] {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+#mensagensdetalhe{
+  overflow:auto;
+  border-bottom: 1px solid gray;
+}
+.titulomsg{
+  
+  color: rgb(110, 132, 163);
+  font-family: Cerebri Sans, sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 22.5px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+  text-align: left;
+}
+.corpomsg{
+
+  color: rgb(90, 92, 123);
+  font-family: Cerebri Sans, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22.5px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+  text-align: left;
+}
+.rodapedireita{
+  float: right;
+  margin-top: 16px;
+}
+.rodapemsg{
+  
+  color: rgb(110, 132, 163);
+  font-family: Cerebri Sans, sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 22.5px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+  text-align: left;
+}
+.textareamsg{
+  width: 75% !important; 
+  text-align: left !important;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.divmensagemaluno{
+  width: 100%;
+  text-align: right;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.msgaluno{
+  
+  width: 70% !important;
+  border: 1px solid #9adaf4;; 
+  border-radius: 8px;
+  margin: 10px;
+  padding: 5px;
+  text-align: left;
+  float:right;
+  background: rgb(200, 234, 248);
+  color: #6e84a3;
+  box-shadow: 5px 5px 5px #dee0e3;
+  font-size:10pt;
+  
+}
+
+.msgescola{
+  
+  width: 70% !important;
+  border: 1px solid #bdbcbc; 
+  border-radius: 8px;
+  margin: 10px;
+  padding: 5px;
+  text-align: left;
+  float:left;
+  background: rgb(204, 206, 224);
+  color: #6e84a3;
+  box-shadow: 5px 5px 5px #dee0e3;
+  font-size:10pt;
+  
+}
+
+.divcaixatextareamsg{
+  width: 100% !important; 
+  height: 100px;
+  position: fixed;
+  bottom: 0px;
+  right: -5px;
+}
+.caixatextareamsg{
+  text-align: left;
+}
+#idcadastrarnovorecado{
+ text-align: right; 
+}
+
 .hudson{
   background-image: './img/header.png' !important;
 }
@@ -24,9 +124,9 @@ ons-splitter-side[side="left"][animation="overlay"] {
 }
 
 .font_text{
-  font-size: 10pt;
+  font-size: 11pt;
   text-align:justify;
-  color:gray; 
+  color: #373737 !important;
 }
 .font_pergunta{
   font-size: 13pt;
@@ -90,6 +190,18 @@ ons-splitter-side[side="left"][animation="overlay"] {
   color:#20457d; 
   font-weight: 700;
 }
+.msg_titulo{
+  font-size: 8pt;
+  text-align: left;
+  color:#20457d; 
+  font-weight: 700;
+}
+.msg_last{
+  font-size: 8pt;
+  text-align: left;
+  color:#20457d; 
+  
+}
 
 .font_tam2{
   font-size: 10pt;
@@ -141,6 +253,18 @@ ons-splitter-side[side="left"][animation="overlay"] {
         text-align: center;
         vertical-align: bottom;
         display: none;
+}
+.positionlibrary{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width:100%;
+        height: 100%;
+        z-index: 999999;
+        background:white;
+        text-align: center;
+        display: none;
+        overflow:auto; 
 }
 .positioncontrolcamerabotton{
   position: absolute;

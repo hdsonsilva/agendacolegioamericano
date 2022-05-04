@@ -42,8 +42,7 @@
         -webkit-box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.77);
         -moz-box-shadow:    1px 1px 20px rgba(50, 50, 50, 0.77);
         box-shadow:         1px 1px 20px rgba(50, 50, 50, 0.77);
-        font-family: Arial;
-        color: gray;
+        
      }
      .list-item_foto {
         width: 100px;
@@ -81,6 +80,7 @@
     <script src="./scripts/index.js"></script>
     <script src="./js/cadastro.js"></script>
     <script src="./js/function.js"></script>
+    <script src="./js/galeria.js"></script>
     <script type="text/javascript">
     var auth_check ;
     var foto;
@@ -151,8 +151,15 @@
 
 
     $('#iniciargaleria').click(function(){
-      $('.escolherfoto').hide();
-      $('#foto_upload').trigger('click');  
+      //$('.escolherfoto').hide();
+      //$('#foto_upload').trigger('click');  
+
+      $('.positionlibrary').show();
+      setTimeout(function(){
+        galery.initialize();
+        galery.requestAuthorization();
+      },500);
+
     });
 
     $('#fecharescolherfoto').click(function(){
@@ -161,6 +168,11 @@
 
     $('#iniciarcamera').click(function(){
       $('.escolherfoto').hide();
+      
+      $('.positioncontrolcamera').show();
+      $('.positioncontrolcamerabotton').show();
+      $('.positioncontrolcamerabottonvoltar').show();
+      $('.positioncontrolcamerabottonswitch').show();
       
       //$('#foto_upload').trigger('click');
       let altura, largura, larguracamera ;
@@ -183,10 +195,10 @@
     };
 
     CameraPreview.startCamera(options, function(){
-        $('.positioncontrolcamera').show();
-        $('.positioncontrolcamerabotton').show();
-        $('.positioncontrolcamerabottonvoltar').show();
-         $('.positioncontrolcamerabottonswitch').show();
+        //$('.positioncontrolcamera').show();
+        //$('.positioncontrolcamerabotton').show();
+        //$('.positioncontrolcamerabottonvoltar').show();
+        //$('.positioncontrolcamerabottonswitch').show();
     });
 
     
@@ -257,7 +269,7 @@
 
    
     </script>
-
+   
     <div class='login'>
         <div class='interno'>
         
@@ -273,7 +285,8 @@
             <option value="col_serra">Colégio Americano - Serra</option>
             <option value="col_vila">Colégio Americano - Vila Velha</option>
             <option value="col_vitoria">Colégio Americano - Vitória</option>
-            <option value="col_liber_ctga">Escola Liber Caratinga</option>
+            <option value="novocolegio">[NEW ENTRY] </option> 
+            <option value="col_liber_ctga">Escola Liber</option>
         </ons-select>
         </p>
         
@@ -305,7 +318,7 @@
             Você deve usar o usuário e senha que já possui. Caso não saiba seus dados, procure a sua unidade e solicite os mesmos.<br>
             A agenda é acessada usando seu usuário e senha do sistema web AdX.
             <br><br>
-            Fale conosco: 0800 033 1100
+            Dúvidas? Fale conosco: 0800 033 1100
         </p>
         
     </div>
@@ -327,6 +340,11 @@
           <ons-icon icon="md-camera-switch"></ons-icon> Alterar
         </ons-fab></div>
     </div>
+
+    <div  class='positionlibrary'>
+        
+    </div>
+    
     <ons-alert-dialog id="alert-dialog" modifier="rowfooter" >
     <div class="alert-dialog-title">Exclusão de usuários</div>
     <div class="alert-dialog-content">

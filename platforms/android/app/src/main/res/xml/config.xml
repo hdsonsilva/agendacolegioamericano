@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.agenda.americano2" version="2.5.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
+<widget id="io.agenda.americano2" version="2.5.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
+    <feature name="PhotoViewer">
+        <param name="android-package" value="com.sarriaroman.PhotoViewer.PhotoViewer" />
+    </feature>
     <feature name="Permissions">
         <param name="android-package" value="com.android.plugins.Permissions" />
     </feature>
@@ -19,12 +22,22 @@
         <param name="android-package" value="com.cordovaplugincamerapreview.CameraPreview" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="PhotoLibrary">
+        <param name="android-package" value="com.terikon.cordova.photolibrary.PhotoLibrary" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvphotolibrary:*" />
     <feature name="Photos">
         <param name="android-package" value="com.domax.cordova.Photos" />
     </feature>
@@ -34,9 +47,6 @@
     </feature>
     <feature name="OneSignalPush">
         <param name="android-package" value="com.onesignal.cordova.OneSignalPush" />
-    </feature>
-    <feature name="PhotoViewer">
-        <param name="android-package" value="com.sarriaroman.PhotoViewer.PhotoViewer" />
     </feature>
     <name>Agenda Colégio Americano 2.0</name>
     <description>
@@ -48,9 +58,10 @@
     <content src="index.html" />
     <gap:plugin name="onesignal-cordova-plugin" source="npm" spec="2.11.0" />
     <access origin="*" />
+    <allow-navigation href="http://192.168.10.240/*" />
+    <allow-intent href="market:*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
-    <allow-intent href="market:*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
     <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -66,8 +77,8 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="KeepRunning" value="true" />
     <preference name="phonegap-version" value="cli-10.0.0" />
-    <preference name="android-build-tool" value="gradle" />
-    <preference name="android-minSdkVersion" value="27" />
+    <preference name="android-minSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="30" />
     <preference name="Orientation" value="portrait" />
     <preference name="windows-appx-target" value="8.1-phone" />
     <preference name="WindowsToastCapable" value="true" />

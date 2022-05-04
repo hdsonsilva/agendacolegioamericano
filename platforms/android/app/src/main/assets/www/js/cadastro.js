@@ -175,6 +175,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
               },
               error:function(e){
                 $('#progress').hide();
+                //alert(JSON.stringify(e));
                 ons.notification.toast('Falha ao conectar. Verifique sua conexão.', {timeout: 3000});
                 $('#button').show();
               },

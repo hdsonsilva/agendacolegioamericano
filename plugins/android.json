@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
@@ -27,6 +30,9 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
+    "cordova-plugin-photo-library": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
     "cordova-plugin-photos": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
@@ -35,13 +41,13 @@
     },
     "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "io.agenda.americano2"
-    },
-    "com-sarriaroman-photoviewer": {
-      "PACKAGE_NAME": "io.agenda.americano2"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "io.agenda.americano2"
     }
   }

@@ -103,8 +103,8 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../onesignal-cordova-plugin/americano2-build-extras-onesignal.gradle"
 apply from: "../com-sarriaroman-photoviewer/americano2-photoviewer.gradle"
+apply from: "../onesignal-cordova-plugin/americano2-build-extras-onesignal.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()

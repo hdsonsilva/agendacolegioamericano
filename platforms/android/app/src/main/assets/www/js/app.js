@@ -23,3 +23,10 @@ document.addEventListener('init', function(event) {
     }
   }
 });
+
+$(document).ready(function(){
+
+  $('#mensagemnovorecado').focus(function(){
+      $(this).prop('rows', 5);
+  });
+});

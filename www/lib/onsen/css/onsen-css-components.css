@@ -113,9 +113,10 @@ h4, h5, h6 {
   box-sizing: border-box;
 }
 .page--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'Roboto', 'Noto', , sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
+  color: #373737 !important;
 }
 .page--material__content {
   font-family: 'Roboto', 'Noto', sans-serif;

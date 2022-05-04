@@ -28,6 +28,7 @@ function buscaAcoes(acao,dados, tipo){
             showModal('show');
         },
         success: function (ret) {
+             console.log(ret);
             if(debug == 1){
                 console.log(ret);
             }
