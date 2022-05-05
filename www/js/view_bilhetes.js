@@ -85,7 +85,7 @@ function view_bilhetes(retornos){
             buscarMensagensDetalhadas(msgs,tipocontato,codigocontato);
             
 
-            $("#mensagensdetalhe").animate({ scrollTop: 1000 }, 1000);
+            //$("#mensagensdetalhe").animate({ scrollTop: 1000 }, 1000);
 
             /*Acao enviar o recado digitado */
             $('#idcadastrarnovorecado').unbind('click');
@@ -177,10 +177,7 @@ function buscarMensagensDetalhadas(msgs,tipocontato,codigocontato){
             else{
              exibeMsg(dados,'escola');       
             }
-        }
-
-
-        
+        }        
     }
     
 }
@@ -189,6 +186,7 @@ function mensagemAgrupada(dados){
     let conteudobotao;
 
     if(dados[0]){
+
         conteudobotao = '<ons-list-item tappable class="verdetalhemsg" nome="'+dados[0]+'" dep="'+dados[5]+'">' +
               '<label class="left">' +
                '<ons-icon style="color: #2c7be5; padding-left: 2px" icon="md-group-work, material:md-group-work" size="36px, material:36px"></ons-icon>' +
@@ -205,13 +203,14 @@ function mensagemAgrupada(dados){
 
     }
     else{
+
         conteudobotao = '<ons-list-item tappable  nome="'+dados[1]+'" class="verdetalhemsg" prof="'+dados[4]+'">' +
               '<label class="left">' +
                '<ons-icon style="color: #2c7be5; padding-left: 2px" icon="md-account-box, material:md-account-box" size="36px, material:36px"></ons-icon>' +
               '</label>' +
               '<div class="center">' +
                 '<font class="msg_titulo">'+dados[1]+'</font>' +
-                '<br><br>' +
+                '<br>' +
                 '<font class="msg_last">'+dados[7]+'</font>' +
               '</div>' +
               '<div class="right">' +
@@ -221,5 +220,4 @@ function mensagemAgrupada(dados){
     }
 
     return conteudobotao;
-
 }
