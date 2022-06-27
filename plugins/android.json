@@ -30,10 +30,10 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
-    "cordova-plugin-photo-library": {
+    "cordova-plugin-pdf-viewer": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
-    "cordova-plugin-photos": {
+    "cordova-plugin-photo-library": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
     "cordova-plugin-splashscreen": {

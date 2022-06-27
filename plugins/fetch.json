@@ -31,14 +31,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-photos": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-photos@^1.0.9"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-compat": {
     "source": {
       "type": "registry",
@@ -112,5 +104,29 @@
     "variables": {
       "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Para selecionar Fotos"
     }
+  },
+  "cordova-plugin-file-transfer": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file-transfer@>=1.6.3"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-network-information": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-network-information@>=1.3.3"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-pdf-viewer": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-pdf-viewer@^0.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

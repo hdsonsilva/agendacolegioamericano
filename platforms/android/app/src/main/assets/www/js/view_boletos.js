@@ -33,7 +33,8 @@ if(retornos['boletos'].length > 0 ){
     $('#pageFinanceiroList').html($('#pageFinanceiroList').html()+conteudo_lista);
     //Adicionando o click para exibir os boletos
     $('.meuboleto').click(function(){
-        abrirNavigator($(this).attr('valor'),'forcar');
+        //abrirNavigator($(this).attr('valor'),'forcar');
+        abrirPDF($(this).attr('valor'));
     });
 
     $('.gerarirrf').click(function(){

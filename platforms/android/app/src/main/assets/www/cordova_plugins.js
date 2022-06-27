@@ -269,6 +269,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-pdf-viewer.PDFViewer",
+      "file": "plugins/cordova-plugin-pdf-viewer/www/pdfviewer.js",
+      "pluginId": "cordova-plugin-pdf-viewer",
+      "clobbers": [
+        "PDFViewer"
+      ]
+    },
+    {
       "id": "cordova-plugin-photo-library.PhotoLibrary",
       "file": "plugins/cordova-plugin-photo-library/www/PhotoLibrary.js",
       "pluginId": "cordova-plugin-photo-library",
@@ -285,14 +293,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "id": "cordova-plugin-photo-library.async_map",
       "file": "plugins/cordova-plugin-photo-library/www/async/dist/async.min.map",
       "pluginId": "cordova-plugin-photo-library"
-    },
-    {
-      "id": "cordova-plugin-photos.Photos",
-      "file": "plugins/cordova-plugin-photos/www/Photos.js",
-      "pluginId": "cordova-plugin-photos",
-      "clobbers": [
-        "Photos"
-      ]
     },
     {
       "id": "cordova-plugin-splashscreen.SplashScreen",
@@ -341,10 +341,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-geolocation": "4.1.0",
     "cordova-plugin-inappbrowser": "5.0.0",
+    "cordova-plugin-pdf-viewer": "0.0.1",
     "cordova-plugin-photo-library": "2.2.1",
-    "cordova-plugin-photos": "1.0.9",
     "cordova-plugin-splashscreen": "6.0.0",
-    "onesignal-cordova-plugin": "3.0.0",
-    "cordova-plugin-whitelist": "1.3.4"
+    "onesignal-cordova-plugin": "3.0.0"
   };
 });

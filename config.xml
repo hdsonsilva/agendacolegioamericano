@@ -23,8 +23,13 @@
 
     <platform name="android">
         <allow-intent href="market:*" />
-
-        
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+        <platform name="android">
+          <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            
+          </config-file>
+        </platform>
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />

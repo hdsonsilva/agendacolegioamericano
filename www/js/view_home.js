@@ -19,7 +19,7 @@ function view_home(retornos){
     //Preenchendo a lista com cards
     for(i  in retorno){
 
-        conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelhome' valor='"+(retorno[i]['url_destino'])+"'" : (retorno[i]['arquivo'] ? "class='imagemview' imagem='"+(retorno[i]['arquivo'])+"'" : " ")  )+"><font class='font_tam1'>"+(retorno[i]['data_inicio'])+" - "+(retorno[i]['assunto'])+"</font>";
+        conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelhome' valor='"+(retorno[i]['url_destino'])+"'" : (retorno[i]['arquivo'] ? "class='imagemview' loading='lazy' imagem='"+(retorno[i]['arquivo'])+"'" : " ")  )+"><font class='font_tam1'>"+(retorno[i]['data_inicio'])+" - "+(retorno[i]['assunto'])+"</font>";
         conteudo_lista += "<br><br>";
         conteudo_lista += "<font class='font_text'>"+(retorno[i]['arquivo'] ? "<img width='100%' src='"+(retorno[i]['arquivo']).replace("http://", "https://")+"'><br>" : "")+quebraLinha(retorno[i]['mensagem'])+"</font>";
         conteudo_lista += "</ons-card>";

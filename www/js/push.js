@@ -1,8 +1,8 @@
 ///////////////// PUSH NOTIFICATION ////////////////////////////////////////
      document.addEventListener('deviceready', function () {
-        //Desativar botao voltar
         
-
+        
+        //Desativar botao voltar
         document.addEventListener("backbutton", function(){navigator.app.exitApp();} , false);
       
    

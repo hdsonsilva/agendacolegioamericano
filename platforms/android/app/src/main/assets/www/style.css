@@ -15,6 +15,23 @@ ons-splitter-side[side="left"][animation="overlay"] {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.envioindividual{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: : 5px !important;
+  margin-right: 5px;
+  right: -5px;
+  text-align: center;
+}
+
+.envioindividualerro{
+  padding-top: 45%;
+  text-align: center;
+  vertical-align: middle;
+  overflow-y: hidden;
+  
+}
+
 #mensagensdetalhe{
   overflow:auto;
   border-bottom: 1px solid gray;

@@ -2,17 +2,16 @@
   "devDependencies": {
     "com-sarriaroman-photoviewer": "^1.2.5",
     "cordova-android": "^10.0.0",
-    "cordova-browser": "^6.0.0",
     "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-background-mode": "^0.7.3",
     "cordova-plugin-camera": "^6.0.0",
     "cordova-plugin-camera-preview": "^0.12.3",
-    "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
-    "cordova-plugin-photos": "^1.0.9",
+    "cordova-plugin-pdf-viewer": "^0.0.1",
     "cordova-plugin-splashscreen": "^6.0.0",
+    "cordova-plugin-zip": "^3.1.0",
     "onesignal-cordova-plugin": "^3.0.0"
   },
   "cordova": {
@@ -23,7 +22,6 @@
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
       },
-      "cordova-plugin-photos": {},
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-camera": {},
       "onesignal-cordova-plugin": {},
@@ -31,10 +29,10 @@
       "com-sarriaroman-photoviewer": {},
       "cordova-plugin-photo-library": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Para selecionar Fotos"
-      }
+      },
+      "cordova-plugin-pdf-viewer": {}
     },
     "platforms": [
-      "browser",
       "android"
     ]
   },

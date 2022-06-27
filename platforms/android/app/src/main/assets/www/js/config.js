@@ -1,8 +1,9 @@
-//var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
-//var server = "https://adx.doctum.edu.br/adx/unidades/";
+var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
+var server = "https://adx.doctum.edu.br/adx/unidades/";
 
-var server1 = 'http://192.168.10.240/user/rodrigo.melo/';
-var server = 'http://192.168.10.240/user/rodrigo.melo/';
+// var server1 = 'http://192.168.10.240/user/rodrigo.melo/';
+// var server =  'http://192.168.10.240/user/rodrigo.melo/';
+
 var url_upload_foto = 'alunos/api/embarque/atualiza-foto' ;
 //Nome do Aplicativo
 var appName = 'Agenda Colégio Americano' ;
@@ -13,7 +14,7 @@ var url_auth =  'fer/apitoken/cria_token.php';
 var server_action = server + 'testeretorno.php';
 
 var idonesignal = "1d5f8556-9c36-4f2e-8367-8cc21d12ae1d";
-var debug = 1 ;
+var debug = 0 ;
 
 var controle_mensagem_atualizar = 1;
 

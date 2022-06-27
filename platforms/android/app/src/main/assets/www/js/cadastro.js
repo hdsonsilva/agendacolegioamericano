@@ -128,7 +128,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
                       
                       $.ajax({
                         type: 'POST',
-                        url : server1 + unidade + '/' + url_upload_foto + '?apitoken='+ ret.token,
+                        url : server1 + unidade + '/' + url_upload_foto + '?apitoken='+ ret.token+'&periodo_letivo='+localStorage.getItem('periodoletivo'),
                         cache: false,
                         timeout: 20000,
                         dataType:'json',

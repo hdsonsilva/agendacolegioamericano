@@ -3,7 +3,7 @@
 <html lang="en" ng-app="app" ng-csp>
 <head>
     <meta charset="utf-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
     <meta name="mobile-web-app-capable" content="yes" />
 
     <!-- CSS dependencies -->
@@ -151,15 +151,15 @@
 
 
     $('#iniciargaleria').click(function(){
-      //$('.escolherfoto').hide();
-      //$('#foto_upload').trigger('click');  
+      $('.escolherfoto').hide();
+      $('#foto_upload').trigger('click');  
 
-      $('.positionlibrary').show();
+      /*$('.positionlibrary').show();
       setTimeout(function(){
         galery.initialize();
         galery.requestAuthorization();
-      },500);
-
+      },500);*/
+    
     });
 
     $('#fecharescolherfoto').click(function(){
@@ -285,7 +285,7 @@
             <option value="col_serra">Colégio Americano - Serra</option>
             <option value="col_vila">Colégio Americano - Vila Velha</option>
             <option value="col_vitoria">Colégio Americano - Vitória</option>
-            <option value="novocolegio">[NEW ENTRY] </option> 
+            <!-- <option value="novocolegio">[MODELO] </option>  -->
             <option value="col_liber_ctga">Escola Liber</option>
         </ons-select>
         </p>

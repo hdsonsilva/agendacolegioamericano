@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Agenda Escolar</title>
-<script src="./cordova.js"></script> 
   <script src="lib/onsen/js/onsenui.js"></script>
    <script src="js/config.js"></script>
   
   <script src="./js/jquery-3.4.1.js"></script>
+  <script src="./js/documentViewer.js"></script>
+  <script src="cordova.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
@@ -29,7 +30,7 @@
 
   <script src="./js/function.js"></script>
   <script src="./js/push.js"></script>
-  <script src="./js/background.js"></script>
+
 
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
@@ -93,7 +94,7 @@
       
     });
 
-
+    
   </script>
 
   <!-- First navigation component: Navigator. This will remain always on top of the app. -->
@@ -141,7 +142,7 @@
       
       <ons-tabbar id="myTabbar" swipeable position="bottom">
 
-        <ons-tab id='activehome' page="html/home_page.html"   label="Home"  icon="fa-home">
+        <ons-tab id='activehome' page="html/home_page.html" active  label="Home"  icon="fa-home">
         </ons-tab>
 
         <ons-tab id='activeAgenda' label="Agenda" page="html/page_agenda.html" icon="fa-calendar">
@@ -152,7 +153,7 @@
         </ons-tab>
         <!-- <ons-tab id='activeBilhetes' page="html/page_novorecado.html" label="Recados" icon="fa-comment">
         </ons-tab> -->
-        <ons-tab id='activeBilhetes' page="html/page_bilhetes.html"  active label="Recados" icon="fa-comment">
+        <ons-tab id='activeBilhetes' page="html/page_bilhetes.html" label="Recados" icon="fa-comment">
         </ons-tab>
 
 
