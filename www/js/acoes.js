@@ -17,7 +17,7 @@ function buscaAcoes(acao,dados, tipo){
         dataType: 'json',
         url: url,
         cache: false, //Nao fazer cache
-        timeout: 10000, //10 segundos
+        timeout: 20000, //10 segundos
         data: dados,
         dataType: 'json',
         async: true, //Esperar retorno para continuar codigo

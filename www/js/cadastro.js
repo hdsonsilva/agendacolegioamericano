@@ -53,7 +53,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
               type: 'POST',
               url : server1 + unidade + '/' + url_auth,
               cache: false,
-              timeout: 5000,
+              timeout: 15000,
               data: {
                 'usuario'  : username,
                 'senha'  : password,
@@ -130,7 +130,7 @@ function cadastro(unidade, usuario, senha, foto, app_){
                         type: 'POST',
                         url : server1 + unidade + '/' + url_upload_foto + '?apitoken='+ ret.token+'&periodo_letivo='+localStorage.getItem('periodoletivo'),
                         cache: false,
-                        timeout: 20000,
+                        timeout: 30000,
                         dataType:'json',
                         async: true,
                         data: {
@@ -189,9 +189,11 @@ function cadastro(unidade, usuario, senha, foto, app_){
 function exibir_usuarios(usuarios){
   var item = '' ;
   var foto = '';
-  item += "<ons-list-header style='text-align:center;font-size:14pt'>Usuários Cadastrados:</ons-list-header>";
+  var j ;
+  
+  j = 0 ;
   for(i in usuarios){
-    
+      
     if(usuarios[i]['foto']){
       foto = usuarios[i]['foto'];
     }
@@ -199,9 +201,15 @@ function exibir_usuarios(usuarios){
       foto = './img/quad.png';
     }
     item+= "<ons-list-item modifier='chevron' tappable class='1usuario' codigo='"+(usuarios[i]['codigo'])+"'><div class='left'><img class='list-item__thumbnail' src='"+foto+"'></div><div class='center'>";
-    item+= "    <span class='list-item__title'>"+(usuarios[i]['nome'])+"</span><span class='list-item__subtitle'>"+(usuarios[i]['usuario'])+"</span></div>";
+    item+= "    <span class='list-item__title font_users'>"+(usuarios[i]['nome'])+"</span><span class='list-item__subtitle'>"+(usuarios[i]['usuario'])+"</span></div>";
     item+= "</ons-list-item>";
-
+    j++;
+  }
+  if(j > 1){
+    item = "<ons-list-header style='text-align:center;font-size:14pt'> Usuário(s)</ons-list-header><hr>" + item;
+  }
+  else{
+    item = "<ons-list-header style='text-align:center;font-size:14pt'> Usuário</ons-list-header><hr>" + item;
   }
 
   $('#exibicao_usuarios').html(item);
