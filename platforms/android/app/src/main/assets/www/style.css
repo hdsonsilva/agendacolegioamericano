@@ -207,6 +207,64 @@ ons-splitter-side[side="left"][animation="overlay"] {
   color:#20457d; 
   font-weight: 700;
 }
+.bordas{
+  
+}
+.baloes_blue{
+  background:#4169E1;
+  font-size:11pt;
+  font-weight:700;
+  padding:4px;
+  position: relative !important;
+  height: 100% !important;
+}
+ .font_users{
+    font-size: 10pt !important;
+ }
+.baloes_green{
+  background:#008000;
+  font-size:11pt;
+  font-weight:700;
+  padding:4px;
+  position: relative !important;
+  height: 100% !important;
+}
+.baloes_red{
+  background:#FF4500;
+  font-size:11pt;
+  font-weight:700;
+  padding:4px;
+  position: relative !important;
+  height: 100% !important;
+}
+.baloes_orange{
+  background:#F4A460;
+  font-size:11pt;
+  font-weight:700;
+  padding:4px;
+  position: relative !important;
+  height: 100% !important;
+}
+.baloes_gray{
+  background:#B0C4DE;
+  color: white;
+  font-size:11pt;
+  font-weight:700;
+  padding:4px;
+  position: relative !important;
+  height: 100% !important;
+}
+.font_tam2{
+  font-size: 10pt;
+  text-align: left;
+  color:#20457d; 
+}
+.font_tam3{
+  font-size: 12pt;
+  text-align: left;
+  color:#20457d; 
+  font-weight: 700;
+}
 .msg_titulo{
   font-size: 8pt;
   text-align: left;
@@ -220,11 +278,6 @@ ons-splitter-side[side="left"][animation="overlay"] {
   
 }
 
-.font_tam2{
-  font-size: 10pt;
-  text-align: left;
-  color:#20457d; 
-}
 
 .font_notastam1{
   font-size: 12pt;
