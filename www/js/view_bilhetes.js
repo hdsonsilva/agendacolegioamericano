@@ -2,6 +2,7 @@ function view_bilhetes(retornos){
 
     let retorno = retornos['mensagensAgrupadas'];
     let msgs    = retornos['mensagensAluno'];
+    let docentes= retornos['docentes'];
     var i ;
     var conteudo_lista = '';
     var conteudobotao = '';
@@ -142,7 +143,7 @@ function view_bilhetes(retornos){
 
             $('#mensagensdetalhe').height( ($('#pageNovoRecado').height() - $('#titulomsg').height() - $('#mensagemnovorecado').height() - 50)  );
 
-            buscarMensagensDetalhadas(msgs,tipocontato, codigocontato);
+            buscarMensagensDetalhadas(msgs,tipocontato, codigocontato,docentes);
             
             /*Acao enviar o recado digitado */
             $('#idcadastrarnovorecado').unbind('click');
@@ -223,15 +224,19 @@ function quebra_de_linha(texto){
 
 function retira_br(texto){
  
-
-    let ocorrencias = (texto.match(/<br>/g) || []).length;
-    for(i = 0 ; i < ocorrencias; i++){
-       texto = texto.replace("<br>"," ");
-    }
+    
+        
+        let ocorrencias = (texto.match(/<br>/g) || []).length;
+    
+        for(i = 0 ; i < ocorrencias; i++){
+           texto = texto.replace("<br>"," ");
+        }
+    
     return texto;
 }
 
-function buscarMensagensDetalhadas(msgs,tipocontato,codigocontato){
+
+function buscarMensagensDetalhadas(msgs,tipocontato,codigocontato,docentes){
     let posicao = tipocontato == 'prof' ? 4 : 5 ;
     let dados = new Array() ;
     for(i in msgs){
@@ -240,7 +245,6 @@ function buscarMensagensDetalhadas(msgs,tipocontato,codigocontato){
     
             dados['msg'] = msgs[i][1];
             dados['hora'] = msgs[i][6];
-            dados['de'] = msgs[i][7];
             dados['visto'] = msgs[i][8];
             if(msgs[i]['7'] == null){
                 exibeMsg(dados,'aluno');    
@@ -274,8 +278,8 @@ function mensagemAgrupada(dados){
               '</label>' +
               '<div class="center">' +
                 '<font class="msg_titulo">'+dados[0]+'</font>' +
-                '<br><br>' +
-                '<font class="msg_last">'+retira_br(dados[8])+espacos(50)+'</font>' +
+                '' +
+                '<font class="msg_last">'+retira_br(dados[8])+espacos(60)+'</font>' +
               '</div>' +
               '<div class="right">' +
                 (dados[10] == "visto" || dados[10] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-ios-comment-text, material:md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
@@ -291,8 +295,8 @@ function mensagemAgrupada(dados){
               '</label><br>' +
               '<div class="center">' +
                 '<font class="msg_titulo">'+dados[1]+'</font>' +
-                '<br><br>' +
-                '<font class="msg_last">'+retira_br(dados[7])+espacos(50)+'</font>' +
+                '' +
+                '<font class="msg_last">'+retira_br(dados[7])+espacos(60)+'</font>' +
               '</div>' +
               '<div class="right">' +
                 (dados[9] == "visto" || dados[9] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-ios-comment-text, material:md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
