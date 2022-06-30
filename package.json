@@ -9,6 +9,7 @@
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
+    "cordova-plugin-pdf-viewer": "^0.0.1",
     "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-zip": "^3.1.0",
     "onesignal-cordova-plugin": "^3.0.0"
