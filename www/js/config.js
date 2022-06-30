@@ -1,8 +1,8 @@
-// var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
-// var server = "https://adx.doctum.edu.br/adx/unidades/";
+var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
+var server = "https://adx.doctum.edu.br/adx/unidades/";
 
-var server1 = 'http://192.168.10.240/user/sandro.junior/';
-var server =  'http://192.168.10.240/user/sandro.junior/';
+// var server1 = 'http://192.168.10.240/user/sandro.junior/';
+// var server =  'http://192.168.10.240/user/sandro.junior/';
 
 var url_upload_foto = 'alunos/api/embarque/atualiza-foto' ;
 //Nome do Aplicativo
