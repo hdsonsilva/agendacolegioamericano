@@ -33,9 +33,6 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <feature name="PDFViewer">
-        <param name="android-package" value="com.q4websystems.plugin.PDFViewer" />
-    </feature>
     <feature name="PhotoLibrary">
         <param name="android-package" value="com.terikon.cordova.photolibrary.PhotoLibrary" />
         <param name="onload" value="true" />

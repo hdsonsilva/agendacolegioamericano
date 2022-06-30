@@ -120,13 +120,5 @@
     },
     "is_top_level": false,
     "variables": {}
-  },
-  "cordova-plugin-pdf-viewer": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-pdf-viewer@^0.0.1"
-    },
-    "is_top_level": true,
-    "variables": {}
   }
 }
