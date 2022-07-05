@@ -90,7 +90,7 @@ function view_bilhetes(retornos){
             /*Criando seletor de professor e dep*/
             tmp = "";
             tmp += '<select class="select-input" id="destinatario" style="width:90%;">';
-            tmp +=  '<option value="">Departamento/Professor</option>';
+            tmp +=  '<option value="">Selecione</option>';
             tmp +=   montaOptions(retornos['departamentos'], 'dep');
             tmp +=   montaOptions(retornos['docentes'], 'prof');
             tmp +=  "</select>";
@@ -272,34 +272,34 @@ function mensagemAgrupada(dados){
 
     if(dados[0]){
 
-        conteudobotao = '<ons-list-item tappable class="verdetalhemsg" nome="'+dados[0]+'" dep="'+dados[12]+'">' +
+        conteudobotao = '<ons-list-item tappable class="verdetalhemsg" nome="'+dados[0]+'" dep="'+dados[12]+'"  style="height:60px">' +
               '<label class="left">' +
                '<ons-icon style="color: #2c7be5; padding-left: 2px" icon="md-group-work, material:md-group-work" size="36px, material:36px"></ons-icon>' +
               '</label>' +
-              '<div class="center">' +
+              '<div>' +
                 '<font class="msg_titulo">'+dados[0]+'</font>' +
-                '' +
-                '<font class="msg_last">'+retira_br(dados[8])+espacos(60)+'</font>' +
+                '<br>' +
+                '<font class="msg_last"> '+retira_br(dados[8])+espacos(6)+'</font>' +
               '</div>' +
-              '<div class="right">' +
-                (dados[10] == "visto" || dados[10] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-ios-comment-text, material:md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
+              '<div class="right" style="width:30px;height:60px">' +
+                (dados[10] == "visto" || dados[10] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
               '</div>' +
             '</ons-list-item>';
 
     }
     else{
 
-        conteudobotao = '<ons-list-item tappable  nome="'+dados[1]+'" class="verdetalhemsg" prof="'+dados[11]+'">' +
+        conteudobotao = '<ons-list-item tappable  nome="'+dados[1]+'" class="verdetalhemsg" prof="'+dados[11]+'" style="height:60px">' +
               '<label class="left">' +
                '<ons-icon style="color: #2c7be5; padding-left: 2px" icon="md-account-box, material:md-account-box" size="36px, material:36px"></ons-icon>' +
               '</label><br>' +
-              '<div class="center">' +
+              '<div>' +
                 '<font class="msg_titulo">'+dados[1]+'</font>' +
-                '' +
-                '<font class="msg_last">'+retira_br(dados[7])+espacos(60)+'</font>' +
+                '<br>' +
+                '<font class="msg_last"> '+retira_br(dados[7])+espacos(6)+'</font>' +
               '</div>' +
-              '<div class="right">' +
-                (dados[9] == "visto" || dados[9] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-ios-comment-text, material:md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
+              '<div  class="right" style="width:30px;height:60px">' +
+                (dados[9] == "visto" || dados[9] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
               '</div>' +
             '</ons-list-item>';
     }

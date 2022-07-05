@@ -58,16 +58,16 @@
 </head>
 <body>
 <ons-page  modifier="menu-page" >
-    <ons-toolbar>
+    <ons-toolbar style="background: #006e9c !important;color:white">
       <div class="left">
                      <!-- Toolbar-button  only visible for iOS/other. -->
-        <ons-toolbar-button id="bt_voltar" component="buttonreload">
+        <ons-toolbar-button id="bt_voltar" component="buttonreload" style="background: #006e9c !important;color:white">
           <!--<ons-icon icon="fa-undo"></ons-icon>-->
            <ons-icon icon="md-arrow-left"></ons-icon>
         </ons-button>
       </div>
 
-      <div class="center">Usuários</div>
+      <div class="center" style="background: #006e9c !important;color:white">Usuários</div>
 
       <div class="right">
                      
@@ -324,9 +324,7 @@
     </div>
     
     <div class='positionbottom'>
-        <ons-fab id="excluiruser">
-          <ons-icon icon="md-delete"></ons-icon> Apagar Usuários
-        </ons-fab>
+          <ons-button  id="excluiruser" class='minhalinhadigitavel'><ons-icon icon='md-delete'></ons-icon>  Excluir</ons-button>
     </div>
 
     <div  class='positioncontrolcamera'>
@@ -348,7 +346,7 @@
     <ons-alert-dialog id="alert-dialog" modifier="rowfooter" >
     <div class="alert-dialog-title">Exclusão de usuários</div>
     <div class="alert-dialog-content">
-      Atenção, essa ação irá apagar os usuários e senhas armazenados.<br><br>
+      Atenção, essa ação irá limpar os usuários e senhas armazenados.<br>Após a exclusão, você poderá inserí-los novamente<br>
       Deseja remover os usuários cadastrados no aplicativo? 
     </div>
     <div class="alert-dialog-footer">

@@ -21,7 +21,7 @@ function cadastronovamensagem(msg, tipomsg, valor, retorno){
               type: 'POST',
               url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/api/mural/cadastra-mensagens/?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
               cache: false,
-              timeout: 10000,
+              timeout: 15000,
               data: dados,
               beforeSend: function (e) {
                   //Colocando para transformar e tratar o resultado todo como um resultado iso
@@ -95,7 +95,7 @@ function marcarLidoAluno(tipomsg, valor){
               type: 'POST',
               url : server1 + localStorage.getItem('unidade') + '/' + 'alunos/api/mural/cadastra-recados/?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo'),
               cache: false,
-              timeout: 10000,
+              timeout: 15000,
               data: dados,
               beforeSend: function (e) {
                   //Colocando para transformar e tratar o resultado todo como um resultado iso

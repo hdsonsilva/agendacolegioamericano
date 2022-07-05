@@ -3,7 +3,7 @@ function esqueceusenha(unidade, username){
         
       $.ajax({
         type: 'POST',
-        timeout: 5000,
+        timeout: 15000,
          url : server1 +unidade + '/alteraSenhaExterno/trata_ajax_senha_externo.php',
         cache: false,
         data: {
