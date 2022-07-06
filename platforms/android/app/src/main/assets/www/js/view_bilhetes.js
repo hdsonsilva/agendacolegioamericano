@@ -279,7 +279,7 @@ function mensagemAgrupada(dados){
               '<div>' +
                 '<font class="msg_titulo">'+dados[0]+'</font>' +
                 '<br>' +
-                '<font class="msg_last"> '+retira_br(dados[8])+espacos(6)+'</font>' +
+                '<font class="msg_last"> '+retira_br(dados[8])+'</font>' +
               '</div>' +
               '<div class="right" style="width:30px;height:60px">' +
                 (dados[10] == "visto" || dados[10] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
@@ -296,7 +296,7 @@ function mensagemAgrupada(dados){
               '<div>' +
                 '<font class="msg_titulo">'+dados[1]+'</font>' +
                 '<br>' +
-                '<font class="msg_last"> '+retira_br(dados[7])+espacos(6)+'</font>' +
+                '<font class="msg_last"> '+retira_br(dados[7])+'</font>' +
               '</div>' +
               '<div  class="right" style="width:30px;height:60px">' +
                 (dados[9] == "visto" || dados[9] == "enviado_aluno" ?  '<ons-icon style="color: #DCDCDC; padding-left: 4px" icon="md-comment-text" size="24px, material:24px"></ons-icon>' : '<span class="notification notification--material" style="background:#DC143C;font-size:9pt">1</span>') +
