@@ -71,6 +71,10 @@
             {
               "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.onesignal.cordova.OneSignalPush\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -202,6 +206,9 @@
       "PACKAGE_NAME": "io.agenda.americano2"
     },
     "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-app-version": {
       "PACKAGE_NAME": "io.agenda.americano2"
     }
   },
@@ -528,6 +535,14 @@
       "id": "onesignal-cordova-plugin.Subscription",
       "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
       "pluginId": "onesignal-cordova-plugin"
+    },
+    {
+      "id": "cordova-plugin-app-version.AppVersionPlugin",
+      "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+      "pluginId": "cordova-plugin-app-version",
+      "clobbers": [
+        "cordova.getAppVersion"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -542,6 +557,7 @@
     "cordova-plugin-inappbrowser": "5.0.0",
     "cordova-plugin-photo-library": "2.2.1",
     "cordova-plugin-splashscreen": "6.0.0",
-    "onesignal-cordova-plugin": "3.0.0"
+    "onesignal-cordova-plugin": "3.0.0",
+    "cordova-plugin-app-version": "0.1.14"
   }
 }

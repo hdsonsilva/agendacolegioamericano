@@ -88,8 +88,14 @@
           }
 
           $('#periodo_letivo').val(localStorage.getItem('periodoletivo'));
+          //Incluindo versao no app
+          document.addEventListener('deviceready', function () {
+            cordova.getAppVersion.getVersionNumber().then(function (version) {
+              $('#VersaoSoftware').html("Versão App "+version);
+            });
+          });
         },
-        100);
+        500);
       
       
     });
