@@ -2,6 +2,7 @@ function view_detalhesnotas(retornos){
     var i ;
     var conteudo_lista = '';
     var retorno = retornos['notas'];
+    var x , y ;
     //Alterando título do app
     
     $('#tituloApp').html("Notas e Frequência");
@@ -12,19 +13,43 @@ if(retornos['notas']){
         
         for(j in retorno[i]){
             if(retorno[i][j]['trimestre']){
-                conteudo_lista += "<ons-card ><font class='font_tam1'>"+(retorno[i][j]['trimestre'])+"</font>";
-                conteudo_lista += "<table width='100%'><tr><td width='50%'><font class='font_tam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;Valor: " + retorno[i][j]['distribuido']+"&nbsp;&nbsp;</span></font></td>";
-                conteudo_lista += "<td width='50%' align='right'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;Nota: " + retorno[i][j]['pontuacao']+"&nbsp;&nbsp;</span></font></td></tr></table>";
+
+                x = parseFloat(retorno[i][j]['distribuido']);
+                y = parseFloat(retorno[i][j]['pontuacao']);
+                ap = parseInt(y/x*100);
+
+                conteudo_lista += "<ons-card style='border: 5px solid orange;'><font class='font_tam1'>"+(retorno[i][j]['trimestre'])+"</font>";
+                conteudo_lista += "<table width='100%'>";
+                conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'>Valor</font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Nota</font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Aproveitamento</font></td></tr>";
+                
+                conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;" + retorno[i][j]['distribuido'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+                conteudo_lista += "<td width='30%'  align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + retorno[i][j]['pontuacao'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + ap +"%&nbsp;&nbsp;</span></font></td></tr>";
+                
+                conteudo_lista += "</table>";
                 //conteudo_lista += "<br><font class='font_tam2'>Média da turma: " + (retorno[i]['media'])+"</font>";
                 //conteudo_lista += "<div class='align_direita'><ons-button class='minhalinhadigitavel'><ons-icon icon='fa-list'></ons-icon> Ver</ons-button> </div>";
                 conteudo_lista += "</ons-card>";
             }
             
             else{
+                x = parseFloat(retorno[i][j]['valor']);
+                y = parseFloat(retorno[i][j]['nota']);
+                ap = parseInt(y/x*100);
                 conteudo_lista += "<ons-card ><font class='font_notastam1'>"+(retorno[i][j]['atividade'])+"</font>";
                 conteudo_lista += "<br><div><font class='font_notastam2'>Data: " + retorno[i][j]['data']+"</font></div>";
-                conteudo_lista += "<table width='100%'><tr><td width='50%'><font class='font_notastam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;Valor: " + retorno[i][j]['valor']+"&nbsp;&nbsp;</span></font></td>";
-                conteudo_lista += "<td width='50%' align='right'><font class='font_notastam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;Nota: " + retorno[i][j]['nota']+"&nbsp;&nbsp;</span></font></td></tr></table>";
+                conteudo_lista += "<table width='100%'>";
+                conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'>Valor</font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Nota</font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Aproveitamento</font></td></tr>";
+                
+                conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;" + retorno[i][j]['valor'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+                conteudo_lista += "<td width='30%'  align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + retorno[i][j]['nota'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+                conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + ap+"%&nbsp;&nbsp;</span></font></td></tr>";
+                
+                conteudo_lista += "</table>";
                 
                 //conteudo_lista += "<br><font class='font_tam2'>Média da turma: " + (retorno[i]['media'])+"</font>";
                 //conteudo_lista += "<div class='align_direita'><ons-button class='minhalinhadigitavel'><ons-icon icon='fa-list'></ons-icon> Ver</ons-button> </div>";
@@ -32,9 +57,20 @@ if(retornos['notas']){
             }   
         }
     }
-    conteudo_lista += "<ons-card ><font class='font_tam1'>Total Geral</font>";
-    conteudo_lista += "<br><table width='100%'><tr><td width='50%'><font class='font_tam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;Valor: " + retornos['totais']['totais']+"&nbsp;&nbsp;</span></font></td>";
-    conteudo_lista += "<td width='50%' align='right'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;Nota: " + retornos['totais']['pontuacao']+"&nbsp;&nbsp;</span></font></td></tr></table>";
+    x = parseFloat(retornos['totais']['totais']);
+    y = parseFloat(retornos['totais']['pontuacao']);
+    ap = parseInt(y/x*100);
+    conteudo_lista += "<ons-card style='border: 5px solid #4169E1;'><font class='font_tam1' >TOTAL GERAL</font>";
+    conteudo_lista += "<table width='100%'>";
+    conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'>Valor</font></td>";
+    conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Nota</font></td>";
+    conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'>Aproveitamento</font></td></tr>";
+    
+    conteudo_lista += "<tr><td width='30%' align='center'><font class='font_tam2'><span class='baloes_gray notification notification--material'>&nbsp;&nbsp;" + retornos['totais']['totais'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+    conteudo_lista += "<td width='30%'  align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + retornos['totais']['pontuacao'].replace(".",",")+"&nbsp;&nbsp;</span></font></td>";
+    conteudo_lista += "<td width='30%' align='center'><font class='font_tam2'><span class='baloes_blue notification notification--material'>&nbsp;&nbsp;" + ap+"%&nbsp;&nbsp;</span></font></td></tr>";
+    
+    conteudo_lista += "</table>";
     //conteudo_lista += "<br><font class='font_tam2'>Média da turma: " + (retorno[i]['media'])+"</font>";
     //conteudo_lista += "<div class='align_direita'><ons-button class='minhalinhadigitavel'><ons-icon icon='fa-list'></ons-icon> Ver</ons-button> </div>";
     conteudo_lista += "</ons-card>";

@@ -32,6 +32,19 @@ ons-splitter-side[side="left"][animation="overlay"] {
   
 }
 
+.font_notastam1{
+  font-size: 11pt;
+  text-align: left;
+  color:#F4A460; 
+  font-weight: 700;
+}
+
+.font_notastam2{
+  font-size: 10pt;
+  text-align: left;
+  color:gray; 
+}
+
 #mensagensdetalhe{
   overflow:auto;
   border-bottom: 1px solid gray;
@@ -276,20 +289,6 @@ ons-splitter-side[side="left"][animation="overlay"] {
   text-align: left;
   color:#20457d; 
   
-}
-
-
-.font_notastam1{
-  font-size: 12pt;
-  text-align: left;
-  color:gray; 
-  font-weight: 700;
-}
-
-.font_notastam2{
-  font-size: 10pt;
-  text-align: left;
-  color:gray; 
 }
 
 .cor_nota_azul{
