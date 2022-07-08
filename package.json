@@ -1,4 +1,4 @@
-{ 
+{
   "devDependencies": {
     "com-sarriaroman-photoviewer": "^1.2.5",
     "cordova-android": "^10.0.0",
