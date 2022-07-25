@@ -61,7 +61,8 @@ function buscaSolicitacaoEmbarque(){
   let temp ,i; 
   let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/retorna-solicitacao';
   dados = {
-        'apitoken': localStorage.getItem('token')
+        'apitoken': localStorage.getItem('token'),
+        'periodo_letivo' : localStorage.getItem('periodoletivo')
   };
   $.ajax({
         type: 'get',
@@ -73,6 +74,7 @@ function buscaSolicitacaoEmbarque(){
         async: true, //Esperar retorno para continuar codigo
         success: function (ret) {
           // /alert(JSON.stringify(ret));
+          console.log(ret);
             if(ret.retorno.retorno == 'success'){
               habilitado = 1;
               temp = ret.retorno.solicitacoes;
@@ -109,7 +111,7 @@ function buscaSolicitacaoEmbarque(){
 
 function novaSolicitacaoEmbarque(){
   let mensagemerro = '';
-  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cadastra-solicitacao?apitoken='+localStorage.getItem('token');
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cadastra-solicitacao?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo');
   dados = {
         'nome_responsavel': 'pai',
         'observacao': ''
@@ -154,7 +156,7 @@ function novaSolicitacaoEmbarque(){
 }
 
 function cancelaSolicitacaoEmbarque( id ){
-  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cancela-solicitacao?apitoken='+localStorage.getItem('token');
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/cancela-solicitacao?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo');
   dados = {
         'id_solicitacao': id
   };
@@ -192,7 +194,7 @@ function cancelaSolicitacaoEmbarque( id ){
     });
 }
 function atualizaSolicitacaoEmbarque(id, lat, long){
-  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/atualiza-localizacao?apitoken='+localStorage.getItem('token');
+  let url = server1 + localStorage.getItem('unidade') + '/alunos/api/embarque/atualiza-localizacao?apitoken='+localStorage.getItem('token')+"&periodo_letivo="+localStorage.getItem('periodoletivo');
   dados = {
         'id_solicitacao': id,
         'latitude': lat,
