@@ -24,6 +24,7 @@
   <script src="./js/view_boletos.js"></script>
   <script src="./js/view_bilhetes.js"></script>
   <script src="./js/view_recadoenviado.js"></script>
+  <script src="./js/view_horario.js"></script>
   <script src="./js/view_agenda.js"></script>
   <script src="./js/view_academico.js"></script>
   <script src="./js/view_detalhesnota.js"></script>
@@ -88,11 +89,18 @@
           }
 
           $('#periodo_letivo').val(localStorage.getItem('periodoletivo'));
-          //Incluindo versao no app
+          //Incluindo versao no app e alterando altura do menu no ios
           document.addEventListener('deviceready', function () {
             cordova.getAppVersion.getVersionNumber().then(function (version) {
               $('#VersaoSoftware').html("Versão App "+version);
             });
+            //Alterando altura da barra de menu do app
+            if(device.platform.toUpperCase() === 'ANDROID'){
+              $('.modificarcor').height('50px'); 
+            }
+            else{
+              $('.modificarcor').height('40px'); 
+            }
           });
         },
         500);
@@ -130,7 +138,7 @@
             <ons-icon style="color:white;" icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
           </ons-toolbar-button>
         </div>
-        <div class="center" id="tituloApp_"><img src='./img/header.png' height="100%"></div>
+        <div class="center" id="tituloApp_"><img src='./img/header.png' height="40px"></div>
         <div class="right" id="buttontop" style="text-align: right;padding-right: 10px;color:white;">
          
         </div>
@@ -152,6 +160,9 @@
         </ons-tab>
 
         <ons-tab id='activeAgenda' label="Agenda" page="html/page_agenda.html" icon="fa-calendar">
+        </ons-tab>
+        <ons-tab id='activeHorario' page="html/page_horario.html" label="Horário"  icon="fa-check-square-o">
+
         </ons-tab>
         <ons-tab id='activeNotas' page="html/page_notas.html" label="Acadêmico" icon="fa-address-book">
         </ons-tab>

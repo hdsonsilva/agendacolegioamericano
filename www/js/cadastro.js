@@ -206,10 +206,10 @@ function exibir_usuarios(usuarios){
     j++;
   }
   if(j > 1){
-    item = "<ons-list-header style='text-align:center;font-size:14pt'> Usuário(s)</ons-list-header><hr>" + item;
+    item = "<ons-list-header style='text-align:center;font-size:12pt'> Usuário(s)</ons-list-header><hr>" + item;
   }
   else{
-    item = "<ons-list-header style='text-align:center;font-size:14pt'> Usuário</ons-list-header><hr>" + item;
+    item = "<ons-list-header style='text-align:center;font-size:12pt'> Usuário</ons-list-header><hr>" + item;
   }
 
   $('#exibicao_usuarios').html(item);
