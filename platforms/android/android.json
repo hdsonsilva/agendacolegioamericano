@@ -75,6 +75,14 @@
             {
               "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+              "count": 1
             }
           ]
         }
@@ -209,6 +217,9 @@
       "PACKAGE_NAME": "io.agenda.americano2"
     },
     "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "io.agenda.americano2"
     }
   },
@@ -543,6 +554,14 @@
       "clobbers": [
         "cordova.getAppVersion"
       ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -558,6 +577,7 @@
     "cordova-plugin-photo-library": "2.2.1",
     "cordova-plugin-splashscreen": "6.0.0",
     "onesignal-cordova-plugin": "3.0.0",
-    "cordova-plugin-app-version": "0.1.14"
+    "cordova-plugin-app-version": "0.1.14",
+    "cordova-plugin-statusbar": "3.0.0"
   }
 }

@@ -17,6 +17,7 @@ function view_bilhetes(retornos){
     if(retorno && retorno != ''){    
         
         //Preenchendo a lista com cards
+        conteudo_lista = "<br><br>";
         for(i  in retorno){
             console.log(retorno);
 
@@ -141,7 +142,7 @@ function view_bilhetes(retornos){
             });
             
 
-            $('#mensagensdetalhe').height( ($('#pageNovoRecado').height() - $('#titulomsg').height() - $('#mensagemnovorecado').height() - 50)  );
+            $('#mensagensdetalhe').height( ($('#pageNovoRecado').height() - $('#titulomsg').height() - $('#mensagemnovorecado').height() - 100)  );
 
             buscarMensagensDetalhadas(msgs,tipocontato, codigocontato,docentes);
             
@@ -239,6 +240,7 @@ function retira_br(texto){
 function buscarMensagensDetalhadas(msgs,tipocontato,codigocontato,docentes){
     let posicao = tipocontato == 'prof' ? 4 : 5 ;
     let dados = new Array() ;
+    $('#mensagensdetalhe').html("<br><br>");
     for(i in msgs){
 
         if(msgs[i][posicao] == codigocontato){
@@ -310,7 +312,7 @@ function montaOptions(dados, tipo){
     let tmp = '';
     if(dados){
         for(i in dados){
-            tmp += "<option value='"+tipo+'_'+dados[i][0]+"'>"+(tipo == 'prof' ? "PROF. ": "")+dados[i][1]+"</option>";
+            tmp += "<option value='"+tipo+'_'+dados[i][0]+"'>"+(tipo == 'prof' ? "Prof. ": "")+dados[i][1]+"</option>";
         }
     }
 

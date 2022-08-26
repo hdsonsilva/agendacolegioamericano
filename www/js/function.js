@@ -100,7 +100,7 @@ function buscaSolicitacaoEmbarque(){
               //colocar codigo para pegar a solicitacao
               initMap();
               $('#iniciarbusca').html('Embarcar/Desembarcar'); 
-              $('#iniciarbusca').css('background-color','#56c2cd');
+              $('#iniciarbusca').css('background-color','#006e9c');
             }
         },
         error: function (e, erro) {

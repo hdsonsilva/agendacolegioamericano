@@ -1,13 +1,13 @@
 <ons-page id="pageNovoRecado">
-	<ons-toolbar id='titulomsg'>
+  <ons-toolbar id='titulomsg'  class='padding_padrao modificarcor'>
        <div class="left">
                      <!-- Toolbar-button  only visible for iOS/other. -->
-        <ons-toolbar-button id="bt_voltar_appp" component="buttonreload">
+        <ons-toolbar-button id="bt_voltar_appp" component="buttonreload"  style="color: white !important;">
           <!--<ons-icon icon="fa-undo"></ons-icon>-->
            <ons-icon icon="md-arrow-left"></ons-icon>
         </ons-button>
       </div>
-        <div class="center" id="tituloAppNew"></div>
+        <div class="center" id="tituloAppNew" style="color: white !important;"></div>
         <div class="right">
         
         </div>
@@ -18,17 +18,10 @@
 
       </div>
       
-
-      
-
-      
-  
         <div class='divcaixatextareamsg'>
-              <textarea class="textareamsg" id='mensagemnovorecado' rows="4" placeholder="Digite aqui seu recado..."></textarea> 
-              <button id='idcadastrarnovorecado'class="button--outline  ">
-                <ons-icon style="color: #2c7be5; padding-left: 2px" icon="md-mail-send, material:md-mail-send" size="32px, material:32px">
-                </ons-icon>
-              </button>
+              <textarea class="textareamsg" id='mensagemnovorecado' rows="4" placeholder="Digite aqui seu recado..."></textarea>
+
+               <ons-button  id="idcadastrarnovorecado" class='minhalinhadigitavel'><ons-icon icon='md-mail-send'></ons-icon> Enviar</ons-button>
         </div>
 </ons-page>
 

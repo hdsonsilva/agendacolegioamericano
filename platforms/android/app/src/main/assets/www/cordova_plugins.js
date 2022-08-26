@@ -329,6 +329,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "cordova.getAppVersion"
       ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -344,6 +352,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-photo-library": "2.2.1",
     "cordova-plugin-splashscreen": "6.0.0",
     "onesignal-cordova-plugin": "3.0.0",
-    "cordova-plugin-app-version": "0.1.14"
+    "cordova-plugin-app-version": "0.1.14",
+    "cordova-plugin-statusbar": "3.0.0"
   };
 });
