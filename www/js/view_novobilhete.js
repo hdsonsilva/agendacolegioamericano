@@ -6,6 +6,7 @@ function view_novobilhete(retornos){
     $('#tituloApp').html("Recados");
 if(retornos['murais']){    
     //Preenchendo a lista com cards
+    conteudo_lista = "<br><br>";
     for(i  in retorno){
 
         conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelagenda' valor='"+(retorno[i]['url_destino'])+"'" :"")+"><font class='font_tam1'>"+(retorno[i]['data_referente'])+" - "+(retorno[i]['assunto'])+"</font>";

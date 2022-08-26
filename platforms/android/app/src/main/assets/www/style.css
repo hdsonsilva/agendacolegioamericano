@@ -1,6 +1,10 @@
 /*****************
  *** Custom CSS ***
  *****************/
+.imagem{
+  border-radius: 15px;
+  
+}
 
 ons-input[type=text] {
   width: 90%;
@@ -273,7 +277,7 @@ ons-splitter-side[side="left"][animation="overlay"] {
   color:#20457d; 
 }
 .font_tam3{
-  font-size: 12pt;
+  font-size: 11pt;
   text-align: left;
   color:#20457d; 
   font-weight: 700;

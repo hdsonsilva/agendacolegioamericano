@@ -38,6 +38,17 @@ function controle(event){
       buscaAcoes('alunos/api/notas/ver-notas',dados,tipoenvio);
     }
 
+    //Se estiver na pagina Academico
+    else if(event.target.matches('#pageHorario')){
+      dados = {
+        'apitoken': localStorage.getItem('token'),
+        'periodo_letivo': localStorage.getItem('periodoletivo')
+      }
+      $('#pageHorarioList').html('');
+
+      buscaAcoes('alunos/api/horario',dados,tipoenvio);
+    }
+
      //Se estiver na pagina Bilhetes
     else if(event.target.matches('#pageBilhetes') ){
       dados = {

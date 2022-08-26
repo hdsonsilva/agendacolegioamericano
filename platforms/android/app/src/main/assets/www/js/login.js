@@ -32,6 +32,9 @@ function login(usuario, senha, app_, unidade, nome){
               ons.notification.toast('Login efetuado com sucesso.', {timeout: 1000});
                //Armazenando o token
               localStorage.setItem('token',ret.token);
+              if(ret.imagem){
+                localStorage.setItem('imagem',ret.imagem);
+              }
 
               if(debug == 1){
                 

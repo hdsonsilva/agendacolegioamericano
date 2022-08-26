@@ -9,8 +9,8 @@ function view_detalhesnotas(retornos){
    console.log(retornos);
 if(retornos['notas']){
     //Preenchendo a lista com cards
+    conteudo_lista = "<br><br>";
     for(i  in retorno){
-        
         for(j in retorno[i]){
             if(retorno[i][j]['trimestre']){
 

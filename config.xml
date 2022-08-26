@@ -17,6 +17,8 @@
     <preference name="Orientation" value="portrait" />
     <preference name="windows-appx-target" value="8.1-phone" />
     <preference name="WindowsToastCapable" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+     <preference name="StatusBarBackgroundColor" value="#006e9c" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />

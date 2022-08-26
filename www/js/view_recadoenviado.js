@@ -4,6 +4,7 @@ function view_recadoenviado(retornos){
     var conteudo_lista = '';
      //Alterando título do app
     if(retornos['enviados']){    
+        conteudo_lista = "<br><br>";
         //Preenchendo a lista com cards
         for(i  in retorno){
 

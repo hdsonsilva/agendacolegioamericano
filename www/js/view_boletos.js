@@ -10,7 +10,7 @@ function view_boletos(retornos){
     //Alterando título do app
     
     $('#tituloApp').html("Financeiro");
-
+conteudo_lista = "<br><br>";
 conteudo_lista += "<ons-card><font class='font_tam1'>Imposto de Renda</font>";
 conteudo_lista += "<div class='right align_direita'><ons-button class='gerarirrf' valor='Gerar' idpopover='' ><ons-icon icon='fa-print'></ons-icon> Gerar </ons-button> </div>";
 conteudo_lista += "</ons-card>";

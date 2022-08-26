@@ -16,9 +16,9 @@ function view_horario(retornos){
     diasdasemana[5] = 'Sábado' ;
 
     //Preenchendo a lista com cards
-    
-    if(retornos['gradeHoraria']){ 
 
+    if(retornos['gradeHoraria']){ 
+        conteudo_lista = "<br><br>";
         for(i  in retorno){
             tmp = retorno[i];
             if(tmp[0]['abreviatura']){
@@ -40,7 +40,6 @@ function view_horario(retornos){
                         conteudo_lista += "</tr>";
                     }
                 }
-
 
                 conteudo_lista += "</table></div>";
 

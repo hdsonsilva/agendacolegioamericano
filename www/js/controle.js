@@ -91,4 +91,15 @@ function controle(event){
       buscaAcoes('alunos/api/mural/ver-agenda',dados,tipoenvio);
     }
    
+    //Redimensionando o menu do sistema
+    document.addEventListener('deviceready', function () {
+      //Alterando altura da barra de menu do app
+      if(device.platform.toUpperCase() === 'ANDROID'){
+        $('.padding_padrao').height('60px'); 
+      }
+      else{
+        $('.padding_padrao').height('50px');
+      }
+    });
+        
 }

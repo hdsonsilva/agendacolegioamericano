@@ -66,6 +66,9 @@ function retornoAcao(acao, retorno){
         
         view_bilhetes(retorno);
     }
+    else if(acao == 'alunos/api/horario'){
+        view_horario(retorno);
+    }
     else if(acao == 'alunos/api/mural/ver-agenda'){
         view_agenda(retorno);
     }

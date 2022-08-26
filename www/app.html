@@ -89,17 +89,20 @@
           }
 
           $('#periodo_letivo').val(localStorage.getItem('periodoletivo'));
-          //Incluindo versao no app e alterando altura do menu no ios
+          
+
+          //Redimensionando o menu do sistema
           document.addEventListener('deviceready', function () {
             cordova.getAppVersion.getVersionNumber().then(function (version) {
-              $('#VersaoSoftware').html("Versão App "+version);
+              $('#VersaoSoftware').html("Versão APP "+version);
             });
+
             //Alterando altura da barra de menu do app
             if(device.platform.toUpperCase() === 'ANDROID'){
-              $('.modificarcor').height('50px'); 
+              $('.padding_padrao').height('60px'); 
             }
             else{
-              $('.modificarcor').height('40px'); 
+              $('.padding_padrao').height('50px');
             }
           });
         },
@@ -131,17 +134,23 @@
   <!-- Third navigation component: Tabbar. This will disappear if the first or second components change their content. -->
   <template id="tabbar.html">
     <ons-page id="tabbarPage">
-      <ons-toolbar class='modificarcor'>
-        <div class="left" id='ladoesquerdo'>
+      <ons-toolbar class='modificarcor padding_padrao'>
+      
+        <div class="left" id='ladoesquerdo' >
           <!-- Toolbar-button with different icons depending on the platform. -->
-          <ons-toolbar-button component="button/menu">
-            <ons-icon style="color:white;" icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
+          <ons-toolbar-button component="button/menu" style="height: 26px;">
+            <ons-icon style="color:white;vertical-align: bottom;" icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
           </ons-toolbar-button>
         </div>
-        <div class="center" id="tituloApp_"><img src='./img/header.png' height="40px"></div>
-        <div class="right" id="buttontop" style="text-align: right;padding-right: 10px;color:white;">
+
+        <div class="center" id="tituloApp_">
+            <img src='./img/header.png' height="40px" style="text-align: center; vertical-align: bottom;">
+        </div>
+
+        <div class="right" id="buttontop" style="text-align: right;color:white;">
          
         </div>
+      
       </ons-toolbar>
 
       <!-- Floating Action Button only visible for Android. -->

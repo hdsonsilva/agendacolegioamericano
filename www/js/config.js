@@ -1,5 +1,6 @@
 var server1 = 'https://adx.doctum.edu.br/adx/unidades/';
 var server = "https://adx.doctum.edu.br/adx/unidades/";
+var server_base_foto = "https://adx.doctum.edu.br/hd2/fotosAlunos/"
 
 // var server1 = 'http://192.168.10.240/user/sandro.junior/';
 // var server =  'http://192.168.10.240/user/sandro.junior/';
