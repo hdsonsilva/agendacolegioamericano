@@ -349,8 +349,8 @@ ons-splitter-side[side="left"][animation="overlay"] {
 }
 .positionbottom{
         position: fixed;
-        bottom: 60px;
-        right: 30px;
+        bottom: 100px;
+        right: 20px;
 }
 
 .positioncontrolcamera{

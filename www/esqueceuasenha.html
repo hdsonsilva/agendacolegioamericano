@@ -59,17 +59,17 @@
 
 </head>
 <body>
-<ons-page  modifier="menu-page" >
-    <ons-toolbar>
+<ons-page  modifier="menu-page" class='modificarcor'>
+    <ons-toolbar class="modificarcor paddingios padding_padrao">
       <div class="left">
                      <!-- Toolbar-button  only visible for iOS/other. -->
         <ons-toolbar-button id="bt_voltar" component="buttonreload">
           <!--<ons-icon icon="fa-undo"></ons-icon>-->
-           <ons-icon icon="md-arrow-left"></ons-icon>
+           <ons-icon icon="md-arrow-left" style="color: white !important;"></ons-icon>
         </ons-button>
       </div>
 
-      <div class="center">Esqueceu a Senha</div>
+      <div class="center" style="color: white !important;">Esqueceu a Senha</div>
 
       <div class="right">
                      
@@ -87,7 +87,23 @@
     var foto;
     auth_check = 0 ;
 
-    
+     //Redimensionando o menu do sistema
+      document.addEventListener('deviceready', function () {
+          //Alterando altura da barra de menu do app
+          if(device.platform.toUpperCase() === 'ANDROID'){
+            $('.padding_padrao').height('60px'); 
+          }
+          else{
+            $('.padding_padrao').height('50px');
+          }
+      });
+      
+      $('#bt_voltar').click(function(){
+
+        direcionar("../app.html");
+
+      });
+
     $(document).ready(function(){
 
       $('#username').focus(function(){
@@ -138,7 +154,7 @@
         
         <p style='margin-bottom: 40px;position:relative'>
           <div id='imagemCadastro'>
-          <img src='./img/LogoSemNome100x153.png' width="17%">
+          <img src='./img/LogoSemNome100x153.png' width="30%">
         </div>
         </p>
         
@@ -164,14 +180,15 @@
         <p id='progress' style="display:none";position:relative>
             <ons-progress-bar indeterminate></ons-progress-bar>
         </p>
-        <p style='margin-bottom: 40px;position:relative;text-align:justify;'>
+        <p style='margin-bottom: 10px;position:relative;text-align:justify;font-size: 8pt;color:#1f1f21'>
             Para sua segurança, sua senha será alterada após confirmação do seu email.
         </p>
-        <p style='margin-bottom: 40px;position:relative;text-align:justify;'>
+        <p style='margin-bottom: 10px;position:relative;text-align:justify;font-size: 8pt;color: #1f1f21'>
             Caso não tenha um email cadastrado, procure a secretaria para alterar o seu cadastro.
             <br><br>
             Fale conosco: 0800 033 1100
         </p>
+        
         
     </div>
     
