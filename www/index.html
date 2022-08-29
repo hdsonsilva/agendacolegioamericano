@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body>
+<body  class='modificarcor'>
 
     <!-- Cordova reference -->
     <script src="./js/config.js"></script>
@@ -78,6 +78,28 @@
     
      $(document).ready(function(){
       //Verificando usuarios salvos
+
+      //Em meio segundo  
+      setTimeout(function(){
+        
+        //Incluindo versao no app
+          document.addEventListener('deviceready', function () {
+        
+              //Alterando altura da barra de menu do app
+              if(device.platform.toUpperCase() === 'ANDROID'){
+                $('.padding_padrao').height('60px'); 
+              }
+              else{
+                $('.padding_padrao').height('50px');
+              }
+
+          });
+
+        $('body').height('100%');
+
+      }, 500);
+
+
       if(localStorage.getItem('usuarios_salvos')){
         //Exibe lista de usuarios na tela inicial
         exibir_usuarios(JSON.parse(localStorage.getItem('usuarios_salvos')));
@@ -165,8 +187,8 @@
    
     </script>
 
-  <ons-page>
-   <ons-toolbar  class='modificarcor paddingios padding_padrao' >
+  <ons-page  class='modificarcor'>
+   <ons-toolbar  class='modificarcor padding_padrao' >
         <div class="naoquebrar calcular" style="width: 100%;height: 40px; " id="tituloApp_" >
           <img src='./img/header.png'  height="40px" style='vertical-align: bottom;'> 
         </div>

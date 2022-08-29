@@ -123,6 +123,10 @@ ons-splitter-side[side="left"][animation="overlay"] {
   text-align: left;
 }
 
+#newuser, #excluiruser, #login{
+  background: #006e9c;
+}
+
 .textareamsg {
   width: 90% !important;
   text-align: left !important;
@@ -345,7 +349,7 @@ ons-splitter-side[side="left"][animation="overlay"] {
 }
 .positionbottom{
         position: fixed;
-        bottom: 30px;
+        bottom: 60px;
         right: 30px;
 }
 

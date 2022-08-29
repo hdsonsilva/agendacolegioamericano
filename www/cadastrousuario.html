@@ -87,6 +87,17 @@
     var foto;
     auth_check = 0 ;
 
+    document.addEventListener('deviceready', function () {
+
+        if(device.platform.toUpperCase() === 'ANDROID'){
+          $('.padding_padrao').height('60px');
+        }
+        else{
+          $('.padding_padrao').height('50px');
+          $('#iniciargaleria').hide();
+        }
+
+    });
     
     $(document).ready(function(){
 
