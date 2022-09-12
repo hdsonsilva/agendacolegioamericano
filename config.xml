@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.agenda.americano2" version="2.9.0" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
+<widget id="io.agenda.americano2" version="3.0.1" xmlns:cdv="http://cordova.apache.org/ns/1.1" xmlns:gap="http://phonegap.com/ns/1.1">
     <name>Agenda Colégio Americano 2.0</name>
     <description>
         Aplicativo Agenda do Colégio Americano. Acompanhe a vida escolar dos seus filhos de onde estiver.
@@ -22,15 +22,13 @@
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
-
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <platform name="android">
-          <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-            
-          </config-file>
+            <config-file parent="/*" target="AndroidManifest.xml">
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            </config-file>
         </platform>
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -44,7 +42,6 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
-        
     </platform>
     <platform name="ios">
         <allow-intent href="market:*" />
@@ -54,7 +51,7 @@
         <preference name="allowFileAccessFromFileURLs" value="true" />
         <preference name="allowUniversalAccessFromFileURLs" value="true" />
         <gap:config-file parent="ITSAppUsesNonExemptEncryption" platform="ios">
-            <false/>
+            <false />
         </gap:config-file>
         <config-file overwrite="true" parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
             <string>A camera é usada opcionalmente para incluir foto do estudante em seu perfil</string>
@@ -65,7 +62,6 @@
         <config-file overwrite="true" parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
             <string>Podemos solicitar acesso a sua localização caso você use a funcionalidade de embarque/desembarque</string>
         </config-file>
-        
         <access origin="*" />
         <allow-intent href="market:*" />
         <allow-intent href="*" />

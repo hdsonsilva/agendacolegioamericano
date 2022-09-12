@@ -122,12 +122,18 @@ ons-splitter-side[side="left"][animation="overlay"] {
   margin-top: 0px;
   text-align: left;
 }
-.textareamsg{
-  width: 75% !important; 
+
+#newuser, #excluiruser, #login{
+  background: #006e9c;
+}
+
+.textareamsg {
+  width: 90% !important;
   text-align: left !important;
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
 .divmensagemaluno{
   width: 100%;
   text-align: right;
@@ -169,8 +175,9 @@ ons-splitter-side[side="left"][animation="overlay"] {
 
 .divcaixatextareamsg{
   width: 100% !important; 
-  height: 100px;
+  height: 150px;
   position: fixed;
+  text-align: center;
   bottom: 0px;
   right: -5px;
 }
@@ -342,8 +349,8 @@ ons-splitter-side[side="left"][animation="overlay"] {
 }
 .positionbottom{
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 100px;
+        right: 20px;
 }
 
 .positioncontrolcamera{
