@@ -75,6 +75,25 @@
 
       });
 
+      setTimeout(
+        function(){
+          //Redimensionando o menu do sistema
+          document.addEventListener('deviceready', function () {
+            cordova.getAppVersion.getVersionNumber().then(function (version) {
+              $('#VersaoSoftware').html("Versão APP "+version);
+            });
+
+            //Alterando altura da barra de menu do app
+            if(device.platform.toUpperCase() === 'ANDROID'){
+              $('.padding_padrao').height('60px'); 
+            }
+            else{
+              $('.padding_padrao').height('50px');
+            }
+          });
+        },
+        500);
+
       if(localStorage.getItem('unidade') == 'col_liber_ctga'){
         $('#enderecounidade').html("Rua João Pinheiro, 147 - Centro<br>Caratinga/MG<br>35300-037<br><br>Telefone: <a href='tel:03333226232'>(33) 3322-6232</a>"  );
 
