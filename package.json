@@ -14,7 +14,7 @@
     "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-statusbar": "^3.0.0",
     "cordova-plugin-zip": "^3.1.0",
-    "onesignal-cordova-plugin": "^3.0.0"
+    "onesignal-cordova-plugin": "^2.11.4"
   },
   "cordova": {
     "plugins": {
@@ -26,14 +26,14 @@
       },
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-camera": {},
-      "onesignal-cordova-plugin": {},
       "cordova-plugin-background-mode": {},
       "com-sarriaroman-photoviewer": {},
       "cordova-plugin-photo-library": {
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Para selecionar Fotos"
       },
       "cordova-plugin-app-version": {},
-      "cordova-plugin-statusbar": {}
+      "cordova-plugin-statusbar": {},
+      "onesignal-cordova-plugin": {}
     },
     "platforms": [
       "android"

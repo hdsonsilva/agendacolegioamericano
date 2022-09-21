@@ -292,7 +292,7 @@ dependencies {
     implementation(project(path: ":CordovaLib"))
     implementation "androidx.core:core:1.6.+"
     implementation "androidx.exifinterface:exifinterface:1.2.0"
-    implementation "com.onesignal:OneSignal:4.4.2"
+    implementation "com.onesignal:OneSignal:3.16.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

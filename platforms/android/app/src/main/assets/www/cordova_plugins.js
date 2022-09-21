@@ -295,34 +295,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "onesignal-cordova-plugin.OneSignalPlugin",
-      "file": "plugins/onesignal-cordova-plugin/www/OneSignalPlugin.js",
-      "pluginId": "onesignal-cordova-plugin",
-      "clobbers": [
-        "OneSignal"
-      ]
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationReceived",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationReceived.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationOpened",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationOpened.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.InAppMessage",
-      "file": "plugins/onesignal-cordova-plugin/www/InAppMessage.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.Subscription",
-      "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
       "id": "cordova-plugin-app-version.AppVersionPlugin",
       "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
       "pluginId": "cordova-plugin-app-version",
@@ -336,6 +308,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-statusbar",
       "clobbers": [
         "window.StatusBar"
+      ]
+    },
+    {
+      "id": "onesignal-cordova-plugin.OneSignal",
+      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+      "pluginId": "onesignal-cordova-plugin",
+      "clobbers": [
+        "OneSignal"
       ]
     }
   ];
@@ -351,8 +331,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-inappbrowser": "5.0.0",
     "cordova-plugin-photo-library": "2.2.1",
     "cordova-plugin-splashscreen": "6.0.0",
-    "onesignal-cordova-plugin": "3.0.0",
     "cordova-plugin-app-version": "0.1.14",
-    "cordova-plugin-statusbar": "3.0.0"
+    "cordova-plugin-statusbar": "3.0.0",
+    "onesignal-cordova-plugin": "2.11.4"
   };
 });

@@ -36,13 +36,13 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
-    "onesignal-cordova-plugin": {
-      "PACKAGE_NAME": "io.agenda.americano2"
-    },
     "cordova-plugin-app-version": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
     "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "io.agenda.americano2"
     }
   },

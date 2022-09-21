@@ -69,10 +69,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.onesignal.cordova.OneSignalPush\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
               "count": 1
             },
@@ -82,6 +78,10 @@
             },
             {
               "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
               "count": 1
             }
           ]
@@ -100,6 +100,18 @@
             },
             {
               "xml": "<activity android:name=\"com.cordovaplugincamerapreview.CameraActivity\" android:screenOrientation=\"portrait\" android:theme=\"@style/CameraPreviewTheme\" />",
+              "count": 1
+            },
+            {
+              "xml": "<amazon:enable-feature android:name=\"com.amazon.device.messaging\" android:required=\"false\" xmlns:amazon=\"http://schemas.amazon.com/apk/res/android\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:exported=\"false\" android:name=\"com.onesignal.ADMMessageHandler\" />",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"io.agenda.americano2\" /></intent-filter></receiver>",
               "count": 1
             }
           ],
@@ -135,12 +147,24 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"com.amazon.device.messaging.permission.RECEIVE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<permission android:name=\"io.agenda.americano2.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"io.agenda.americano2.permission.RECEIVE_ADM_MESSAGE\" />",
+              "count": 1
             }
           ],
           "/*": [
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-              "count": 2
+              "count": 6
             },
             {
               "xml": "<queries><intent><action android:name=\"android.media.action.IMAGE_CAPTURE\" /></intent><intent><action android:name=\"android.intent.action.GET_CONTENT\" /></intent><intent><action android:name=\"android.intent.action.PICK\" /></intent><intent><action android:name=\"com.android.camera.action.CROP\" /><data android:mimeType=\"image/*\" android:scheme=\"content\" /></intent></queries>",
@@ -171,6 +195,28 @@
             {
               "xml": "<provider android:authorities=\"${applicationId}.cordova.plugin.camera.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"org.apache.cordova.camera.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/camera_provider_paths\" /></provider>",
               "count": 1
+            }
+          ]
+        }
+      },
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application/activity[@android:name='MainActivity']": [
+            {
+              "xml": "<activity android:exported=\"true\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:configChanges": "orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode",
+                "android:exported": "true",
+                "android:label": "@string/activity_name",
+                "android:launchMode": "singleTop",
+                "android:name": "MainActivity",
+                "android:screenOrientation": "portrait",
+                "android:theme": "@style/Theme.AppCompat.NoActionBar",
+                "android:windowSoftInputMode": "adjustResize"
+              }
             }
           ]
         }
@@ -213,13 +259,13 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
-    "onesignal-cordova-plugin": {
-      "PACKAGE_NAME": "io.agenda.americano2"
-    },
     "cordova-plugin-app-version": {
       "PACKAGE_NAME": "io.agenda.americano2"
     },
     "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.agenda.americano2"
+    },
+    "onesignal-cordova-plugin": {
       "PACKAGE_NAME": "io.agenda.americano2"
     }
   },
@@ -520,34 +566,6 @@
       ]
     },
     {
-      "id": "onesignal-cordova-plugin.OneSignalPlugin",
-      "file": "plugins/onesignal-cordova-plugin/www/OneSignalPlugin.js",
-      "pluginId": "onesignal-cordova-plugin",
-      "clobbers": [
-        "OneSignal"
-      ]
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationReceived",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationReceived.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.NotificationOpened",
-      "file": "plugins/onesignal-cordova-plugin/www/NotificationOpened.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.InAppMessage",
-      "file": "plugins/onesignal-cordova-plugin/www/InAppMessage.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
-      "id": "onesignal-cordova-plugin.Subscription",
-      "file": "plugins/onesignal-cordova-plugin/www/Subscription.js",
-      "pluginId": "onesignal-cordova-plugin"
-    },
-    {
       "id": "cordova-plugin-app-version.AppVersionPlugin",
       "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
       "pluginId": "cordova-plugin-app-version",
@@ -561,6 +579,14 @@
       "pluginId": "cordova-plugin-statusbar",
       "clobbers": [
         "window.StatusBar"
+      ]
+    },
+    {
+      "id": "onesignal-cordova-plugin.OneSignal",
+      "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+      "pluginId": "onesignal-cordova-plugin",
+      "clobbers": [
+        "OneSignal"
       ]
     }
   ],
@@ -576,8 +602,8 @@
     "cordova-plugin-inappbrowser": "5.0.0",
     "cordova-plugin-photo-library": "2.2.1",
     "cordova-plugin-splashscreen": "6.0.0",
-    "onesignal-cordova-plugin": "3.0.0",
     "cordova-plugin-app-version": "0.1.14",
-    "cordova-plugin-statusbar": "3.0.0"
+    "cordova-plugin-statusbar": "3.0.0",
+    "onesignal-cordova-plugin": "2.11.4"
   }
 }
