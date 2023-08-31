@@ -20,6 +20,8 @@ if(retornos['boletos'].length > 0 ){
     //Preenchendo a lista com cards
     for(i  in retorno){
 
+        retorno[i]['parcela'] = retorno[i]['parcela'] == 0 ? "Auxiliar" : retorno[i]['parcela'] ;
+        
         tmp = retorno[i]['vencimento'].split("/");
         data_tmp = tmp[1]+"/"+tmp[0]+"/"+tmp[2];
         data_cada = new Date(data_tmp);

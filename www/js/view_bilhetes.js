@@ -226,14 +226,17 @@ function quebra_de_linha(texto){
 function retira_br(texto){
  
     
+      if(texto){ 
+            let ocorrencias = (texto.match(/<br>/g) || []).length;
         
-        let ocorrencias = (texto.match(/<br>/g) || []).length;
+            for(i = 0 ; i < ocorrencias; i++){
+               texto = texto.replace("<br>"," ");
+            }
+        
     
-        for(i = 0 ; i < ocorrencias; i++){
-           texto = texto.replace("<br>"," ");
+            return texto;
         }
-    
-    return texto;
+        return '';
 }
 
 
