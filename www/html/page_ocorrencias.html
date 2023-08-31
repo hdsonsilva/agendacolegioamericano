@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- CSP support mode (required for Windows Universal apps): https://docs.angularjs.org/api/ng/directive/ngCsp -->
+<html lang="en" ng-app="app" ng-csp>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" href="../lib/onsen/css/onsenui.css" />
+    <link rel="stylesheet" href="../lib/onsen/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- JS dependencies (order matters!) -->
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../lib/onsen/js/onsenui.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    
+      <!-- --------------- App init --------------- -->
+
+    <title>Agenda Escolar</title>
+
+    <style>
+    #map {
+        height: 100%;
+    }
+
+    .fundo{
+      position: absolute;
+       width: 100%;
+       height: 95%;
+       
+    }
+    .interno{
+      position: relative;
+      margin-top: 100px;
+      margin-bottom: 100px;
+       width: 100%;
+       height: 100%;
+       
+    }
+     .login{
+        margin: 5% auto ;
+        text-align: center;
+        width: 90%;
+        height: 100%;
+        background: white;
+        -webkit-box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow:    1px 1px 20px rgba(50, 50, 50, 0.77);
+        box-shadow:         1px 1px 20px rgba(50, 50, 50, 0.77);
+        font-family: Arial;
+        color: gray;
+     }
+
+    </style>
+
+
+</head>
+<body>
+<!-- Cordova reference -->
+<script src="../js/config.js"></script>
+<script src="../cordova.js"></script> 
+<script src="../scripts/index.js"></script>
+<script src="../js/cadastro.js"></script>
+<script src="../js/function.js"></script>
+<script>
+    let map;
+    let escola;
+    let marker;
+    let habilitado = 0 ;
+    let solicitacaoEmbarque = 0 ;
+    let teste = -42.143092;
+    let incremento = 0 ;
+    const imagem_verde = 'https://sicof.doctum.edu.br/sicof/image/alfinete-verde.png';
+    const imagem_vermelho = 'https://sicof.doctum.edu.br/sicof/image/alfinete-vermelho.png';
+
+
+    $(document).ready(function(){
+
+      dados = {
+        'apitoken': localStorage.getItem('token'),
+        'periodo_letivo': localStorage.getItem('periodoletivo')
+      }
+      url = server+localStorage.getItem('unidade')+"/alunos/api/ocorrencia" ;
+
+      $.ajax({
+        type:   'GET',
+        dataType: 'json',
+        url: url,
+        cache: false, //Nao fazer cache
+        timeout: 20000, //20 segundos
+        data: dados,
+        dataType: 'json',
+        //async: true,
+        beforeSend: function (e) {
+            //Colocando para transformar e tratar o resultado todo como um resultado iso
+            //e.overrideMimeType("text/plain;charset=iso-8859-1");
+            //Sempre exibe modal de busca de dados
+            showModal('show');
+        },
+        success: function (ret) {
+            showModal('hide');
+            if (ret) {
+                console.log(ret);
+                montaSaida(ret);
+            } else {
+                
+            }
+            controle_mensagem_atualizar = 0;
+        },
+        error: function (e, erro) {
+
+            showModal('hide');
+            //
+            //ons.notification.toast('.' + acao, {timeout: 1000});
+        }
+        
+    });
+
+
+
+      var conteudo_lista = '<br><br><br>';
+      conteudo_lista += "Buscando...";
+      $('#pageOcorrenciaList').html(conteudo_lista);
+
+      $('#bt_voltar').click(function(){
+
+        direcionar("../app.html");
+
+      });
+     
+    });
+
+    function montaSaida(dados){
+
+      var conteudo_lista = '<br><br>';
+      $('#pageOcorrenciaList').html(conteudo_lista);
+      var ocorrencias = dados['todasOcorrencias'];
+      if(ocorrencias){
+        j = 1 ;
+        for(i  in ocorrencias){
+          conteudo_lista = '';
+          conteudo_lista += "<ons-card class='clicavelagenda' valor=''><font class='font_tam1'>#"+j+" - "+ocorrencias[i][0]+"</font>";
+          conteudo_lista += "<br><br>";
+          conteudo_lista += "<div style='text-align:center;width:100%'><table width='100%'><tr>";
+          conteudo_lista += "<td width='50%' align='left'><font class='font_notastam1'>Data: "+ocorrencias[i][1]+"</font></td>";
+          conteudo_lista += "<td width='50%' align='left'><font class='font_notastam1'>Hora: "+ocorrencias[i][4]+"</font></td></tr>";
+          conteudo_lista += "<tr>";
+          conteudo_lista += "<td width='35%' colspan='2' align='left'><font class='font_notastam1'>Disciplina: "+(ocorrencias[i][3] == null ? "Não se aplica" : ocorrencias[i][3])+"</font></td>";
+          conteudo_lista += "</tr>";
+          conteudo_lista += "<tr>";
+          conteudo_lista += "<td width='35%' colspan='2' align='left'><font class='font_notastam1'><br>Observação: <br>"+quebraLinha(ocorrencias[i][2])+"</font></td>";
+          conteudo_lista += "</tr>";
+          conteudo_lista += "</table></div><hr>";
+          conteudo_lista += "<font class='font_text'></font>";
+          conteudo_lista += "</ons-card>";
+          j++;
+          $('#pageOcorrenciaList').append(conteudo_lista);
+        }
+      }
+      else{
+        conteudo_lista = '';
+          conteudo_lista += "<ons-card class='clicavelagenda' valor=''>";
+          conteudo_lista += "<br><br>";
+          conteudo_lista += "<div style='text-align:center;width:100%'><table width='100%'><tr>";
+          conteudo_lista += "<td width='100%' align='center'><font class='font_notastam1'>Nada Localizado!</font></td>";
+          conteudo_lista += "</tr>";
+          conteudo_lista += "</table></div><hr>";
+          conteudo_lista += "<font class='font_text'></font>";
+          conteudo_lista += "</ons-card>";
+        $('#pageOcorrenciaList').html(conteudo_lista);
+      }
+
+    }
+
+    </script>
+    <ons-page  modifier="menu-page" >
+      <ons-modal direction="up" style='background: none !important;'>
+        <div style="text-align: center">
+          <p>
+            
+          </p>
+        </div>
+      </ons-modal>
+    <ons-toolbar  class='padding_padrao modificarcor'>
+      <div class="left">
+                     <!-- Toolbar-button  only visible for iOS/other. -->
+        <ons-toolbar-button id="bt_voltar" component="buttonreload"  style="color: white !important;">
+          <!--<ons-icon icon="fa-undo"></ons-icon>-->
+           <ons-icon icon="md-arrow-left"></ons-icon>
+        </ons-button>
+      </div>
+
+      <div class="center"  style="color: white !important;">Ocorrências</div>
+      <div class="right" style="color:#56c2cd">
+        
+        
+        </ons-button>
+      </div>
+    </ons-toolbar>
+    
+    <ons-list id="pageOcorrenciaList">
+    
+    </ons-list>    
+</ons-page>
+
+</body>
+</html>
