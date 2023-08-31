@@ -1,7 +1,6 @@
 <ons-page id="menuPage">
-  <ons-list-title id='VersaoSoftware'>Versão 0.0</ons-list-title>
   
-  <p style='margin-bottom: 10px;position:relative;text-align: center'>
+  <p style='margin-bottom: 5px;position:relative;text-align: center'>
         <ons-select id="periodo_letivo" onchange="setarPeriodoLetivo();">
             
         </ons-select>
@@ -10,7 +9,7 @@
   <ons-list id="links">
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('./html/page_endereco.html')">
       <div class="left">
-        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+        <ons-icon icon="fa-map-marker" style="color: grey;"></ons-icon>
       </div>
       <div class="center">
         Onde Estamos
@@ -41,11 +40,12 @@
       </div>
     </ons-list-item>
   </ons-list>
+
   <ons-list-title>Usuários</ons-list-title>
   <ons-list id="links">
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('index.html?auto=nao')">
       <div class="left">
-        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+        <ons-icon icon="fa-users" style="color: grey;"></ons-icon>
       </div>
       <div class="center">
         Trocar Usuário
@@ -53,7 +53,7 @@
     </ons-list-item>
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('cadastrousuario.html')">
       <div class="left">
-        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+        <ons-icon icon="fa-user" style="color: grey;"></ons-icon>
       </div>
 
       <div class="center">
@@ -63,10 +63,20 @@
     <ons-list id="links">
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="direcionar('esqueceuasenha.html')">
       <div class="left">
-        <ons-icon icon="fa-exchange" style="color: grey;"></ons-icon>
+        <ons-icon icon="fa-unlock" style="color: grey;"></ons-icon>
       </div>
       <div class="center">
         Alterar Senha
+      </div>
+    </ons-list-item>
+
+    <ons-list-title>Outros</ons-list-title>
+    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirNavigator(server+localStorage.getItem('unidade')+'/alunos/mural/ver-avisos', 'forcar')">
+      <div class="left"> 
+        <ons-icon icon="fa-external-link" style="color: grey;"></ons-icon>
+      </div>
+      <div class="center">
+        Sistema Web
       </div>
     </ons-list-item>
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirURL(server+localStorage.getItem('unidade')+'/alunos/email', 0)">
@@ -77,15 +87,6 @@
         Dados de E-mail
       </div>
     </ons-list-item>
-    <ons-list-title>Outros</ons-list-title>
-    <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirNavigator(server+localStorage.getItem('unidade')+'/alunos/mural/ver-avisos', 'forcar')">
-      <div class="left"> 
-        <ons-icon icon="fa-external-link" style="color: grey;"></ons-icon>
-      </div>
-      <div class="center">
-        Sistema Web
-      </div>
-    </ons-list-item>
     <ons-list-item tappable="" style="cursor:pointer;" modifier="longdivider chevron" onclick="abrirNavigator('https://www.liber.g12.br/wp-content/uploads/2023/07/Manual-LIBER.pdf', 'forcar')">
       <div class="left"> 
         <ons-icon icon="fa-external-link" style="color: grey;"></ons-icon>
@@ -94,31 +95,6 @@
         Manual da Agenda
       </div>
     </ons-list-item>
-
-
-    
-   
-
-<!--
-  <ons-list-title>Default</ons-list-title>
-  <ons-list id="default-category-list">
-    <ons-list-item tappable="">
-      <div class="left">
-        <ons-radio name="categoryGroup" input-id="r-all" checked="1"></ons-radio>
-      </div>
-      <label class="center" for="r-all">All</label>
-    </ons-list-item>
-    <ons-list-item tappable="" category-id="">
-      <div class="left">
-        <ons-radio name="categoryGroup" input-id="r-no"></ons-radio>
-      </div>
-      <label class="center" for="r-no">No category</label>
-    </ons-list-item>
-  </ons-list>
--->
-  <ons-list-title>Outros</ons-list-title>
-  <ons-list id="custom-category-list">
-  </ons-list>
   <ons-list-item tappable="" style="cursor: pointer" onclick="deslogar()" modifier="longdivider chevron" 
     >
       <div class="left">
@@ -128,4 +104,7 @@
         Sair
       </div>
     </ons-list-item>
+
+    <ons-list-title id='VersaoSoftware'>Versão 0.0</ons-list-title>
+    
 </ons-page>
