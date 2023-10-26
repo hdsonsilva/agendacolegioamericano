@@ -22,19 +22,6 @@
 
                 window.location.href = 'app.html?objeto='+ abba ;
               }
-              /*
-               //Teste de como pegar dados s no push
-        //localStorage.setItem('pushInfo',jsonData.notification.payload.additionalData.sessao);
-
-          document.querySelector('#myNavigator').pushPage('html/details_task.html',
-            {
-              animation: 'lift',
-              data: {
-                element:  jsonData.notification.payload.additionalData
-              }
-            }
-          );*/
-
             };
 
 

@@ -94,6 +94,7 @@
 
           //Redimensionando o menu do sistema
           document.addEventListener('deviceready', function () {
+            console.log(cordova.getAppVersion);
             cordova.getAppVersion.getVersionNumber().then(function (version) {
               $('#VersaoSoftware').html("Versão APP "+version);
             });

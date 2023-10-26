@@ -40,9 +40,17 @@ function view_home(retornos){
         conteudo_lista += "<br><br>";
         conteudo_lista += "<iframe width='100%' src='https://www.youtube.com/embed/bZwxTX2pWmw?controls=0' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
         conteudo_lista += "</ons-card>";*/
+conteudo_lista = "<br>";
+//Tratando rematricula quando existir
+if(retornos['rematricula']){
+    conteudo_lista += "<ons-card ><font class='font_tam1'>  <font class='font_tam3'>Faça a sua Reserva de Vaga</font> </font>";
+    conteudo_lista += "<br><br>";
+    conteudo_lista += "<font class='font_text'><div><img width='100%' onclick=\"abrirNavigator(server+localStorage.getItem('unidade')+'/alunos/rematricula/', 'forcar')\" src='"+server1+localStorage.getItem('unidade')+"/alunos/"+retornos['rematricula']+"'></div><br>Clique para realizar a sua.</font>";
+    conteudo_lista += "</ons-card>";
+}
+
  if(retornos['murais']){     
     //Preenchendo a lista com cards
-    conteudo_lista = "<br>";
     for(i  in retorno){
 
         conteudo_lista += "<ons-card "+(retorno[i]['url_destino'] ? "class='clicavelhome' valor='"+(retorno[i]['url_destino'])+"'" : (retorno[i]['arquivo'] ? "class='imagemview' imagem='"+(retorno[i]['arquivo'])+"'" : " ")  )+"><font class='font_tam1'><span class='notification notification--material baloes_blue'>&nbsp;&nbsp;"+(retorno[i]['data_inicio'])+"&nbsp;&nbsp;</span>  <font class='font_tam3'>"+(retorno[i]['assunto'])+"</font> </font>";
